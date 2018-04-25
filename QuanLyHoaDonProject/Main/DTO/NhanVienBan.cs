@@ -26,6 +26,8 @@ namespace Main.DTO
         public DateTime NgayCap { get; set; }
         [StringLengthAttribute(100)]
         public string NoiCap { get; set; }
+        public bool DaXoa { get; set; }
+
         public int IDDonViBanHang { get; set; }
         public virtual DonViBanHang DonViBanHang { get; set; }
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }

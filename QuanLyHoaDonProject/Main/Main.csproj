@@ -78,6 +78,14 @@
     <Compile Include="Migrations\201804241705178_add property.Designer.cs">
       <DependentUpon>201804241705178_add property.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.cs" />
+    <Compile Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.Designer.cs">
+      <DependentUpon>201804250447478_Add colum DaXoa NhanVienBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804250455322_Add DaXoa.cs" />
+    <Compile Include="Migrations\201804250455322_Add DaXoa.Designer.cs">
+      <DependentUpon>201804250455322_Add DaXoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804241705178_add property.resx">
       <DependentUpon>201804241705178_add property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.resx">
+      <DependentUpon>201804250447478_Add colum DaXoa NhanVienBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250455322_Add DaXoa.resx">
+      <DependentUpon>201804250455322_Add DaXoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

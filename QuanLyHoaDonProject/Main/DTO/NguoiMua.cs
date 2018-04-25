@@ -15,6 +15,8 @@ namespace Main.DTO
         public string Name { get; set; }
         public int IDDonViMuaHanh { get; set; }
         public virtual DonViMuaHang DonViMuaHang { get; set; }
+        public bool DaXoa { get; set; }
+
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
 
 

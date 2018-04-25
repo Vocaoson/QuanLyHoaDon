@@ -21,6 +21,8 @@ namespace Main.DTO
         public int IDNguoiMua { get; set; }
         public virtual NguoiMua NguoiMua { get; set; }
         public int IDNhanVienBan { get; set; }
+        public bool DaXoa { get; set; }
+
         public virtual NhanVienBan NhanVienBan { get; set; }
 
 
