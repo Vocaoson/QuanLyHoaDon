@@ -27,8 +27,6 @@ namespace Main.DAO
 
         public DbSet<NhanVienBan> NhanVienBans { get; set; }
         public DbSet<CTHoaDon> CTHoaDons { get; set; }
-
-
-
+        public DbSet<DangNhap> DangNhaps { get; set; }
     }
 }

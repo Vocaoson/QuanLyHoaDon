@@ -7,13 +7,13 @@ namespace Main.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddcolumDaXoaNhanVienBan : IMigrationMetadata
+    public sealed partial class AddDangNhapTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddcolumDaXoaNhanVienBan));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDangNhapTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804250447478_Add colum DaXoa NhanVienBan"; }
+            get { return "201804251438375_AddDangNhapTable"; }
         }
         
         string IMigrationMetadata.Source

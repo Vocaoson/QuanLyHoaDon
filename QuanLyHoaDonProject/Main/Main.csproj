@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -57,6 +61,7 @@
   <ItemGroup>
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
+    <Compile Include="DTO\DangNhap.cs" />
     <Compile Include="DTO\DonViBanHang.cs" />
     <Compile Include="DTO\DonViMuaHang.cs" />
     <Compile Include="DTO\HangHoa.cs" />
@@ -64,43 +69,105 @@
     <Compile Include="DTO\HoaDonBan.cs" />
     <Compile Include="DTO\NguoiMua.cs" />
     <Compile Include="DTO\NhanVienBan.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="GUI\frmBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\frmBill.Designer.cs">
+      <DependentUpon>frmBill.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804241634387_CreaterDB.cs" />
-    <Compile Include="Migrations\201804241634387_CreaterDB.Designer.cs">
-      <DependentUpon>201804241634387_CreaterDB.cs</DependentUpon>
+    <Compile Include="GUI\frmCompanyInfor.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\201804241705178_add property.cs" />
-    <Compile Include="Migrations\201804241705178_add property.Designer.cs">
-      <DependentUpon>201804241705178_add property.cs</DependentUpon>
+    <Compile Include="GUI\frmCompanyInfor.Designer.cs">
+      <DependentUpon>frmCompanyInfor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.cs" />
-    <Compile Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.Designer.cs">
-      <DependentUpon>201804250447478_Add colum DaXoa NhanVienBan.cs</DependentUpon>
+    <Compile Include="GUI\frmCustomer.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\201804250455322_Add DaXoa.cs" />
-    <Compile Include="Migrations\201804250455322_Add DaXoa.Designer.cs">
-      <DependentUpon>201804250455322_Add DaXoa.cs</DependentUpon>
+    <Compile Include="GUI\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmIntroduce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmIntroduce.Designer.cs">
+      <DependentUpon>frmIntroduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmPrintBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPrintBill.Designer.cs">
+      <DependentUpon>frmPrintBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmProgramInfor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmProgramInfor.Designer.cs">
+      <DependentUpon>frmProgramInfor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmStatistic.Designer.cs">
+      <DependentUpon>frmStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804250555213_TestDatabase.cs" />
+    <Compile Include="Migrations\201804250555213_TestDatabase.Designer.cs">
+      <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804251438375_AddDangNhapTable.cs" />
+    <Compile Include="Migrations\201804251438375_AddDangNhapTable.Designer.cs">
+      <DependentUpon>201804251438375_AddDangNhapTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\201804241634387_CreaterDB.resx">
-      <DependentUpon>201804241634387_CreaterDB.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmBill.resx">
+      <DependentUpon>frmBill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804241705178_add property.resx">
-      <DependentUpon>201804241705178_add property.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmCompanyInfor.resx">
+      <DependentUpon>frmCompanyInfor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804250447478_Add colum DaXoa NhanVienBan.resx">
-      <DependentUpon>201804250447478_Add colum DaXoa NhanVienBan.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804250455322_Add DaXoa.resx">
-      <DependentUpon>201804250455322_Add DaXoa.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\frmIntroduce.resx">
+      <DependentUpon>frmIntroduce.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmPrintBill.resx">
+      <DependentUpon>frmPrintBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmProgramInfor.resx">
+      <DependentUpon>frmProgramInfor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmStatistic.resx">
+      <DependentUpon>frmStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250555213_TestDatabase.resx">
+      <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804251438375_AddDangNhapTable.resx">
+      <DependentUpon>201804251438375_AddDangNhapTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -124,7 +191,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="BUS\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
