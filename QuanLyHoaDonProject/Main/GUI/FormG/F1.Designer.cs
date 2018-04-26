@@ -30,6 +30,7 @@
         {
             this.gridUS1 = new Main.GUI.GridUS.GridUS();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // gridUS1
@@ -43,15 +44,6 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(127, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 66);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
             this.button1.Location = new System.Drawing.Point(66, 50);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 129);
@@ -59,17 +51,26 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(250, 131);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 2;
+            // 
             // F1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 347);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gridUS1);
             this.Name = "F1";
             this.Text = "F1";
             this.Load += new System.EventHandler(this.F1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -77,5 +78,6 @@
 
         private GridUS.GridUS gridUS1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
