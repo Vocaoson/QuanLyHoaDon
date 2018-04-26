@@ -1,4 +1,4 @@
-namespace Main.Migrations
+﻿namespace Main.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -6,10 +6,10 @@ namespace Main.Migrations
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Main.DAO.QuanLyHoaDonContext>
-    {
+    { 
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Main.DAO.QuanLyHoaDonContext context)
@@ -18,6 +18,7 @@ namespace Main.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+           context.HinhThucThanhToans.AddOrUpdate(new DTO.HinhThucThanhToan() { Name = "Tiền Mặt" }, new DTO.HinhThucThanhToan() { Name = "Chuyển Khoản" }, new DTO.HinhThucThanhToan() { Name = "Tiền Mặt/ Chuyển Khoản" });
         }
     }
 }

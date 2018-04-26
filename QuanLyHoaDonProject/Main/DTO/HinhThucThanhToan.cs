@@ -11,9 +11,8 @@ namespace Main.DTO
     {
         [Key]
         public int ID { get; set; }
-        [StringLengthAttribute(20)]
+        [StringLengthAttribute(100)]
         public string Name { get; set; }
-        public int IDHoaDonBan { get; set; }
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
     }
 }

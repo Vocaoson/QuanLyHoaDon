@@ -33,14 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -73,12 +69,6 @@
     <Compile Include="DTO\HoaDonBan.cs" />
     <Compile Include="DTO\NguoiMua.cs" />
     <Compile Include="DTO\NhanVienBan.cs" />
-    <Compile Include="GUI\FormG\F1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormG\F1.Designer.cs">
-      <DependentUpon>F1.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frmBill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,12 +123,6 @@
     <Compile Include="GUI\frmStatistic.Designer.cs">
       <DependentUpon>frmStatistic.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\GridUS\GridUS.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\GridUS\GridUS.Designer.cs">
-      <DependentUpon>GridUS.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201804250555213_TestDatabase.cs" />
     <Compile Include="Migrations\201804250555213_TestDatabase.Designer.cs">
       <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
@@ -147,16 +131,9 @@
     <Compile Include="Migrations\201804251438375_AddDangNhapTable.Designer.cs">
       <DependentUpon>201804251438375_AddDangNhapTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804260124486_Edit HTTT.cs" />
-    <Compile Include="Migrations\201804260124486_Edit HTTT.Designer.cs">
-      <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\FormG\F1.resx">
-      <DependentUpon>F1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmBill.resx">
       <DependentUpon>frmBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,17 +161,11 @@
     <EmbeddedResource Include="GUI\frmStatistic.resx">
       <DependentUpon>frmStatistic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\GridUS\GridUS.resx">
-      <DependentUpon>GridUS.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804250555213_TestDatabase.resx">
       <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804251438375_AddDangNhapTable.resx">
       <DependentUpon>201804251438375_AddDangNhapTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804260124486_Edit HTTT.resx">
-      <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

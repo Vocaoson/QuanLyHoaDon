@@ -14,7 +14,7 @@ namespace Main.DTO
         public int Logo { get; set; }
         [StringLengthAttribute(50)]
         public string Name { get; set; }
-        public int MaSoThueMua { get; set; }
+        public int MaSoThueBan { get; set; }
         [StringLengthAttribute(50)]
         public string DiaChi { get; set; }
         public int STKBan { get; set; }
