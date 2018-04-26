@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gridUS1 = new Main.GUI.GridUS.GridUS();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gridUS1
@@ -40,11 +41,21 @@
             this.gridUS1.Source = null;
             this.gridUS1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(66, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 129);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // F1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 347);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gridUS1);
             this.Name = "F1";
             this.Text = "F1";
@@ -56,5 +67,6 @@
         #endregion
 
         private GridUS.GridUS gridUS1;
+        private System.Windows.Forms.Button button1;
     }
 }
