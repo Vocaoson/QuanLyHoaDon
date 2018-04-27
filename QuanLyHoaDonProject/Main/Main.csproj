@@ -139,6 +139,12 @@
     <Compile Include="GUI\GridUS\GridUS.Designer.cs">
       <DependentUpon>GridUS.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TaskControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\TaskControl.Designer.cs">
+      <DependentUpon>TaskControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201804250555213_TestDatabase.cs" />
     <Compile Include="Migrations\201804250555213_TestDatabase.Designer.cs">
       <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\GridUS.resx">
       <DependentUpon>GridUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TaskControl.resx">
+      <DependentUpon>TaskControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804250555213_TestDatabase.resx">
       <DependentUpon>201804250555213_TestDatabase.cs</DependentUpon>
