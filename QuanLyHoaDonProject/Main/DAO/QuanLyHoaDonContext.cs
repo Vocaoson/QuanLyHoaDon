@@ -12,7 +12,6 @@ namespace Main.DAO
     {
         public QuanLyHoaDonContext():base("QuanLyHoaDonConnectionString")
         {
-
         }
         public DbSet<DonViBanHang> DonViBanHangs { get; set; }
         public DbSet<DonViMuaHang> DonViMuaHangs { get; set; }

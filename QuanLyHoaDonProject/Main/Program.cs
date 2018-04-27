@@ -1,6 +1,10 @@
-﻿using Main.GUI.FormG;
+﻿using Main.DAO;
+using Main.GUI.FormG;
+using Main.GUI.GridUS;
+using Main.Migrations;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +21,8 @@ namespace Main
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new FormExampleGrid());
+
         }
     }
 }

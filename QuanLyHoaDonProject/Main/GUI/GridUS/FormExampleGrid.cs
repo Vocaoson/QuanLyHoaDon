@@ -9,41 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Main.DAO;
-using DevExpress.XtraEditors.Repository;
-using DevExpress.XtraGrid.Columns;
 
-namespace Main.GUI.FormG
+namespace Main.GUI.GridUS
 {
-    public partial class F1 : XtraForm
+    public partial class FormExampleGrid : DevExpress.XtraEditors.XtraForm
     {
         QuanLyHoaDonContext db;
-        public F1()
+        public FormExampleGrid()
         {
             InitializeComponent();
             db = new QuanLyHoaDonContext();
-
         }
 
-        private void F1_Load(object sender, EventArgs e)
-        {
-            ///Gán datasource
-            gridUS1.Source = db.HinhThucThanhToans.ToList();
-            ///map column
-            gridUS1.MapColumn("ID", "Mã", true);
-            gridUS1.MapColumn("Name", "Thanh Toán");
-            ///Ẩn column
-            gridUS1.VisibleColumn("HoaDonBans", false);
-            ///Add column
-            gridUS1.AddColumn("A", "ABC", true);
-
-
-        }
-
-        private void gridUS1_Load(object sender, EventArgs e)
-        {
-            gridUS1.FindClick += GridUS1_FindClick;
-            gridUS1.RefeshClick += GridUS1_RefeshClick;
-        }
 
         private void GridUS1_RefeshClick(object sender, EventArgs e)
         {
@@ -82,6 +59,25 @@ namespace Main.GUI.FormG
             {
                 gridUS1.ShowColumnSelect();
             }
+        }
+
+        private void FormExampleGrid_Load(object sender, EventArgs e)
+        {
+            ///Gán datasource
+            gridUS1.Source = db.HinhThucThanhToans.ToList();
+            ///map column
+            gridUS1.MapColumn("ID", "Mã", true);
+            gridUS1.MapColumn("Name", "Thanh Toán");
+            ///Ẩn column
+            gridUS1.VisibleColumn("HoaDonBans", false);
+            ///Add column
+            gridUS1.AddColumn("A", "ABC", true);
+        }
+
+        private void gridUS1_Load(object sender, EventArgs e)
+        {
+            gridUS1.FindClick += GridUS1_FindClick;
+            gridUS1.RefeshClick += GridUS1_RefeshClick;
         }
     }
 }
