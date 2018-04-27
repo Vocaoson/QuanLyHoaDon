@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.DTO
 {
-    class HinhThucThanhToan
+    public class HinhThucThanhToan
     {
         [Key]
         public int ID { get; set; }

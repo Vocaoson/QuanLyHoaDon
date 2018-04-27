@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.DTO
 {
-    class DonViMuaHang
+    public class DonViMuaHang
     {
         [Key]
         public int ID { get; set; }

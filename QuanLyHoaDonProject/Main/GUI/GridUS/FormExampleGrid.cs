@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Main.DAO;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Main.GUI.GridUS
 {
@@ -78,6 +79,13 @@ namespace Main.GUI.GridUS
         {
             gridUS1.FindClick += GridUS1_FindClick;
             gridUS1.RefeshClick += GridUS1_RefeshClick;
+            gridUS1.GridviewUS.Click += GridviewUS_Click;
+        }
+
+        private void GridviewUS_Click(object sender, EventArgs e)
+        {
+            GridView temp = sender as GridView;
+            MessageBox.Show(String.Format("Row Select:{0}",temp.GetSelectedRows()[0]));
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.DTO
 {
-    class HangHoa
+    public class HangHoa
     {
         [Key]
         public int ID { get; set; }
