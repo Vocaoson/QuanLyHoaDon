@@ -1,6 +1,6 @@
-﻿namespace Main.GUI.FormG
+﻿namespace Main.GUI.GridUS
 {
-    partial class F1
+    partial class FormExampleGrid
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExampleGrid));
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gridUS1 = new Main.GUI.GridUS.GridUS();
             this.SuspendLayout();
@@ -36,12 +36,11 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(407, 305);
+            this.simpleButton1.Location = new System.Drawing.Point(337, 275);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(77, 31);
-            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "Select";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // gridUS1
             // 
@@ -51,29 +50,29 @@
             this.gridUS1.Name = "gridUS1";
             this.gridUS1.NumberRecord = 10;
             this.gridUS1.PageCurrent = 1;
-            this.gridUS1.Size = new System.Drawing.Size(507, 336);
+            this.gridUS1.Size = new System.Drawing.Size(414, 307);
             this.gridUS1.Source = null;
-            this.gridUS1.TabIndex = 0;
+            this.gridUS1.TabIndex = 2;
             this.gridUS1.ThongTinTimKiem = null;
             this.gridUS1.Load += new System.EventHandler(this.gridUS1_Load);
             // 
-            // F1
+            // FormExampleGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 336);
+            this.ClientSize = new System.Drawing.Size(414, 307);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.gridUS1);
-            this.Name = "F1";
-            this.Text = "F1";
-            this.Load += new System.EventHandler(this.F1_Load);
+            this.Name = "FormExampleGrid";
+            this.Text = "FormExampleGrid";
+            this.Load += new System.EventHandler(this.FormExampleGrid_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GridUS.GridUS gridUS1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private GridUS gridUS1;
     }
 }

@@ -133,6 +133,12 @@
     <Compile Include="GUI\frmStatistic.Designer.cs">
       <DependentUpon>frmStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\GridUS\FormExampleGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\GridUS\FormExampleGrid.Designer.cs">
+      <DependentUpon>FormExampleGrid.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\GridUS\GridUS.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmStatistic.resx">
       <DependentUpon>frmStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\GridUS\FormExampleGrid.resx">
+      <DependentUpon>FormExampleGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\GridUS.resx">
       <DependentUpon>GridUS.cs</DependentUpon>
