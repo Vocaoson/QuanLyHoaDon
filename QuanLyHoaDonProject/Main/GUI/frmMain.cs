@@ -49,8 +49,7 @@ namespace Main
         private void barBtnProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmProduct frm = new frmProduct();
-            frm.MdiParent = this;
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void barBtnStatistic_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
