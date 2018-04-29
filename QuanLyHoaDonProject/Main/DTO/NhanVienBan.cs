@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.DTO
 {
-    class NhanVienBan
+    public class NhanVienBan
     {
         [Key]
         public int ID { get; set; }
@@ -28,7 +28,7 @@ namespace Main.DTO
         public string NoiCap { get; set; }
         public bool DaXoa { get; set; }
 
-        public int IDDonViBanHang { get; set; }
+        public int DonViBanHangId { get; set; }
         public virtual DonViBanHang DonViBanHang { get; set; }
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Main.DTO
 {
-    class HangHoa
+    public class HangHoa
     {
         [Key]
         public int ID { get; set; }
@@ -20,12 +20,9 @@ namespace Main.DTO
         public double DonGiaNhap { get; set; }
         public double DonGiaBan { get; set; }
         [StringLengthAttribute(250)]
-
         public string GhiChu { get; set; }
-        public int IDDonViBanHang { get; set; }
         public bool DaXoa { get; set; }
 
-        public virtual DonViBanHang DonViBanHang { get; set; }
 
 
 
