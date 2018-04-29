@@ -26,8 +26,5 @@ namespace Main.DTO
         public bool DaXoa { get; set; }
 
         public virtual DonViBanHang DonViBanHang { get; set; }
-
-
-
     }
 }

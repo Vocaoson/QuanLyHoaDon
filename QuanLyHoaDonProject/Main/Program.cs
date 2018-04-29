@@ -21,7 +21,7 @@ namespace Main
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormExampleGrid());
+            Application.Run(new frmMain());
 
         }
     }
