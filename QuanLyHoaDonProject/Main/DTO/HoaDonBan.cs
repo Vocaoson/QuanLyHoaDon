@@ -16,11 +16,11 @@ namespace Main.DTO
         public string KyHieu { get; set; }
         [DataType(DataType.Date)]
         public DateTime NgayHD { get; set; }
-        public int IDHTThanhToan { get; set; }
+        public int HinhThucThanhToanId { get; set; }
         public  virtual HinhThucThanhToan HinhThucThanhToan { get; set; }
-        public int IDNguoiMua { get; set; }
+        public int NguoiMuaId { get; set; }
         public virtual NguoiMua NguoiMua { get; set; }
-        public int IDNhanVienBan { get; set; }
+        public int NhanVienBanId { get; set; }
         public bool DaXoa { get; set; }
 
         public virtual NhanVienBan NhanVienBan { get; set; }

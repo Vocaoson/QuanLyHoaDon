@@ -13,7 +13,7 @@ namespace Main.DTO
         public int ID { get; set; }
         [StringLengthAttribute(100)]
         public string Name { get; set; }
-        public int IDDonViMuaHanh { get; set; }
+        public int DonViMuaHangId { get; set; }
         public virtual DonViMuaHang DonViMuaHang { get; set; }
 		public bool DaXoa{get;set;}
 

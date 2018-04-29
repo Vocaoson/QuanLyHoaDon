@@ -12,10 +12,10 @@ namespace Main.DTO
     {
         [Key]
         [Column(Order =1)]
-        public int IDHoaDonBan { get; set; }
+        public int HoaDonBanId { get; set; }
         [Key]
         [Column(Order = 2)]
-        public int IDHangHoa { get; set; }
+        public int HangHoaId { get; set; }
         public  double ThanhTien { get; set; }
         public int SoLuongBan { get; set; }
         public virtual HoaDonBan HoaDonBan { get; set; }
