@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\ProductBus.cs" />
+    <Compile Include="BUS\Productbus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
     <Compile Include="DTO\DangNhap.cs" />
@@ -164,18 +164,6 @@
     <Compile Include="Migrations\201804260124486_Edit HTTT.Designer.cs">
       <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804291136142_Edit HangHoaDonViBan.cs" />
-    <Compile Include="Migrations\201804291136142_Edit HangHoaDonViBan.Designer.cs">
-      <DependentUpon>201804291136142_Edit HangHoaDonViBan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804291142510_Edit Khoa Ngoai.cs" />
-    <Compile Include="Migrations\201804291142510_Edit Khoa Ngoai.Designer.cs">
-      <DependentUpon>201804291142510_Edit Khoa Ngoai.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804291146408_Edit khoas ngoai lan 2.cs" />
-    <Compile Include="Migrations\201804291146408_Edit khoas ngoai lan 2.Designer.cs">
-      <DependentUpon>201804291146408_Edit khoas ngoai lan 2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -226,15 +214,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804260124486_Edit HTTT.resx">
       <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804291136142_Edit HangHoaDonViBan.resx">
-      <DependentUpon>201804291136142_Edit HangHoaDonViBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804291142510_Edit Khoa Ngoai.resx">
-      <DependentUpon>201804291142510_Edit Khoa Ngoai.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804291146408_Edit khoas ngoai lan 2.resx">
-      <DependentUpon>201804291146408_Edit khoas ngoai lan 2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
