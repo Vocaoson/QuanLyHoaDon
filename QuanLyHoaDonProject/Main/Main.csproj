@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\Productbus.cs" />
+    <Compile Include="BUS\ProductBus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
     <Compile Include="DTO\DangNhap.cs" />
@@ -164,6 +164,10 @@
     <Compile Include="Migrations\201804260124486_Edit HTTT.Designer.cs">
       <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804300416411_King.cs" />
+    <Compile Include="Migrations\201804300416411_King.Designer.cs">
+      <DependentUpon>201804300416411_King.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -214,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804260124486_Edit HTTT.resx">
       <DependentUpon>201804260124486_Edit HTTT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804300416411_King.resx">
+      <DependentUpon>201804300416411_King.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

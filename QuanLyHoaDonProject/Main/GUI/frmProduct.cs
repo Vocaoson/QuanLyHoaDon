@@ -20,6 +20,19 @@ namespace Main.GUI
             taskControl1.AddEvent += TaskControl1_AddEvent;
             taskControl1.SaveEvent += TaskControl1_SaveEvent;
             taskControl1.CalcelEvent += TaskControl1_CalcelEvent;
+            taskControl1.EditEvent += TaskControl1_EditEvent;
+            gridUS1.GridviewUS.RowClick += GridviewUS_RowClick;
+        }
+
+        private void TaskControl1_EditEvent(object sender, EventArgs e)
+        {
+            panelContent.Enabled = true;
+            txtProductName.Focus();
+        }
+
+        private void GridviewUS_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            taskControl1.IsRowClick = true;
         }
 
         private void TaskControl1_CalcelEvent(object sender, EventArgs e)
@@ -39,25 +52,6 @@ namespace Main.GUI
             txtProductName.Focus();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
@@ -68,27 +62,13 @@ namespace Main.GUI
             gridUS1.MapColumn("SoLuong", "Số lượng");
             gridUS1.MapColumn("DonGiaNhap", "Đơn giá nhập");
             gridUS1.MapColumn("DonGiaBan", "Đơn giá bán");
+            gridUS1.VisibleColumn("DaXoa", false);
+            gridUS1.VisibleColumn("GhiChu", false);
         }
 
-        private void panelContent_Paint(object sender, PaintEventArgs e)
-        {
+      
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUnit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNote_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
         public bool inputIsCorrect()
         {
             if (string.IsNullOrEmpty(txtProductName.Text))

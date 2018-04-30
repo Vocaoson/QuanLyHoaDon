@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.txtPriceSale = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPriceBuy = new System.Windows.Forms.TextBox();
@@ -41,13 +43,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtProductId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtPriceSale = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.gridUS1 = new Main.GUI.GridUS.GridUS();
-            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel1.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,8 +84,26 @@
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(779, 167);
-            this.panelContent.TabIndex = 0;
-            this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
+            this.panelContent.TabIndex = 0;          
+            // 
+            // txtPriceSale
+            // 
+            this.txtPriceSale.Location = new System.Drawing.Point(99, 58);
+            this.txtPriceSale.Name = "txtPriceSale";
+            this.txtPriceSale.Size = new System.Drawing.Size(249, 20);
+            this.txtPriceSale.TabIndex = 19;
+            this.txtPriceSale.Text = "0";
+            this.txtPriceSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(23, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Đơn giá bán";
             // 
             // txtNote
             // 
@@ -94,7 +112,7 @@
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(649, 73);
             this.txtNote.TabIndex = 4;
-            this.txtNote.TextChanged += new System.EventHandler(this.txtNote_TextChanged);
+       
             // 
             // label6
             // 
@@ -148,7 +166,6 @@
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(249, 20);
             this.txtUnit.TabIndex = 2;
-            this.txtUnit.TextChanged += new System.EventHandler(this.txtUnit_TextChanged);
             // 
             // label2
             // 
@@ -159,7 +176,6 @@
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 12;
             this.label2.Text = "Đơn vị tính";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtProductId
             // 
@@ -179,6 +195,13 @@
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Mã hàng hóa";
+            // 
+            // taskControl1
+            // 
+            this.taskControl1.Location = new System.Drawing.Point(12, 173);
+            this.taskControl1.Name = "taskControl1";
+            this.taskControl1.Size = new System.Drawing.Size(406, 41);
+            this.taskControl1.TabIndex = 5;
             // 
             // panel2
             // 
@@ -210,25 +233,6 @@
             this.panel3.Size = new System.Drawing.Size(779, 366);
             this.panel3.TabIndex = 2;
             // 
-            // txtPriceSale
-            // 
-            this.txtPriceSale.Location = new System.Drawing.Point(99, 58);
-            this.txtPriceSale.Name = "txtPriceSale";
-            this.txtPriceSale.Size = new System.Drawing.Size(249, 20);
-            this.txtPriceSale.TabIndex = 19;
-            this.txtPriceSale.Text = "0";
-            this.txtPriceSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(23, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Đơn giá bán";
-            // 
             // gridUS1
             // 
             this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,15 +243,8 @@
             this.gridUS1.PageCurrent = 1;
             this.gridUS1.Size = new System.Drawing.Size(777, 364);
             this.gridUS1.Source = null;
-            this.gridUS1.TabIndex = 6;
+            this.gridUS1.TabIndex = 0;
             this.gridUS1.ThongTinTimKiem = null;
-            // 
-            // taskControl1
-            // 
-            this.taskControl1.Location = new System.Drawing.Point(12, 173);
-            this.taskControl1.Name = "taskControl1";
-            this.taskControl1.Size = new System.Drawing.Size(406, 41);
-            this.taskControl1.TabIndex = 5;
             // 
             // frmProduct
             // 
@@ -292,8 +289,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProductId;
         private System.Windows.Forms.Label label1;
-        private GridUS.GridUS gridUS1;
         private System.Windows.Forms.TextBox txtPriceSale;
         private System.Windows.Forms.Label label7;
+        private GridUS.GridUS gridUS1;
     }
 }

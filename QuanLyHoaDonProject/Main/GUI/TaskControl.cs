@@ -12,6 +12,18 @@ namespace Main.GUI
 {
     public partial class TaskControl : UserControl
     {
+        public bool IsRowClick
+        {
+
+            set
+            {
+                if(value == true)
+                {
+                    btnEdit.Enabled = true;
+                    btnDelete.Enabled = true;
+                }
+            }
+        }
         private event EventHandler addEvent;
         public event EventHandler AddEvent
         {
