@@ -13,7 +13,7 @@ namespace Main.BUS
         QuanLyHoaDonContext context = new QuanLyHoaDonContext();
         public List<HangHoa> GetAll()
         {
-            return context.HangHoas.ToList();
+            return context.HangHoas.Where(item=> item.DaXoa == false).ToList();
         }
         public bool Add(HangHoa hangHoa)
         {
@@ -43,7 +43,7 @@ namespace Main.BUS
         public bool Delete(HangHoa hs)
         {
             var hangHoa = context.HangHoas.Find(hs.ID);
-            context.HangHoas.Remove(hangHoa);
+            hangHoa.DaXoa = true;
             if (context.SaveChanges() <= 0) return false;
             return true;
         }
