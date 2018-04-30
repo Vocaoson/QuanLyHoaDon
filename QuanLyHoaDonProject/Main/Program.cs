@@ -1,4 +1,5 @@
 ﻿using Main.DAO;
+using Main.GUI;
 using Main.GUI.FormG;
 using Main.GUI.GridUS;
 using Main.Migrations;
@@ -21,7 +22,7 @@ namespace Main
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmBill());
 
         }
     }

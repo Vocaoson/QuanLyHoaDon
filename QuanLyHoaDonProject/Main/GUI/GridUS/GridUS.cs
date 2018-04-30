@@ -375,5 +375,13 @@ namespace Main.GUI.GridUS
             isSelected = false;
             gridView1.OptionsSelection.MultiSelect = false;
         }
+        public void visibleFind(bool option)
+        {
+            panel1.Visible = option;
+        }
+        public void visiblePage(bool option)
+        {
+            panel2.Visible = option;
+        }
     }
 }

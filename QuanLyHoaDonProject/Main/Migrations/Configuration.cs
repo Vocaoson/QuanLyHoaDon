@@ -18,7 +18,7 @@
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-           context.HinhThucThanhToans.AddOrUpdate(new DTO.HinhThucThanhToan() { Name = "Tiền Mặt" }, new DTO.HinhThucThanhToan() { Name = "Chuyển Khoản" }, new DTO.HinhThucThanhToan() { Name = "Tiền Mặt/ Chuyển Khoản" });
+           context.HinhThucThanhToans.AddOrUpdate(p=>p.ID,new DTO.HinhThucThanhToan() { ID = 1, Name = "Tiền Mặt",DaXoa=false }, new DTO.HinhThucThanhToan() { ID = 2, Name = "Chuyển Khoản", DaXoa = false }, new DTO.HinhThucThanhToan() { ID = 3, Name = "Tiền Mặt/ Chuyển Khoản", DaXoa = false });
         }
     }
 }

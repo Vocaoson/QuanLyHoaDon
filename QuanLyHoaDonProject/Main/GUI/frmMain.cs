@@ -34,8 +34,13 @@ namespace Main
 
         private void barBtnBill_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (checkFormChildOpen("frmBill"))
+            {
+                return;
+            }
             frmBill frm = new frmBill();
             frm.MdiParent = this;
+            frm.Dock = DockStyle.Fill;
             frm.Show();
         }
 
@@ -90,6 +95,22 @@ namespace Main
             {
                 e.Cancel = true;
             }
+        }
+        /// <summary>
+        /// Kiểm tra form open hay chưa
+        /// </summary>
+        /// <param name="nameForm">Name Form</param>
+        /// <returns>true-Open/False-Close</returns>
+        private bool checkFormChildOpen(string nameForm)
+        {
+            foreach (Form item in this.MdiChildren)
+            {
+                if (item.Name == nameForm)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
