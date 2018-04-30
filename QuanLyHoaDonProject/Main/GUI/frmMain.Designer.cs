@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnCustomer = new DevExpress.XtraBars.BarButtonItem();
@@ -45,8 +44,9 @@
             this.ribbonInforPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonOutPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.mdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
+            this.mdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.btnEmployee = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdiManager)).BeginInit();
             this.SuspendLayout();
@@ -64,9 +64,10 @@
             this.barBtnInforCompany,
             this.barBtnProgramInfor,
             this.barBtnOut,
-            this.barStaticItem2});
+            this.barStaticItem2,
+            this.btnEmployee});
             this.ribbonMenu.Location = new System.Drawing.Point(0, 0);
-            this.ribbonMenu.MaxItemId = 13;
+            this.ribbonMenu.MaxItemId = 14;
             this.ribbonMenu.Name = "ribbonMenu";
             this.ribbonMenu.OptionsMenuMinWidth = 300;
             this.ribbonMenu.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -194,6 +195,7 @@
             // ribbonListPage
             // 
             this.ribbonListPage.ItemLinks.Add(this.barBtnCustomer);
+            this.ribbonListPage.ItemLinks.Add(this.btnEmployee);
             this.ribbonListPage.ItemLinks.Add(this.barBtnProduct);
             this.ribbonListPage.ItemLinks.Add(this.barBtnBill);
             this.ribbonListPage.ItemLinks.Add(this.barBtnStatistic);
@@ -232,6 +234,17 @@
             // mdiManager
             // 
             this.mdiManager.MdiParent = this;
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.Caption = "Nhân viên";
+            this.btnEmployee.Id = 13;
+            this.btnEmployee.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmployee_ItemClick);
             // 
             // frmMain
             // 
@@ -274,6 +287,7 @@
         private DevExpress.XtraBars.BarStaticItem barStaticItem2;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager mdiManager;
+        private DevExpress.XtraBars.BarButtonItem btnEmployee;
     }
 }
 

@@ -91,5 +91,12 @@ namespace Main
                 e.Cancel = true;
             }
         }
+
+        private void btnEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmEmployee frm = new frmEmployee();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
