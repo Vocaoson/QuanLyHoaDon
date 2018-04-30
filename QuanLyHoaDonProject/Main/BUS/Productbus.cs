@@ -17,11 +17,39 @@ namespace Main.BUS
         }
         public bool Add(HangHoa hangHoa)
         {
-            if(context.HangHoas.Add(hangHoa) == null)
+            context.HangHoas.Add(hangHoa);
+            if(context.SaveChanges() <= 0)
+            {
+                return false;
+            }      
+            return true;
+        }
+        public bool Update(HangHoa hs)
+        {
+            var hangHoa = context.HangHoas.Find(hs.ID);
+            hangHoa.Name = hs.Name;
+            hangHoa.DVT = hs.DVT;
+            hangHoa.SoLuong = hs.SoLuong;
+            hangHoa.DonGiaBan = hs.DonGiaBan;
+            hangHoa.DonGiaNhap = hs.DonGiaNhap;
+            hangHoa.GhiChu = hs.GhiChu;
+            hangHoa.DaXoa = hs.DaXoa;
+            if(context.SaveChanges() <= 0)
             {
                 return false;
             }
             return true;
+        }
+        public bool Delete(HangHoa hs)
+        {
+            var hangHoa = context.HangHoas.Find(hs.ID);
+            context.HangHoas.Remove(hangHoa);
+            if (context.SaveChanges() <= 0) return false;
+            return true;
+        }
+        public List<HangHoa> FindByName(string name)
+        {
+            return context.HangHoas.Where(item => item.Name.Contains(name)).ToList();
         }
     }
 }

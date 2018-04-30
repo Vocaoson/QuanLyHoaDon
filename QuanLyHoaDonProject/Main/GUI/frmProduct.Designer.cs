@@ -43,15 +43,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtProductId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nbNumber = new System.Windows.Forms.NumericUpDown();
             this.gridUS1 = new Main.GUI.GridUS.GridUS();
+            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel1.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +70,8 @@
             // panelContent
             // 
             this.panelContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContent.Controls.Add(this.nbNumber);
+            this.panelContent.Controls.Add(this.label8);
             this.panelContent.Controls.Add(this.txtPriceSale);
             this.panelContent.Controls.Add(this.label7);
             this.panelContent.Controls.Add(this.txtNote);
@@ -84,14 +89,14 @@
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(779, 167);
-            this.panelContent.TabIndex = 0;          
+            this.panelContent.TabIndex = 0;
             // 
             // txtPriceSale
             // 
             this.txtPriceSale.Location = new System.Drawing.Point(99, 58);
             this.txtPriceSale.Name = "txtPriceSale";
             this.txtPriceSale.Size = new System.Drawing.Size(249, 20);
-            this.txtPriceSale.TabIndex = 19;
+            this.txtPriceSale.TabIndex = 4;
             this.txtPriceSale.Text = "0";
             this.txtPriceSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -111,8 +116,7 @@
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(649, 73);
-            this.txtNote.TabIndex = 4;
-       
+            this.txtNote.TabIndex = 6;
             // 
             // label6
             // 
@@ -184,7 +188,7 @@
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtProductId.Size = new System.Drawing.Size(249, 20);
-            this.txtProductId.TabIndex = 11;
+            this.txtProductId.TabIndex = 0;
             // 
             // label1
             // 
@@ -195,13 +199,6 @@
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Mã hàng hóa";
-            // 
-            // taskControl1
-            // 
-            this.taskControl1.Location = new System.Drawing.Point(12, 173);
-            this.taskControl1.Name = "taskControl1";
-            this.taskControl1.Size = new System.Drawing.Size(406, 41);
-            this.taskControl1.TabIndex = 5;
             // 
             // panel2
             // 
@@ -233,6 +230,23 @@
             this.panel3.Size = new System.Drawing.Size(779, 366);
             this.panel3.TabIndex = 2;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Blue;
+            this.label8.Location = new System.Drawing.Point(423, 61);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Số lượng";
+            // 
+            // nbNumber
+            // 
+            this.nbNumber.Location = new System.Drawing.Point(499, 58);
+            this.nbNumber.Name = "nbNumber";
+            this.nbNumber.Size = new System.Drawing.Size(249, 20);
+            this.nbNumber.TabIndex = 5;
+            // 
             // gridUS1
             // 
             this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -245,6 +259,13 @@
             this.gridUS1.Source = null;
             this.gridUS1.TabIndex = 0;
             this.gridUS1.ThongTinTimKiem = null;
+            // 
+            // taskControl1
+            // 
+            this.taskControl1.Location = new System.Drawing.Point(12, 173);
+            this.taskControl1.Name = "taskControl1";
+            this.taskControl1.Size = new System.Drawing.Size(406, 41);
+            this.taskControl1.TabIndex = 5;
             // 
             // frmProduct
             // 
@@ -267,6 +288,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nbNumber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -292,5 +314,7 @@
         private System.Windows.Forms.TextBox txtPriceSale;
         private System.Windows.Forms.Label label7;
         private GridUS.GridUS gridUS1;
+        private System.Windows.Forms.NumericUpDown nbNumber;
+        private System.Windows.Forms.Label label8;
     }
 }
