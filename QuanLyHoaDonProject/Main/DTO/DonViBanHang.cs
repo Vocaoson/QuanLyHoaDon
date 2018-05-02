@@ -19,6 +19,6 @@ namespace Main.DTO
         public string DiaChi { get; set; }
         public int STKBan { get; set; }
         public int SDTBan { get; set; }
-        public virtual ICollection<NhanVienBan> NhanVienBans { get; set; }
+   
     }
 }

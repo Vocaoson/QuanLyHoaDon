@@ -20,6 +20,7 @@ namespace Main.DTO
         public int SoLuongBan { get; set; }
         public virtual HoaDonBan HoaDonBan { get; set; }
         public virtual HangHoa HangHoa { get; set; }
+        public int dsad { get; set; }
 
     }
 }

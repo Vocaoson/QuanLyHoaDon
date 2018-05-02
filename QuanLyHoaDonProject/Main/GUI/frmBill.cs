@@ -36,6 +36,7 @@ namespace Main.GUI
         {
             addOneRow();
             loadDataDSHoaDon();
+
         }
 
         private void loadDataDSHoaDon()
@@ -71,6 +72,69 @@ namespace Main.GUI
         {
             tControl.AddEvent += TControl_AddEvent;
             tControl.CalcelEvent += TControl_CalcelEvent;
+            tControl.SaveEvent += TControl_SaveEvent;
+        }
+        /// <summary>
+        /// Lưu hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TControl_SaveEvent(object sender, EventArgs e)
+        {
+            saveBill();
+        }
+
+        private void saveBill()
+        {
+            bool kt = checkData();
+            if (kt==false)
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin","Error");
+                return;
+            }
+            saveKhachHang();
+        }
+
+        private void saveKhachHang()
+        {
+            ///kiem tra cmnd
+            string cmnd = txtCMND.EditValue.ToString();
+        }
+
+        private bool checkData()
+        {
+            ///panel HoaDon
+            if (txtKH.EditValue == null)
+            {
+                return false;
+            }
+            if (cmbHTTT.EditValue == null)
+            {
+                return false;
+            }
+            if (cmbNVBH.EditValue == null)
+            {
+                return false;
+            }
+            ///panel khachhang
+            if (cmbDV.EditValue == null)
+            {
+                return false;
+            }
+            if (cmbKH.Text == "")
+            {
+                return false;
+            }
+            if (txtCMND.Text == "")
+            {
+                return false;
+            }
+            ///panel total
+            if (txtTotal.Text == "")
+            {
+                return false;
+            }
+            return true;
         }
 
         private void TControl_CalcelEvent(object sender, EventArgs e)
@@ -98,7 +162,7 @@ namespace Main.GUI
             {
                 ///Panel Hóa đơn
                 txtIDHD.Text = idhd.ToString();
-                txtNB.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
                 List<HinhThucThanhToan> listHTT = htttBUS.getAllListHTTT();
                 if (listHTT.Count == 0)
                 {
@@ -125,6 +189,8 @@ namespace Main.GUI
                     return;
                 }
                 loadComboBoxNVB(listNVB);
+                cmbKH.DisplayMember = "Name";
+                cmbKH.ValueMember = "ID";
                 ///Panel chi tiet hang hoa
                 List<HangHoa> listHH = hhBUS.getAllHangHoa();
                 if (listHH.Count == 0)
@@ -133,8 +199,9 @@ namespace Main.GUI
                     deleteInfo();
                     return;
                 }
-                gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", 0);
+                //gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", 0);
                 loadComboBoxHH(listHH);
+                gridTotalHH.DataSource = listHHSelect;
 
 
             }
@@ -151,8 +218,11 @@ namespace Main.GUI
         private void loadComboBoxHH(List<HangHoa> listHH)
         {
 
+            cmbHH.DataSource = listHH.ToList();
+            cmbHH.DisplayMember = "ID";
+            cmbHH.ValueMember = "ID";
             cmbHH.Columns.AddRange(
-               new LookUpColumnInfo[] {
+                new LookUpColumnInfo[] {
                     new LookUpColumnInfo("ID","Mã"),
                      new LookUpColumnInfo("Name","Tên"),
                      new LookUpColumnInfo("DVT","Đơn vị tính"),
@@ -160,62 +230,67 @@ namespace Main.GUI
                      new LookUpColumnInfo("DonGiaNhap","Giá nhập"),
                      new LookUpColumnInfo("DonGiaBan","Giá bán"),
                       new LookUpColumnInfo("GhiChu","Ghi chú"),
-
-               }
-               );
-            cmbHH.DataSource = listHH;
-            cmbHH.DisplayMember = "ID";
-            cmbHH.ValueMember = "ID";
+                });
         }
 
         private void loadComboBoxNVB(List<NhanVienBan> listNVB)
         {
-            cmbNVBH.Properties.Columns.AddRange(
-               new LookUpColumnInfo[] {
-                     new LookUpColumnInfo("Name","Tên"),
+            LookUpColumnInfo[] mField = new LookUpColumnInfo[]
+             {
+               new LookUpColumnInfo("Name","Tên"),
+             };
+            loadComboBox(cmbNVBH, listNVB.Cast<object>().ToList(), "Name", "ID", mField);
 
-               }
-               );
-            cmbNVBH.Properties.DataSource = listNVB;
-            cmbNVBH.Properties.DisplayMember = "Name";
-            cmbNVBH.Properties.ValueMember = "ID";
+
         }
 
         private void loadComboBoxDVMH(List<DonViMuaHang> listDVMH)
         {
-            cmbDV.Properties.Columns.AddRange(
-               new LookUpColumnInfo[] {
-                     new LookUpColumnInfo("Name","Đơn vị"),
+            LookUpColumnInfo[] mField = new LookUpColumnInfo[]
+             {
+               new LookUpColumnInfo("Name","Đơn vị"),
+             };
+            loadComboBox(cmbDV, listDVMH.Cast<object>().ToList(), "Name", "ID", mField);
 
-               }
-               );
-            cmbDV.Properties.DataSource = listDVMH;
-            cmbDV.Properties.DisplayMember = "Name";
-            cmbDV.Properties.ValueMember = "ID";
         }
 
         private void loadComboBoxHTTT(List<HinhThucThanhToan> listHTT)
         {
-            cmbHTTT.Properties.Columns.AddRange(
-                new LookUpColumnInfo[] {
-                     new LookUpColumnInfo("Name","Hình Thức"),
+            LookUpColumnInfo[] mField = new LookUpColumnInfo[]
+            {
+                 new LookUpColumnInfo("Name","Hình Thức"),
+            };
+            loadComboBox(cmbHTTT, listHTT.Cast<object>().ToList(), "Name", "ID", mField);
 
-                }
-                );
-            cmbHTTT.Properties.DataSource = listHTT;
-            cmbHTTT.Properties.DisplayMember = "Name";
-            cmbHTTT.Properties.ValueMember = "ID";
+
+        }
+        private void loadComboBox(LookUpEdit cmb, List<object> listSource, string display, string value, LookUpColumnInfo[] mFielCaption)
+        {
+            cmb.Properties.DataSource = listSource;
+            cmb.Properties.DisplayMember = display;
+            cmb.Properties.ValueMember = value;
+            cmb.Properties.Columns.AddRange(mFielCaption);
+
         }
 
         private void cmbDV_EditValueChanged(object sender, EventArgs e)
         {
+            cmbKH.Text = "";
             if (cmbDV.EditValue != null)
             {
+                cmbKH.Enabled = true;
                 DonViMuaHang temp = cmbDV.Properties.GetDataSourceRowByKeyValue(cmbDV.EditValue) as DonViMuaHang;
                 txtIDTHUE.Text = temp.MaSoThueMua.ToString();
                 txtSDT.Text = temp.SDTMua.ToString();
                 txtSTK.Text = temp.STKMua.ToString();
                 txtADD.Text = temp.DiaChiMua.ToString();
+                cmbKH.DataSource = temp.NguoiMuas.Where(x => x.DaXoa == false).ToList();
+
+
+            }
+            else
+            {
+                cmbKH.Enabled = false;
             }
         }
 
@@ -235,7 +310,16 @@ namespace Main.GUI
         }
         private decimal getThanhTien()
         {
-            decimal sl = Convert.ToDecimal(gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong"));
+            object temp = gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong");
+            decimal sl;
+            bool kt = false;
+            kt = decimal.TryParse(temp.ToString(), out sl);
+            if (!kt)
+            {
+                sl = 0;
+                return -1;
+
+            }
             decimal dg = Convert.ToDecimal(gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "DonGia"));
             return dg * sl;
         }
@@ -246,7 +330,15 @@ namespace Main.GUI
             TextEdit txt = sender as TextEdit;
             gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", txt.EditValue);
             decimal temp = getThanhTien();
+            if (temp == -1)
+            {
+                MessageBox.Show("Vui lòng nhập số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "ThanhTien", temp);
+
+
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -255,19 +347,41 @@ namespace Main.GUI
             if (kt == true)
             {
                 addGridTTHH();
+                addPanelTotal();
             }
         }
 
+        private void addPanelTotal()
+        {
+            decimal tienhang = listHHSelect.Sum(x => x.ThanhTien.toLong());
+            decimal thue = (numThue.Value * tienhang) / 100;
+            txtTienHang.EditValue = tienhang;
+            txtThue.EditValue = thue;
+            txtTotal.EditValue = tienhang + thue;
+
+        }
+
+        List<GioHang> listHHSelect = new List<GioHang>();
+
         private void addGridTTHH()
         {
-            gridviewTTHH.SetRowCellValue(gridviewTTHH.FocusedRowHandle, "STT", gridviewTTHH.RowCount + 1);
-            setGridTTHH("ID");
-            setGridTTHH("Name");
-            setGridTTHH("DonGia");
-            setGridTTHH("SoLuong");
-            setGridTTHH("ThanhTien");
-            setGridTTHH("DVT");
+            listHHSelect.Add(new GioHang()
+            {
+                STT = listHHSelect.Count + 1,
+                ID = getValue(gridviewHH, "ID"),
+                Name = getValue(gridviewHH, "Name"),
+                DVT = getValue(gridviewHH, "DVT"),
+                SoLuong = getValue(gridviewHH, "SoLuong"),
+                DonGia = getValue(gridviewHH, "DonGia"),
+                ThanhTien = getValue(gridviewHH, "ThanhTien")
+            });
+            gridviewTTHH.RefreshData();
 
+
+        }
+        private object getValue(GridView gridview, string fieldName)
+        {
+            return gridview.GetRowCellValue(gridview.FocusedRowHandle, fieldName);
         }
         private void setGridTTHH(string fieldName)
         {
@@ -289,6 +403,23 @@ namespace Main.GUI
                 return false;
             }
             return true;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            removeGioHang();
+        }
+
+        private void removeGioHang()
+        {
+            int indexrow = gridviewTTHH.FocusedRowHandle;
+            listHHSelect.RemoveAt(indexrow);
+            for (int i = 0; i < listHHSelect.Count; i++)
+            {
+                listHHSelect[i].STT = i + 1;
+            }
+            gridviewTTHH.RefreshData();
         }
     }
 }

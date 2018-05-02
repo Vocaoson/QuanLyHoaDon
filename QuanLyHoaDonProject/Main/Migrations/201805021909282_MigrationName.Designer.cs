@@ -7,13 +7,13 @@ namespace Main.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class EditHangHoaDonViBan : IMigrationMetadata
+    public sealed partial class MigrationName : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(EditHangHoaDonViBan));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationName));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804291136142_Edit HangHoaDonViBan"; }
+            get { return "201805021909282_MigrationName"; }
         }
         
         string IMigrationMetadata.Source
