@@ -63,10 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\CTHoaDonBUS.cs" />
     <Compile Include="BUS\DonViMuaHangBUS.cs" />
     <Compile Include="BUS\HangHoaBUS.cs" />
     <Compile Include="BUS\HinhThucThanhToanBUS.cs" />
     <Compile Include="BUS\HoaDonBUS.cs" />
+    <Compile Include="BUS\NguoiMuaBUS.cs" />
     <Compile Include="BUS\NhanVienBanBUS.cs" />
     <Compile Include="BUS\ProductBus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
@@ -166,6 +168,14 @@
     <Compile Include="Migrations\201805021910482_Creater SP_getID.Designer.cs">
       <DependentUpon>201805021910482_Creater SP_getID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805031611283_Add tongTienHoaDon.cs" />
+    <Compile Include="Migrations\201805031611283_Add tongTienHoaDon.Designer.cs">
+      <DependentUpon>201805031611283_Add tongTienHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805031646228_Edit.cs" />
+    <Compile Include="Migrations\201805031646228_Edit.Designer.cs">
+      <DependentUpon>201805031646228_Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyExtension.cs" />
     <Compile Include="Program.cs" />
@@ -175,6 +185,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmBill.resx">
       <DependentUpon>frmBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmCompanyInfor.resx">
       <DependentUpon>frmCompanyInfor.cs</DependentUpon>
@@ -190,18 +201,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPrintBill.resx">
       <DependentUpon>frmPrintBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmProgramInfor.resx">
       <DependentUpon>frmProgramInfor.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmStatistic.resx">
       <DependentUpon>frmStatistic.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\FormExampleGrid.resx">
       <DependentUpon>FormExampleGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\GridUS.resx">
       <DependentUpon>GridUS.cs</DependentUpon>
@@ -214,6 +229,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805021910482_Creater SP_getID.resx">
       <DependentUpon>201805021910482_Creater SP_getID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805031611283_Add tongTienHoaDon.resx">
+      <DependentUpon>201805031611283_Add tongTienHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805031646228_Edit.resx">
+      <DependentUpon>201805031646228_Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

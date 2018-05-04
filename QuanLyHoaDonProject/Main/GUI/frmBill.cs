@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Grid;
 using Main.BUS;
 using Main.DTO;
@@ -25,7 +26,11 @@ namespace Main.GUI
             dvmhBUS = new DonViMuaHangBUS();
             nvbBUS = new NhanVienBanBUS();
             hhBUS = new HangHoaBUS();
+            nmBUS = new NguoiMuaBUS();
+            cthdBUS = new CTHoaDonBUS();
         }
+        CTHoaDonBUS cthdBUS;
+        NguoiMuaBUS nmBUS;
         HangHoaBUS hhBUS;
         DonViMuaHangBUS dvmhBUS;
         NhanVienBanBUS nvbBUS;
@@ -86,55 +91,157 @@ namespace Main.GUI
 
         private void saveBill()
         {
-            bool kt = checkData();
-            if (kt==false)
+            bool kt = true;
+            checkData(ref kt);
+            if (kt)
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin","Error");
-                return;
+                int idnguoimua=0,idhoadon=0;
+                saveKhachHang(ref idnguoimua);
+                saveHoadon(ref idhoadon,idnguoimua);
+                saveCtHoaDon(idhoadon);
+               
             }
-            saveKhachHang();
         }
 
-        private void saveKhachHang()
+        private void saveHoadon(ref int idhd,int hdnm)
+        {
+            ///add hoa don
+            HoaDonBan hdb = new HoaDonBan()
+            {
+                ThueSuat = txtThue.EditValue.toDouble(),
+                KyHieu = txtKH.EditValue.ToString(),
+                HinhThucThanhToanId = cmbHTTT.EditValue.toInt(),
+                NguoiMuaId = hdnm,
+                NgayHD = txtNB.EditValue.toDateTime(),
+                DaXoa = false,
+                NhanVienBanId = cmbNVBH.EditValue.toInt(),
+            };
+            hdBUS.insertHoaDonBan(hdb);
+            idhd = hdb.ID;
+            if (hdBUS.ErrorHDBUS != null)
+            {
+                MessageBox.Show("Lổi khi thêm hóa đơn", "Error");
+            }
+            else
+            {
+                MessageBox.Show("Thêm hóa đơn thành công", "Thêm hoad đơn");
+                loadDataDSHoaDon();
+            }
+        }
+
+        private void saveCtHoaDon(int idhd)
+        {
+            ///addCThoaDon
+            for (int i = 0; i < listHHSelect.Count; i++)
+            {
+                CTHoaDon ct = new CTHoaDon()
+                {
+                    HoaDonBanId = idhd,
+                    HangHoaId = listHHSelect[i].ID.toInt(),
+                    ThanhTien = listHHSelect[i].ThanhTien.toDouble(),
+                    SoLuongBan = listHHSelect[i].SoLuong.toInt(),
+                };
+                cthdBUS.insertCTHD(ct);
+                if (cthdBUS.ErrorCTHDBUS != null)
+                {
+                    MessageBox.Show("Lổi khi thêm chi tiết hóa đơn", "Error");
+                    return;
+                }
+            }
+        }
+        
+        private void saveKhachHang(ref int id)
         {
             ///kiem tra cmnd
             string cmnd = txtCMND.EditValue.ToString();
+            bool tontaiCMND = nmBUS.checkCMND(cmnd);
+            if (nmBUS.ErrorNMBUS != null)
+            {
+                MessageBox.Show(nmBUS.ErrorNMBUS.Message, "Error");
+                return;
+            }
+            
+            if (tontaiCMND == false)
+            {
+                ///add nguoi mua
+                NguoiMua objectNM = new NguoiMua()
+                {
+                    Name = cmbKH.Text,
+                    CMND = cmnd,
+                    DonViMuaHangId = int.Parse(cmbDV.EditValue.ToString()),
+                };
+                nmBUS.insertNguoiMua(objectNM);
+                if (nmBUS.ErrorNMBUS != null)
+                {
+                    MessageBox.Show("Lổi khi thêm khách hàng mới", "Error");
+                    return;
+                }
+                id = objectNM.ID;
+            }
+            else
+            {
+                id = nmBUS.getIdByCMND(cmnd).toInt();
+            }
+           
+           
+           
+
+         
         }
 
-        private bool checkData()
+        private void checkData(ref bool kt)
         {
             ///panel HoaDon
             if (txtKH.EditValue == null)
             {
-                return false;
+                tt.Show("Kí hiệu hóa đơn không hợp lệ", txtKH);
+                kt = false;
+                return;
             }
             if (cmbHTTT.EditValue == null)
             {
-                return false;
+
+                tt.Show("Hình thức thanh toán không hợp lệ", cmbHTTT);
+                kt = false;
+                return;
             }
             if (cmbNVBH.EditValue == null)
             {
-                return false;
+
+                tt.Show("Nhân viên bán hàng không hợp lệ", cmbNVBH);
+                kt = false;
+                return;
             }
-            ///panel khachhang
+
             if (cmbDV.EditValue == null)
             {
-                return false;
+                tt.Show("Đơn vị mua hàng không hợp lệ", cmbDV);
+                kt = false;
+                return;
             }
             if (cmbKH.Text == "")
             {
-                return false;
+
+                tt.Show("Tên khách mua hàng không hợp lệ", cmbKH);
+                kt = false;
+                return;
             }
-            if (txtCMND.Text == "")
+            if (txtCMND.Text == "" || txtCMND.Text.Length < 9)
             {
-                return false;
+
+                tt.Show("CMND không hợp lệ", txtCMND);
+                kt = false;
+                return;
             }
             ///panel total
             if (txtTotal.Text == "")
             {
-                return false;
+                tt.Show("Vui lòng chọn hàng hóa", btnADDHH);
+                kt = false;
+                return;
             }
-            return true;
+
+
         }
 
         private void TControl_CalcelEvent(object sender, EventArgs e)
@@ -157,7 +264,7 @@ namespace Main.GUI
 
         private void addNewHoaDonBan()
         {
-            int idhd = hdBUS.getIDHDB() + 1;
+            int idhd = hdBUS.getIDHDB();
             if (idhd > 0)
             {
                 ///Panel Hóa đơn
@@ -190,7 +297,7 @@ namespace Main.GUI
                 }
                 loadComboBoxNVB(listNVB);
                 cmbKH.DisplayMember = "Name";
-                cmbKH.ValueMember = "ID";
+                cmbKH.ValueMember = "CMND";
                 ///Panel chi tiet hang hoa
                 List<HangHoa> listHH = hhBUS.getAllHangHoa();
                 if (listHH.Count == 0)
@@ -285,7 +392,7 @@ namespace Main.GUI
                 txtSTK.Text = temp.STKMua.ToString();
                 txtADD.Text = temp.DiaChiMua.ToString();
                 cmbKH.DataSource = temp.NguoiMuas.Where(x => x.DaXoa == false).ToList();
-
+                cmbKH.SelectedIndex = -1;
 
             }
             else
@@ -328,6 +435,20 @@ namespace Main.GUI
         private void txtSL_EditValueChanged(object sender, EventArgs e)
         {
             TextEdit txt = sender as TextEdit;
+            if (txt.EditValue == null)
+            {
+                txt.EditValue = 0;
+                return;
+            }
+            ///kiem tra so luong nhap
+            HangHoa temphh = cmbHH.GetDataSourceRowByKeyValue(gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "ID")) as HangHoa;
+            int sl = int.Parse(txt.EditValue.ToString());
+            if (sl > temphh.SoLuong)
+            {
+                MessageBox.Show("Số lượng nhập vượt quá số lượng trong kho!!", "Error");
+                txt.EditValue = 0;
+                return;
+            }
             gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", txt.EditValue);
             decimal temp = getThanhTien();
             if (temp == -1)
@@ -365,6 +486,15 @@ namespace Main.GUI
 
         private void addGridTTHH()
         {
+
+            HangHoa temp = cmbHH.GetDataSourceRowByKeyValue(gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "ID")) as HangHoa;
+            int sl = int.Parse(getValue(gridviewHH, "SoLuong").ToString());
+            if (sl > temp.SoLuong)
+            {
+                MessageBox.Show("Số lượng nhập vượt quá giới hạn trong kho", "Error");
+                return;
+            }
+            temp.SoLuong -= sl;
             listHHSelect.Add(new GioHang()
             {
                 STT = listHHSelect.Count + 1,
@@ -407,8 +537,12 @@ namespace Main.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            object id = gridviewTTHH.GetRowCellValue(gridviewTTHH.FocusedRowHandle, "ID");
+            int sl = int.Parse(gridviewTTHH.GetRowCellValue(gridviewTTHH.FocusedRowHandle, "SoLuong").ToString());
+            HangHoa temphh = cmbHH.GetDataSourceRowByKeyValue(id) as HangHoa;
+            temphh.SoLuong += sl;
             removeGioHang();
+            addPanelTotal();
         }
 
         private void removeGioHang()
@@ -421,5 +555,14 @@ namespace Main.GUI
             }
             gridviewTTHH.RefreshData();
         }
+
+        private void numThue_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtTotal.Text != "")
+            {
+                addPanelTotal();
+            }
+        }
+
     }
 }

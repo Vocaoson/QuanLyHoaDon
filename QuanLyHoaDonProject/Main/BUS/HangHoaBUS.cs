@@ -45,5 +45,27 @@ namespace Main.BUS
             }
             return hh;
         }
+
+        public bool checkSoLuongKho(int idh, int slNhap)
+        {
+            errorHHBUS = null;
+            try
+            {
+                var temp = hhDAO.HangHoas.Where(x => x.ID == idh).Select(x => x.SoLuong).ToList();
+                if (temp.Count>0)
+                {
+                    int slk = int.Parse(temp[0].ToString());
+                    if (slNhap>slk)
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                errorHHBUS = ex;
+            }
+            return true;
+        }
     }
 }

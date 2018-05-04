@@ -32,13 +32,22 @@ namespace Main.BUS
         public int getIDHDB()
         {
             errorHDBUS = null;
-           
+
             try
             {
-               var temp = hdDAO.Database.SqlQuery<decimal>("EXEC SP_GetIDHoaDonBan").ToList();
+                var temp = hdDAO.Database.SqlQuery<decimal>("EXEC SP_GetIDHoaDonBan").ToList();
                 if (temp.Count > 0)
                 {
-                    return int.Parse(temp[0].ToString());
+                    int id =int.Parse(temp[0].ToString());
+                    if (id==1&&hdDAO.HoaDonBans.ToList().Count==0)
+                    {
+                        return id;
+                    }
+                    else
+                    {
+                        return id + 1;
+                    }
+                   
                 }
             }
             catch (System.Exception ex)
@@ -57,13 +66,28 @@ namespace Main.BUS
             List<HoaDonBan> hdb = null;
             try
             {
-                hdb = hdDAO.HoaDonBans.Where(x=>x.DaXoa==false).ToList();
+                hdb = hdDAO.HoaDonBans.Where(x => x.DaXoa == false).ToList();
             }
             catch (System.Exception ex)
             {
                 errorHDBUS = ex;
             }
             return hdb;
+        }
+
+        public void insertHoaDonBan(HoaDonBan hdb)
+        {
+            errorHDBUS = null;
+            try
+            {
+                hdDAO.HoaDonBans.Add(hdb);
+                hdDAO.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                errorHDBUS = ex;
+            }
         }
     }
 }
