@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\NhanVienBanBus.cs" />
     <Compile Include="BUS\ProductBus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
@@ -180,6 +181,26 @@
     <Compile Include="Migrations\201804300416411_King.Designer.cs">
       <DependentUpon>201804300416411_King.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805010527257_Edit-NhanVienBan.cs" />
+    <Compile Include="Migrations\201805010527257_Edit-NhanVienBan.Designer.cs">
+      <DependentUpon>201805010527257_Edit-NhanVienBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805010600154_NhanVienBan-DonViBanHang.cs" />
+    <Compile Include="Migrations\201805010600154_NhanVienBan-DonViBanHang.Designer.cs">
+      <DependentUpon>201805010600154_NhanVienBan-DonViBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805010636403_Update-NhanVienBan.cs" />
+    <Compile Include="Migrations\201805010636403_Update-NhanVienBan.Designer.cs">
+      <DependentUpon>201805010636403_Update-NhanVienBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805010641577_ADD-Address.cs" />
+    <Compile Include="Migrations\201805010641577_ADD-Address.Designer.cs">
+      <DependentUpon>201805010641577_ADD-Address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805010710084_Add-HonNhan.cs" />
+    <Compile Include="Migrations\201805010710084_Add-HonNhan.Designer.cs">
+      <DependentUpon>201805010710084_Add-HonNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmIntroduce.resx">
       <DependentUpon>frmIntroduce.cs</DependentUpon>
@@ -236,6 +260,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804300416411_King.resx">
       <DependentUpon>201804300416411_King.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010527257_Edit-NhanVienBan.resx">
+      <DependentUpon>201805010527257_Edit-NhanVienBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010600154_NhanVienBan-DonViBanHang.resx">
+      <DependentUpon>201805010600154_NhanVienBan-DonViBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010636403_Update-NhanVienBan.resx">
+      <DependentUpon>201805010636403_Update-NhanVienBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010641577_ADD-Address.resx">
+      <DependentUpon>201805010641577_ADD-Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805010710084_Add-HonNhan.resx">
+      <DependentUpon>201805010710084_Add-HonNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

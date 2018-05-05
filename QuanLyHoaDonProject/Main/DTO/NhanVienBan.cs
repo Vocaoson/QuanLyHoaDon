@@ -15,21 +15,23 @@ namespace Main.DTO
         public string Name { get; set; }
         [StringLengthAttribute(20)]
         public string GioiTinh { get; set; }
-        public int SDT { get; set; }
+        public string SDT { get; set; }
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
         [StringLengthAttribute(100)]
         public string TTLamViec { get; set; }
-        public int HinhAnh { get; set; }
-        public int CMND { get; set; }
+        [StringLengthAttribute(255)]
+        public string HinhAnh { get; set; }
+        [StringLengthAttribute(255)]
+        public string DiaChi { get; set; }
+        [StringLengthAttribute(100)]
+        public string CMND { get; set; }
         [DataType(DataType.Date)]
-        public DateTime NgayCap { get; set; }
+        public DateTime? NgayCap { get; set; }
         [StringLengthAttribute(100)]
         public string NoiCap { get; set; }
         public bool DaXoa { get; set; }
-
-        public int DonViBanHangId { get; set; }
-        public virtual DonViBanHang DonViBanHang { get; set; }
+        public bool? HonNhan { get; set; }
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
     }
 }
