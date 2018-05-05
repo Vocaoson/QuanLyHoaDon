@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Main.BUS
 {
-    class DonViMuaHangBUS
+   public class DonViMuaHangBUS
     {
         QuanLyHoaDonContext context = new QuanLyHoaDonContext();
-        DonViMuaHang dv;
         private Exception error;
 
         public Exception Error
@@ -71,7 +70,7 @@ namespace Main.BUS
             error = null;
             try
             {
-                dv = context.DonViMuaHangs.Find(donVi.ID);
+                var dv = context.DonViMuaHangs.Find(donVi.ID);
                 dv.Name = donVi.Name;
                 dv.MaSoThueMua = donVi.MaSoThueMua;
                 dv.SDTMua = donVi.SDTMua;
@@ -91,7 +90,7 @@ namespace Main.BUS
             error = null;
             try
             {
-                dv = context.DonViMuaHangs.Find(id);
+                var dv = context.DonViMuaHangs.Find(id);
                 context.DonViMuaHangs.Remove(dv);
                 context.SaveChanges();
                 return true;

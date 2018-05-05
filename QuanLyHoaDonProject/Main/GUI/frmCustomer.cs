@@ -16,7 +16,6 @@ namespace Main.GUI
     public partial class frmCustomer : Form
     {
         DonViMuaHangBUS donvimuahangBUS = new DonViMuaHangBUS();
-        DonViMuaHang donvimuahang = new DonViMuaHang();
         bool isEdit;
         public frmCustomer()
         {
@@ -44,26 +43,31 @@ namespace Main.GUI
         {
             if (inputIsCorrect() == true)
             {
-                SetDTO();
+                taskControl1.isSuccessFul = true;
+                var donvimuahang = new DonViMuaHang();
+                SetDTO(donvimuahang);
                 if (isEdit == false)
                 {
-                    if (donvimuahangBUS.Add(donvimuahang) == true)
+                    var add = donvimuahangBUS.Add(donvimuahang);
+                    if (add == true)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
                     }
-                    else MessageBox.Show("Xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    donvimuahang.ID = Int32.Parse(txtCusID.Text);
-                    if (donvimuahangBUS.Update(donvimuahang) == true)
+                    donvimuahang.ID = int.Parse(txtCusID.Text);
+                    var edit = donvimuahangBUS.Update(donvimuahang);
+                    if (edit == true)
                     {
                         MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
                     }
-                    else MessageBox.Show("Xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Sửa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 RefeshForm();
-                LoadData();
                 panelContent.Enabled = false;
             }
         }
@@ -129,29 +133,30 @@ namespace Main.GUI
         /// <summary>
         /// Gán giá trị cho đối tượng
         /// </summary>
-        private void SetDTO()
+        private void SetDTO(DonViMuaHang dv)
         {
-            donvimuahang.Name = txtCusName.Text;
-            donvimuahang.DiaChiMua = txtAddress.Text;
-            donvimuahang.MaSoThueMua = int.Parse(txtMST.Text);
-            donvimuahang.STKMua = int.Parse(txtSTK.Text);
-            donvimuahang.SDTMua = int.Parse(txtPhone.Text);
+            dv.Name = txtCusName.Text;
+            dv.DiaChiMua = txtAddress.Text;
+            dv.MaSoThueMua = int.Parse(txtMST.Text);
+            dv.STKMua = txtSTK.Text;
+            dv.SDTMua = txtPhone.Text;
         }
         /// <summary>
         /// Load dữ liệu grid
         /// </summary>
         private void LoadData()
         {
-            gridUS1.Source = donvimuahangBUS.GetAll();
-            if (gridUS1.Source == null)
+            var list = donvimuahangBUS.GetAll();
+            if (list == null)
             {
                 MessageBox.Show("Xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Dispose();
             }
             else
             {
-                if (gridUS1.GridviewUS.RowCount > 0)
+                if (list.Count > 0)
                 {
+                    gridUS1.Source = list;
                     LoadColumn();
                 }
                 else
@@ -183,16 +188,17 @@ namespace Main.GUI
         /// <returns></returns>
         private bool inputIsCorrect()
         {
+            taskControl1.isSuccessFul = false;
             if (string.IsNullOrEmpty(txtCusName.Text))
             {
                 MessageBox.Show("Vui lòng nhập tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCusName.Focus();
                 return false;
             }
-            if (string.IsNullOrEmpty(txtSTK.Text))
+            if (string.IsNullOrEmpty(txtAddress.Text))
             {
                 MessageBox.Show("Vui lòng nhập địa chỉ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSTK.Focus();
+                txtAddress.Focus();
                 return false;
             }
             int temp;
@@ -202,13 +208,13 @@ namespace Main.GUI
                 txtMST.Focus();
                 return false;
             }
-            if (!int.TryParse(txtPhone.Text, out temp))
+            if (!txtPhone.Text.All(char.IsDigit)|| string.IsNullOrEmpty(txtPhone.Text))
             {
                 MessageBox.Show("Số điện thoại chỉ có thể là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPhone.Focus();
                 return false;
             }
-            if (!int.TryParse(txtSTK.Text, out temp))
+            if (!txtSTK.Text.All(char.IsDigit)||string.IsNullOrEmpty(txtSTK.Text))
             {
                 MessageBox.Show("Số tài khoản chỉ có thể là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSTK.Focus();

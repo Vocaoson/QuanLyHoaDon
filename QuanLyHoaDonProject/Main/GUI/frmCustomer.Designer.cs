@@ -285,6 +285,7 @@
             this.gridUS1.Source = null;
             this.gridUS1.TabIndex = 0;
             this.gridUS1.ThongTinTimKiem = null;
+            this.gridUS1.Load += new System.EventHandler(this.gridUS1_Load);
             // 
             // taskControl1
             // 
