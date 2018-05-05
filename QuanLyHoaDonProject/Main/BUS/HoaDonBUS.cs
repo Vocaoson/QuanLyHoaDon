@@ -1,6 +1,7 @@
 ﻿using Main.DAO;
 using Main.DTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,11 +36,11 @@ namespace Main.BUS
 
             try
             {
-                var temp = hdDAO.Database.SqlQuery<decimal>("EXEC SP_GetIDHoaDonBan").ToList();
+                var temp = hdDAO.Database.SqlQuery<decimal>(@"SELECT IDENT_CURRENT('HoaDonBans')").ToList();
                 if (temp.Count > 0)
                 {
-                    int id =int.Parse(temp[0].ToString());
-                    if (id==1&&hdDAO.HoaDonBans.ToList().Count==0)
+                    int id = int.Parse(temp[0].ToString());
+                    if (id == 1 && hdDAO.HoaDonBans.ToList().Count == 0)
                     {
                         return id;
                     }
@@ -47,7 +48,7 @@ namespace Main.BUS
                     {
                         return id + 1;
                     }
-                   
+
                 }
             }
             catch (System.Exception ex)
@@ -58,23 +59,6 @@ namespace Main.BUS
             return -1;
 
         }
-
-        public List<HoaDonBan> getHoaDonBan()
-        {
-            errorHDBUS = null;
-
-            List<HoaDonBan> hdb = null;
-            try
-            {
-                hdb = hdDAO.HoaDonBans.Where(x => x.DaXoa == false).ToList();
-            }
-            catch (System.Exception ex)
-            {
-                errorHDBUS = ex;
-            }
-            return hdb;
-        }
-
         public void insertHoaDonBan(HoaDonBan hdb)
         {
             errorHDBUS = null;
@@ -88,6 +72,37 @@ namespace Main.BUS
 
                 errorHDBUS = ex;
             }
+        }
+
+        public List<object> getHoaDonBan()
+        {
+            errorHDBUS = null;
+            try
+            {
+                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x => 
+                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=int.Parse(x.TongTienSo)  , }).ToList();
+                return temp.Cast<object>().ToList();
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+            return null;
+        }
+
+        public bool removeHoaDon(int idhoadon)
+        {
+            errorHDBUS = null;
+            try
+            {
+                hdDAO.HoaDonBans.Remove(hdDAO.HoaDonBans.Find(idhoadon));
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+            return false;
         }
     }
 }

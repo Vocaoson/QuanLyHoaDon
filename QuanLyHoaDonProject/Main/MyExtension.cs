@@ -16,6 +16,10 @@ namespace Main
         {
             return double.Parse(x.ToString());
         }
+        public static double toDoubleS(this string x)
+        {
+            return double.Parse(x);
+        }
         public static int toInt(this object x)
         {
             return int.Parse(x.ToString());

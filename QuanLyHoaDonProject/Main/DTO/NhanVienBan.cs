@@ -15,13 +15,13 @@ namespace Main.DTO
         public string Name { get; set; }
         [StringLengthAttribute(20)]
         public string GioiTinh { get; set; }
-        public int SDT { get; set; }
+        public string SDT { get; set; }
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
         [StringLengthAttribute(100)]
         public string TTLamViec { get; set; }
         public int HinhAnh { get; set; }
-        public int CMND { get; set; }
+        public string CMND { get; set; }
         [DataType(DataType.Date)]
         public DateTime NgayCap { get; set; }
         [StringLengthAttribute(100)]

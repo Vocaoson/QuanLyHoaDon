@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Grid;
@@ -44,20 +45,29 @@ namespace Main.GUI
 
         }
 
+
         private void loadDataDSHoaDon()
         {
-            List<HoaDonBan> listHoadDon = hdBUS.getHoaDonBan();
-            if (listHoadDon == null)
+            var temp = hdBUS.getHoaDonBan();
+            if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show(hdBUS.ErrorHDBUS.Message, "Error");
+                MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
+                deleteInfo();
             }
             else
             {
-                if (listHoadDon.Count > 0)
+                if (temp.Count > 0)
                 {
-                    gridHD.Source = listHoadDon;
+                    gridHD.Source = temp;
+                    gridHD.MapColumn("ID", "Mã HD", true, HorzAlignment.Far);
+                    gridHD.MapColumn("KyHieu", "Ký Hiệu", true, HorzAlignment.Far);
+                    gridHD.MapColumn("NgayHD", "Ngày Bán", true, HorzAlignment.Far);
+                    gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far, FormatType.Numeric, "C0");
+
+
                 }
             }
+
         }
 
         private void addOneRow()
@@ -71,6 +81,7 @@ namespace Main.GUI
             dt.Columns.Add("ThanhTien", typeof(double));
             gridHH.DataSource = dt;
             gridviewHH.AddNewRow();
+            gridviewHH.RefreshData();
         }
 
         private void taskControl1_Load(object sender, EventArgs e)
@@ -78,6 +89,7 @@ namespace Main.GUI
             tControl.AddEvent += TControl_AddEvent;
             tControl.CalcelEvent += TControl_CalcelEvent;
             tControl.SaveEvent += TControl_SaveEvent;
+
         }
         /// <summary>
         /// Lưu hóa đơn
@@ -95,62 +107,88 @@ namespace Main.GUI
             checkData(ref kt);
             if (kt)
             {
-                int idnguoimua=0,idhoadon=0;
-                saveKhachHang(ref idnguoimua);
-                saveHoadon(ref idhoadon,idnguoimua);
-                saveCtHoaDon(idhoadon);
-               
+                int idnguoimua = 0, idhoadon = 0;
+                if (saveKhachHang(ref idnguoimua))
+                {
+                    if (saveHoadon(ref idhoadon, idnguoimua))
+                    {
+                       
+                        if (saveCtHoaDon(idhoadon))
+                        {
+                            if (updateHangHoaKho())
+                            {
+                                tControl.isSuccessFul = true;
+                            }
+
+
+                        }
+                        else
+                        {
+                            hdBUS.removeHoaDon(idhoadon);
+                        }
+                    }
+
+                }
+                deleteInfo();
             }
         }
 
-        private void saveHoadon(ref int idhd,int hdnm)
+        private bool saveHoadon(ref int idhd, int hdnm)
         {
             ///add hoa don
             HoaDonBan hdb = new HoaDonBan()
             {
-                ThueSuat = txtThue.EditValue.toDouble(),
+                ThueSuat = numThue.Value.toDouble(),
                 KyHieu = txtKH.EditValue.ToString(),
                 HinhThucThanhToanId = cmbHTTT.EditValue.toInt(),
                 NguoiMuaId = hdnm,
                 NgayHD = txtNB.EditValue.toDateTime(),
                 DaXoa = false,
                 NhanVienBanId = cmbNVBH.EditValue.toInt(),
+                TongTienSo = txtTotal.EditValue.ToString(),
+                TongTienChu = txtTotal.EditValue.ToString(),
             };
             hdBUS.insertHoaDonBan(hdb);
             idhd = hdb.ID;
             if (hdBUS.ErrorHDBUS != null)
             {
                 MessageBox.Show("Lổi khi thêm hóa đơn", "Error");
+                return false;
             }
             else
             {
                 MessageBox.Show("Thêm hóa đơn thành công", "Thêm hoad đơn");
+
                 loadDataDSHoaDon();
+                return true;
             }
         }
 
-        private void saveCtHoaDon(int idhd)
+        private bool saveCtHoaDon(int idhd)
         {
             ///addCThoaDon
-            for (int i = 0; i < listHHSelect.Count; i++)
+           var temp= listHHSelect.GroupBy(x => new { x.ID })
+                                       .Select(g => new { ID = g.Key.ID, SoLuong = g.Sum(x => x.SoLuong.toLong()), ThanhTien = g.Sum(x => x.ThanhTien.toLong()) }).ToList();
+            for (int i = 0; i < temp.Count; i++)
             {
                 CTHoaDon ct = new CTHoaDon()
                 {
                     HoaDonBanId = idhd,
-                    HangHoaId = listHHSelect[i].ID.toInt(),
-                    ThanhTien = listHHSelect[i].ThanhTien.toDouble(),
-                    SoLuongBan = listHHSelect[i].SoLuong.toInt(),
+                    HangHoaId = temp[i].ID.toInt(),
+                    ThanhTien = temp[i].ThanhTien.toDouble(),
+                    SoLuongBan = temp[i].SoLuong.toInt(),
                 };
                 cthdBUS.insertCTHD(ct);
                 if (cthdBUS.ErrorCTHDBUS != null)
                 {
                     MessageBox.Show("Lổi khi thêm chi tiết hóa đơn", "Error");
-                    return;
+                    return false;
                 }
             }
+            return true;
         }
-        
-        private void saveKhachHang(ref int id)
+
+        private bool saveKhachHang(ref int id)
         {
             ///kiem tra cmnd
             string cmnd = txtCMND.EditValue.ToString();
@@ -158,9 +196,9 @@ namespace Main.GUI
             if (nmBUS.ErrorNMBUS != null)
             {
                 MessageBox.Show(nmBUS.ErrorNMBUS.Message, "Error");
-                return;
+                return false;
             }
-            
+
             if (tontaiCMND == false)
             {
                 ///add nguoi mua
@@ -174,7 +212,7 @@ namespace Main.GUI
                 if (nmBUS.ErrorNMBUS != null)
                 {
                     MessageBox.Show("Lổi khi thêm khách hàng mới", "Error");
-                    return;
+                    return false;
                 }
                 id = objectNM.ID;
             }
@@ -182,11 +220,11 @@ namespace Main.GUI
             {
                 id = nmBUS.getIdByCMND(cmnd).toInt();
             }
-           
-           
-           
 
-         
+            return true;
+
+
+
         }
 
         private void checkData(ref bool kt)
@@ -246,19 +284,68 @@ namespace Main.GUI
 
         private void TControl_CalcelEvent(object sender, EventArgs e)
         {
-            pnTT.Enabled = false;
             deleteInfo();
-        }
+            pnTT.Enabled = false;
 
+        }
+        private void clearComboBox(LookUpEdit cmb)
+        {
+            cmb.Properties.DataSource = null;
+            cmb.Properties.Columns.Clear();
+            cmb.Properties.ValueMember = null;
+        }
         private void deleteInfo()
         {
+            ///Clear panel HD
+            txtIDHD.EditValue = null;
+            txtKH.EditValue = null;
+            numThue.Value = 0;
+            txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            clearComboBox(cmbHTTT);
+            clearComboBox(cmbNVBH);
+            ///Clear KH
+            clearComboBox(cmbDV);
+            cmbKH.DataSource = null;
+            txtCMND.EditValue = null;
+            txtIDTHUE.EditValue = null;
+            txtSDT.EditValue = null;
+            txtSTK.EditValue = null;
+            txtADD.EditValue = null;
+
+            //clear CThh
+            cmbHH.DataSource = null;
+            cmbHH.Columns.Clear();
+            clearCTHangHoa();
+            ///clearGioHang
+            listHHSelect.Clear();
+            gridviewTTHH.RefreshData();
+            txtTienHang.EditValue = null;
+            txtThue.EditValue = null;
+            txtTotal.EditValue = null;
+            pnTT.Enabled = false;
             return;
+        }
+
+        private void clearCTHangHoa()
+        {
+    
+           
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "ID", "");
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "Name", "");
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "DVT", "");
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", "");
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "DonGia", "");
+            gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "ThanhTien", "");
+
         }
 
         private void TControl_AddEvent(object sender, EventArgs e)
         {
-            pnTT.Enabled = true;
-            addNewHoaDonBan();
+            if (pnTT.Enabled==false)
+            {
+                pnTT.Enabled = true;
+                addNewHoaDonBan();
+            }
 
         }
 
@@ -267,59 +354,88 @@ namespace Main.GUI
             int idhd = hdBUS.getIDHDB();
             if (idhd > 0)
             {
+                addOneRow();
                 ///Panel Hóa đơn
-                txtIDHD.Text = idhd.ToString();
-                txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
-                List<HinhThucThanhToan> listHTT = htttBUS.getAllListHTTT();
-                if (listHTT.Count == 0)
-                {
-                    MessageBox.Show("Bổ sung hình thức thanh toán", "Error");
-
-                    deleteInfo();
-                    return;
-                }
-                loadComboBoxHTTT(listHTT);
+                panelHoadon(idhd);
                 ///Panel khach hang
-                List<DonViMuaHang> listDVMH = dvmhBUS.getAllDonViMuaHang();
-                if (listDVMH.Count == 0)
-                {
-                    MessageBox.Show("Bổ sung Đơn vị mua hàng", "Error");
-                    deleteInfo();
-                    return;
-                }
-                loadComboBoxDVMH(listDVMH);
-                List<NhanVienBan> listNVB = nvbBUS.getAllNhanVienBan();
-                if (listNVB.Count == 0)
-                {
-                    MessageBox.Show("Bổ sung Nhân viên bán hàng", "Error");
-                    deleteInfo();
-                    return;
-                }
-                loadComboBoxNVB(listNVB);
-                cmbKH.DisplayMember = "Name";
-                cmbKH.ValueMember = "CMND";
+                panelKhachHang();
                 ///Panel chi tiet hang hoa
-                List<HangHoa> listHH = hhBUS.getAllHangHoa();
-                if (listHH.Count == 0)
-                {
-                    MessageBox.Show("Bổ sung Hàng hóa công ty", "Error");
-                    deleteInfo();
-                    return;
-                }
-                //gridviewHH.SetRowCellValue(gridviewHH.FocusedRowHandle, "SoLuong", 0);
-                loadComboBoxHH(listHH);
-                gridTotalHH.DataSource = listHHSelect;
-
+                panelChiTietHoaDon();
 
             }
             else
             {
                 if (hdBUS.ErrorHDBUS != null)
                 {
-                    MessageBox.Show(hdBUS.ErrorHDBUS.Message);
+                    MessageBox.Show("Lổi hệ thống", "Error");
                 }
                 deleteInfo();
             }
+
+        }
+
+        private bool updateHangHoaKho()
+        {
+            for (int i = 0; i < listHHSelect.Count; i++)
+            {
+                HangHoa temp = hhBUS.checkHangHoaKho(listHHSelect[i].ID);
+                if (temp == null)
+                {
+                    MessageBox.Show("Lổi cập nhật hàng hóa", "Error");
+                    return false;
+                }
+                hhBUS.updateHangHoa(temp);
+            }
+            return true;
+        }
+
+        private void panelChiTietHoaDon()
+        {
+            List<HangHoa> listHH = hhBUS.getAllHangHoa();
+            if (listHH.Count == 0)
+            {
+                MessageBox.Show("Bổ sung Hàng hóa công ty", "Error");
+                deleteInfo();
+                return;
+            }
+            loadComboBoxHH(listHH);
+            gridTotalHH.DataSource = listHHSelect;
+        }
+
+        private void panelKhachHang()
+        {
+            List<DonViMuaHang> listDVMH = dvmhBUS.getAllDonViMuaHang();
+            if (listDVMH.Count == 0)
+            {
+                MessageBox.Show("Bổ sung Đơn vị mua hàng", "Error");
+                deleteInfo();
+                return;
+            }
+            loadComboBoxDVMH(listDVMH);
+            cmbKH.DisplayMember = "Name";
+            cmbKH.ValueMember = "CMND";
+        }
+
+        private void panelHoadon(int idhd)
+        {
+            txtIDHD.Text = idhd.ToString();
+            txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            List<HinhThucThanhToan> listHTT = htttBUS.getAllListHTTT();
+            if (listHTT.Count == 0)
+            {
+                MessageBox.Show("Bổ sung hình thức thanh toán", "Error");
+                deleteInfo();
+                return;
+            }
+            loadComboBoxHTTT(listHTT);
+            List<NhanVienBan> listNVB = nvbBUS.getAllNhanVienBan();
+            if (listNVB.Count == 0)
+            {
+                MessageBox.Show("Bổ sung Nhân viên bán hàng", "Error");
+                deleteInfo();
+                return;
+            }
+            loadComboBoxNVB(listNVB);
         }
 
         private void loadComboBoxHH(List<HangHoa> listHH)
@@ -385,7 +501,6 @@ namespace Main.GUI
             cmbKH.Text = "";
             if (cmbDV.EditValue != null)
             {
-                cmbKH.Enabled = true;
                 DonViMuaHang temp = cmbDV.Properties.GetDataSourceRowByKeyValue(cmbDV.EditValue) as DonViMuaHang;
                 txtIDTHUE.Text = temp.MaSoThueMua.ToString();
                 txtSDT.Text = temp.SDTMua.ToString();
@@ -395,10 +510,7 @@ namespace Main.GUI
                 cmbKH.SelectedIndex = -1;
 
             }
-            else
-            {
-                cmbKH.Enabled = false;
-            }
+
         }
 
         private void cmbHH_EditValueChanged(object sender, EventArgs e)
@@ -563,6 +675,13 @@ namespace Main.GUI
                 addPanelTotal();
             }
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            clearCTHangHoa();
+            
+        }
+
 
     }
 }

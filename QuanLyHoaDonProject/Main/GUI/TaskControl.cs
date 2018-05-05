@@ -24,6 +24,10 @@ namespace Main.GUI
                 }
             }
         }
+
+
+        public bool isSuccessFul { get; set; } = false;
+
         private event EventHandler addEvent;
         public event EventHandler AddEvent
         {
@@ -94,6 +98,7 @@ namespace Main.GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            isSuccessFul = false;
             addEvent?.Invoke(this, EventArgs.Empty);
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
@@ -121,8 +126,15 @@ namespace Main.GUI
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveEvent?.Invoke(this, EventArgs.Empty);
-            btnAdd.Enabled = true;
-            btnCalcel.Enabled = false;
+            if (isSuccessFul == true)
+            {
+                btnAdd.Enabled = true;
+                btnCalcel.Enabled = false;
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+                btnSave.Enabled = false;
+            }
+
         }
 
         private void btnCalcel_Click(object sender, EventArgs e)
@@ -131,5 +143,14 @@ namespace Main.GUI
             btnSave.Enabled = false;
             btnCalcel.Enabled = false;
         }
+//         public void visibleButton()
+//         {
+//             btnAdd.Enabled = true;
+//             btnCalcel.Enabled = false;
+//             btnDelete.Enabled = false;
+//             btnEdit.Enabled = false;
+//             btnSave.Enabled = false;
+//         }
+      
     }
 }

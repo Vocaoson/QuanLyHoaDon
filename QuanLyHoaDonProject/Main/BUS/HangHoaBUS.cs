@@ -31,7 +31,7 @@ namespace Main.BUS
             }
         }
 
-        public List<HangHoa>getAllHangHoa()
+        public List<HangHoa> getAllHangHoa()
         {
             errorHHBUS = null;
             List<HangHoa> hh = null;
@@ -52,10 +52,10 @@ namespace Main.BUS
             try
             {
                 var temp = hhDAO.HangHoas.Where(x => x.ID == idh).Select(x => x.SoLuong).ToList();
-                if (temp.Count>0)
+                if (temp.Count > 0)
                 {
                     int slk = int.Parse(temp[0].ToString());
-                    if (slNhap>slk)
+                    if (slNhap > slk)
                     {
                         return false;
                     }
@@ -66,6 +66,34 @@ namespace Main.BUS
                 errorHHBUS = ex;
             }
             return true;
+        }
+
+        public HangHoa checkHangHoaKho(object iD)
+        {
+            try
+            {
+                HangHoa temp = hhDAO.HangHoas.Find(iD);
+                return temp;
+            }
+            catch (System.Exception ex)
+            {
+                errorHHBUS = ex;
+            }
+            return null;
+        }
+
+        public void updateHangHoa(HangHoa temp)
+        {
+            try
+            {
+                hhDAO.SaveChanges();
+
+            }
+            catch (System.Exception ex)
+            {
+                errorHHBUS = ex;
+            }
+
         }
     }
 }

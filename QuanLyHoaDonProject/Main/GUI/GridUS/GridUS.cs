@@ -189,10 +189,13 @@ namespace Main.GUI.GridUS
         /// <param name="nameProperty">Name property</param>
         /// <param name="caption">Hiển thị</param>
         /// <param name="fixedWidth">fix widh colum</param>
-        public void MapColumn(string nameProperty, string caption,bool fixedWidth=false)
+        public void MapColumn(string nameProperty, string caption,bool fixedWidth=false, HorzAlignment align= HorzAlignment.Near, FormatType ftype= FormatType.None,string fstring=null)
         {
             if (fixedWidth==true)
             {
+                gridView1.Columns[nameProperty].DisplayFormat.FormatType = ftype;
+                gridView1.Columns[nameProperty].DisplayFormat.FormatString = fstring;
+                gridView1.Columns[nameProperty].AppearanceCell.TextOptions.HAlignment = align;
                 gridView1.Columns[nameProperty].OptionsColumn.FixedWidth = true;
             }
             gridView1.Columns[nameProperty].Caption = caption;

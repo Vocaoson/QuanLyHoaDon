@@ -18,9 +18,9 @@ namespace Main.DTO
 
         public int MaSoThueMua { get; set; }
 
-        public int STKMua { get; set; }
+        public string STKMua { get; set; }
 
-        public int SDTMua { get; set; }
+        public string SDTMua { get; set; }
         public virtual ICollection<NguoiMua> NguoiMuas { get; set; }
 
 

@@ -21,6 +21,5 @@ namespace Main.DTO
         public virtual HoaDonBan HoaDonBan { get; set; }
         public virtual HangHoa HangHoa { get; set; }
 
-
     }
 }

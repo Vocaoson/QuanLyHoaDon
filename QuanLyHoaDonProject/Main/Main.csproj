@@ -176,6 +176,18 @@
     <Compile Include="Migrations\201805031646228_Edit.Designer.cs">
       <DependentUpon>201805031646228_Edit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805041709099_Edit type STK NguoiMua.cs" />
+    <Compile Include="Migrations\201805041709099_Edit type STK NguoiMua.Designer.cs">
+      <DependentUpon>201805041709099_Edit type STK NguoiMua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805041715333_Edit type donvimua+dvb.cs" />
+    <Compile Include="Migrations\201805041715333_Edit type donvimua+dvb.Designer.cs">
+      <DependentUpon>201805041715333_Edit type donvimua+dvb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805041720262_Edit property.cs" />
+    <Compile Include="Migrations\201805041720262_Edit property.Designer.cs">
+      <DependentUpon>201805041720262_Edit property.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyExtension.cs" />
     <Compile Include="Program.cs" />
@@ -236,6 +248,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805031646228_Edit.resx">
       <DependentUpon>201805031646228_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041709099_Edit type STK NguoiMua.resx">
+      <DependentUpon>201805041709099_Edit type STK NguoiMua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041715333_Edit type donvimua+dvb.resx">
+      <DependentUpon>201805041715333_Edit type donvimua+dvb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041720262_Edit property.resx">
+      <DependentUpon>201805041720262_Edit property.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
