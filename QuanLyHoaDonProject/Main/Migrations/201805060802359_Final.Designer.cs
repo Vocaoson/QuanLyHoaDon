@@ -7,13 +7,13 @@ namespace Main.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddDangNhapTable : IMigrationMetadata
+    public sealed partial class Final : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDangNhapTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Final));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804251438375_AddDangNhapTable"; }
+            get { return "201805060802359_Final"; }
         }
         
         string IMigrationMetadata.Source
