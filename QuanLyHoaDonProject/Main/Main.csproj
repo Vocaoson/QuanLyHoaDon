@@ -49,6 +49,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Money_Viet_Nam">
+      <HintPath>..\..\..\..\..\..\..\Downloads\Money_Viet_Nam\Money_Viet_Nam.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />

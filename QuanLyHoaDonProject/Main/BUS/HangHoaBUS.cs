@@ -35,6 +35,7 @@ namespace Main.BUS
         {
             errorHHBUS = null;
             List<HangHoa> hh = null;
+            hhDAO = new QuanLyHoaDonContext();
             try
             {
                 hh = hhDAO.HangHoas.Where(x => x.DaXoa == false).ToList();
@@ -94,6 +95,20 @@ namespace Main.BUS
                 errorHHBUS = ex;
             }
 
+        }
+
+        public HangHoa getHangHoaByID(int hangHoaId)
+        {
+            try
+            {
+                HangHoa temp = hhDAO.HangHoas.Find(hangHoaId);
+                return temp;
+            }
+            catch (System.Exception ex)
+            {
+                errorHHBUS = ex;
+            }
+            return null;
         }
     }
 }

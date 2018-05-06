@@ -51,6 +51,20 @@ namespace Main.BUS
             }
             return false;
         }
+        public int checkCMND2(string cmnd)
+        {
+            ErrorNMBUS = null;
+            try
+            {
+                return nmDAO.NguoiMuas.Where(x=>x.CMND==cmnd).SingleOrDefault().ID;
+
+            }
+            catch (System.Exception ex)
+            {
+                ErrorNMBUS = ex;
+            }
+            return -1;
+        }
 
         public void insertNguoiMua(NguoiMua objectNM)
         {
@@ -64,6 +78,35 @@ namespace Main.BUS
             {
                 ErrorNMBUS = ex;
             }
+        }
+
+        public NguoiMua getNguoiMua(int nguoiMuaId)
+        {
+            ErrorNMBUS = null;
+            try
+            {
+               return nmDAO.NguoiMuas.Find(nguoiMuaId);
+               
+            }
+            catch (System.Exception ex)
+            {
+                ErrorNMBUS = ex;
+            }
+            return null;
+        }
+
+        public void updateNguoiMua()
+        {
+            ErrorNMBUS = null;
+            try
+            {
+                nmDAO.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                ErrorNMBUS = ex;
+            }
+       
         }
     }
 }

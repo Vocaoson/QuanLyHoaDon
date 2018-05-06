@@ -8,6 +8,10 @@ namespace Main
 {
     static class MyExtension
     {
+        public static decimal toDecimal(this double x)
+        {
+            return decimal.Parse(x.ToString());
+        }
         public static long toLong(this object x)
         {
             return long.Parse(x.ToString());

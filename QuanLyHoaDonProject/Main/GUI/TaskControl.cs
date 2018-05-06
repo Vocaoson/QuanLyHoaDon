@@ -22,6 +22,13 @@ namespace Main.GUI
                     btnEdit.Enabled = true;
                     btnDelete.Enabled = true;
                 }
+                else
+                {
+                    btnEdit.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnAdd.Enabled = true;
+
+                }
             }
         }
 
@@ -112,6 +119,7 @@ namespace Main.GUI
             btnAdd.Enabled = false;
             btnDelete.Enabled = false;
             btnCalcel.Enabled = true;
+            btnSave.Enabled = true;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -143,14 +151,14 @@ namespace Main.GUI
             btnSave.Enabled = false;
             btnCalcel.Enabled = false;
         }
-//         public void visibleButton()
-//         {
-//             btnAdd.Enabled = true;
-//             btnCalcel.Enabled = false;
-//             btnDelete.Enabled = false;
-//             btnEdit.Enabled = false;
-//             btnSave.Enabled = false;
-//         }
+        public void showDelete()
+        {
+            btnAdd.Enabled = false;
+            btnCalcel.Enabled = true;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = true;
+            btnSave.Enabled = false;
+        }
       
     }
 }

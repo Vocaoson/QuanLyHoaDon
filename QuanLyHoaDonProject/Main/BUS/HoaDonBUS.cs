@@ -90,6 +90,48 @@ namespace Main.BUS
             return null;
         }
 
+        public List<object> getHoaDonByFind(string noidungtimkiem)
+        {
+            errorHDBUS = null;
+            try
+            {
+                int test;
+                bool kq = int.TryParse(noidungtimkiem, out test);
+                if (!kq)
+                {
+                    test = -1;
+                }
+                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(hd => hd.ID == test||
+                                                 hd.ThueSuat == test ||
+                                                 hd.KyHieu.Contains(noidungtimkiem)||
+                                                 hd.TongTienSo.Contains(noidungtimkiem)||
+                                                 hd.TongTienChu.Contains(noidungtimkiem)
+                                                 ).Select(x =>
+                new { ID = x.ID, KyHieu = x.KyHieu, NgayHD = x.NgayHD, TongTienSo = int.Parse(x.TongTienSo), }).ToList();
+                return temp.Cast<object>().ToList();
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+            return null;
+        }
+
+        public HoaDonBan findHoaDon(int iD)
+        {
+            errorHDBUS = null;
+            try
+            {
+               return hdDAO.HoaDonBans.Find(iD);
+                
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+            return null;
+        }
+
         public bool removeHoaDon(int idhoadon)
         {
             errorHDBUS = null;
@@ -103,6 +145,53 @@ namespace Main.BUS
                 errorHDBUS = ex;
             }
             return false;
+        }
+
+        public void updateHoaDon()
+        {
+            errorHDBUS = null;
+            try
+            {
+                hdDAO.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+           
+        }
+
+        public bool deleteHoaDon(int idhoadon)
+        {
+            ErrorHDBUS = null;
+            try
+            {
+                hdDAO.HoaDonBans.RemoveRange(hdDAO.HoaDonBans.Where(x => x.ID == idhoadon));
+                hdDAO.SaveChanges();
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                errorHDBUS = ex;
+            }
+            return false;
+
+        }
+
+        public bool deleteListHoaDonBUS(List<object> id)
+        {
+            if (id.Count > 0)
+            {
+                for (int i = 0; i < id.Count; i++)
+                {
+                    bool kq = deleteHoaDon(id[i].toInt());
+                    if (kq == false)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }
