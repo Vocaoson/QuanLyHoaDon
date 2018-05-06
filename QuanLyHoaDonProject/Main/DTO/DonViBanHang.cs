@@ -17,7 +17,8 @@ namespace Main.DTO
         public int MaSoThueBan { get; set; }
         [StringLengthAttribute(50)]
         public string DiaChi { get; set; }
-        public int STKBan { get; set; }
-        public int SDTBan { get; set; }
+
+        public string STKBan { get; set; }
+        public string SDTBan { get; set; }
     }
 }

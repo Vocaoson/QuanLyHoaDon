@@ -41,6 +41,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(77, 31);
             this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "Select";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
             // 
             // gridUS1
             // 

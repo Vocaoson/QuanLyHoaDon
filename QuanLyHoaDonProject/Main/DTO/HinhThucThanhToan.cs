@@ -13,6 +13,7 @@ namespace Main.DTO
         public int ID { get; set; }
         [StringLengthAttribute(100)]
         public string Name { get; set; }
+        public bool DaXoa { get; set; }
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
     }
 }

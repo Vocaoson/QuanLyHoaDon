@@ -20,18 +20,22 @@ namespace Main.DTO
         public DateTime DOB { get; set; }
         [StringLengthAttribute(100)]
         public string TTLamViec { get; set; }
+
         [StringLengthAttribute(255)]
         public string HinhAnh { get; set; }
         [StringLengthAttribute(255)]
         public string DiaChi { get; set; }
         [StringLengthAttribute(100)]
+
         public string CMND { get; set; }
         [DataType(DataType.Date)]
         public DateTime? NgayCap { get; set; }
         [StringLengthAttribute(100)]
         public string NoiCap { get; set; }
         public bool DaXoa { get; set; }
+
         public bool? HonNhan { get; set; }
+
         public virtual ICollection<HoaDonBan> HoaDonBans { get; set; }
     }
 }

@@ -49,6 +49,11 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Money_Viet_Nam, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Money_Viet_Nam.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -63,15 +68,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\NhanVienBanBus.cs" />
-    <Compile Include="BUS\DonViMuaHangBUS.cs" />
+
     <Compile Include="BUS\DangNhapBUS.cs" />
+    <Compile Include="BUS\CTHoaDonBUS.cs" />
+    <Compile Include="BUS\DonViMuaHangBUS.cs" />
+    <Compile Include="BUS\HangHoaBUS.cs" />
+    <Compile Include="BUS\HinhThucThanhToanBUS.cs" />
+    <Compile Include="BUS\HoaDonBUS.cs" />
+    <Compile Include="BUS\NguoiMuaBUS.cs" />
+    <Compile Include="BUS\NhanVienBanBUS.cs" />
     <Compile Include="BUS\ProductBus.cs" />
+	
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
     <Compile Include="DTO\DangNhap.cs" />
     <Compile Include="DTO\DonViBanHang.cs" />
     <Compile Include="DTO\DonViMuaHang.cs" />
+    <Compile Include="DTO\GioHang.cs" />
     <Compile Include="DTO\HangHoa.cs" />
     <Compile Include="DTO\HinhThucThanhToan.cs" />
     <Compile Include="DTO\HoaDonBan.cs" />
@@ -173,11 +186,14 @@
     <Compile Include="GUI\TaskControl.Designer.cs">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Migrations\201805060959569_Final.cs" />
     <Compile Include="Migrations\201805060959569_Final.Designer.cs">
       <DependentUpon>201805060959569_Final.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Lib\MyExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FormG\F1.resx">
@@ -185,6 +201,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmBill.resx">
       <DependentUpon>frmBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmCompanyInfor.resx">
       <DependentUpon>frmCompanyInfor.cs</DependentUpon>
@@ -206,21 +223,25 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPrintBill.resx">
       <DependentUpon>frmPrintBill.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmProgramInfor.resx">
       <DependentUpon>frmProgramInfor.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmStartProgram.resx">
       <DependentUpon>frmStartProgram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmStatistic.resx">
       <DependentUpon>frmStatistic.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\FormExampleGrid.resx">
       <DependentUpon>FormExampleGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\GridUS\GridUS.resx">
       <DependentUpon>GridUS.cs</DependentUpon>
@@ -228,8 +249,10 @@
     <EmbeddedResource Include="GUI\TaskControl.resx">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Migrations\201805060959569_Final.resx">
       <DependentUpon>201805060959569_Final.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -257,7 +280,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+
     <None Include="Resources\print.png" />
+
+    <Content Include="Lib\Money_Viet_Nam.dll" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

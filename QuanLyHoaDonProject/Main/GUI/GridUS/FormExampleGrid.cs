@@ -87,5 +87,10 @@ namespace Main.GUI.GridUS
             GridView temp = sender as GridView;
             MessageBox.Show(String.Format("Row Select:{0}",temp.GetSelectedRows()[0]));
         }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,9 +24,18 @@ namespace Main.GUI
                     btnSave.Enabled = false;
                     btnCalcel.Enabled = false;
                 }
+                else
+                {
+                    btnEdit.Enabled = false;
+                    btnDelete.Enabled = false;
+                    btnAdd.Enabled = true;
+
+                }
             }
         }
+
         public bool isSuccessFul { get; set; } = false;
+
         private event EventHandler addEvent;
         public event EventHandler AddEvent
         {
@@ -97,6 +106,7 @@ namespace Main.GUI
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            isSuccessFul = false;
             addEvent?.Invoke(this, EventArgs.Empty);
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
@@ -135,7 +145,6 @@ namespace Main.GUI
                 btnDelete.Enabled = false;
                 btnSave.Enabled = false;
             }
-           
         }
 
         private void btnCalcel_Click(object sender, EventArgs e)
@@ -146,6 +155,22 @@ namespace Main.GUI
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
             btnAdd.Enabled = true;
+        }
+        public void showDelete()
+        {
+            btnAdd.Enabled = false;
+            btnCalcel.Enabled = true;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = true;
+            btnSave.Enabled = false;
+        }
+        public void visibleBtn()
+        {
+            btnAdd.Enabled = true;
+            btnCalcel.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
+            btnSave.Enabled = false;
         }
     }
 }
