@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BUS\NhanVienBanBus.cs" />
+
     <Compile Include="BUS\ProductBus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201805060802359_Final.Designer.cs">
       <DependentUpon>201805060802359_Final.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805051256238_Edit_DonViNguoiMua.cs" />
+    <Compile Include="Migrations\201805051256238_Edit_DonViNguoiMua.Designer.cs">
+      <DependentUpon>201805051256238_Edit_DonViNguoiMua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -219,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805060802359_Final.resx">
       <DependentUpon>201805060802359_Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805051256238_Edit_DonViNguoiMua.resx">
+      <DependentUpon>201805051256238_Edit_DonViNguoiMua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

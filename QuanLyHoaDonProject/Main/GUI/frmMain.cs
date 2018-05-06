@@ -42,8 +42,7 @@ namespace Main
         private void barBtnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCustomer frm = new frmCustomer();
-            frm.MdiParent = this;
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void barBtnProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
