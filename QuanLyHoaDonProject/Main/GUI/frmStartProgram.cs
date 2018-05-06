@@ -29,7 +29,7 @@ namespace Main.GUI
             {
                 progressBar1.Value = progressBar1.Maximum;
                 this.Hide();
-                frmMain frm = new frmMain();
+                frmLogin frm = new frmLogin();
                 frm.Show();
                 frm.FormClosed += Frm_FormClosed;
           
