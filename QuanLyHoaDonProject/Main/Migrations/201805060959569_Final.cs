@@ -87,9 +87,9 @@ namespace Main.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(maxLength: 50),
                         DiaChiMua = c.String(maxLength: 50),
-                        MaSoThueMua = c.Int(nullable: false),
-                        STKMua = c.Int(nullable: false),
-                        SDTMua = c.Int(nullable: false),
+                        MaSoThueMua = c.String(),
+                        STKMua = c.String(maxLength: 20),
+                        SDTMua = c.String(maxLength: 12),
                     })
                 .PrimaryKey(t => t.ID);
             

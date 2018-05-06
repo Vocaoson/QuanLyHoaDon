@@ -137,7 +137,7 @@ namespace Main.GUI
         {
             dv.Name = txtCusName.Text;
             dv.DiaChiMua = txtAddress.Text;
-            dv.MaSoThueMua = int.Parse(txtMST.Text);
+            dv.MaSoThueMua = txtMST.Text;
             dv.STKMua = txtSTK.Text;
             dv.SDTMua = txtPhone.Text;
         }
@@ -201,10 +201,9 @@ namespace Main.GUI
                 txtAddress.Focus();
                 return false;
             }
-            int temp;
-            if (!int.TryParse(txtMST.Text, out temp))
+            if (string.IsNullOrEmpty(txtMST.Text))
             {
-                MessageBox.Show("Mã số thuế chỉ có thể là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập mã số thuế", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMST.Focus();
                 return false;
             }

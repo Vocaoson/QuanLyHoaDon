@@ -16,7 +16,7 @@ namespace Main.DTO
         [StringLengthAttribute(50)]
         public string DiaChiMua { get; set; }
 
-        public int MaSoThueMua { get; set; }
+        public string MaSoThueMua { get; set; }
 
         [StringLengthAttribute(20)]
         public string STKMua { get; set; }
