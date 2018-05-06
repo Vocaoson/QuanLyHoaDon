@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="BUS\NhanVienBanBus.cs" />
     <Compile Include="BUS\DonViMuaHangBUS.cs" />
+    <Compile Include="BUS\DangNhapBUS.cs" />
     <Compile Include="BUS\ProductBus.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
@@ -111,6 +113,12 @@
     </Compile>
     <Compile Include="GUI\frmIntroduce.Designer.cs">
       <DependentUpon>frmIntroduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmMain.cs">
       <SubType>Form</SubType>
@@ -190,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmIntroduce.resx">
       <DependentUpon>frmIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
