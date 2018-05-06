@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Main.BUS
 {
-    public class NhanVienBanBus
+    public class NhanVienBanBUS
     {
         QuanLyHoaDonContext context = new QuanLyHoaDonContext();
         public List<NhanVienBan> GetAll()

@@ -18,7 +18,7 @@ namespace Main.GUI
         private string basePath;
         private bool isAdd;
         private bool isFind;
-        NhanVienBanBus nhanVienBanBus = new NhanVienBanBus();
+        NhanVienBanBUS nhanVienBanBus = new NhanVienBanBUS();
         private string BasePath
         {
             get
