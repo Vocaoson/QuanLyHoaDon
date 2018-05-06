@@ -7,13 +7,13 @@ namespace Main.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Editproperty : IMigrationMetadata
+    public sealed partial class Createble_v1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Editproperty));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Createble_v1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805041720262_Edit property"; }
+            get { return "201805060933484_Createble_v1"; }
         }
         
         string IMigrationMetadata.Source

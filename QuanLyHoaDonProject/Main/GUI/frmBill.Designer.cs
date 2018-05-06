@@ -163,7 +163,7 @@
             this.btnClearHH.Location = new System.Drawing.Point(48, 0);
             this.btnClearHH.Name = "btnClearHH";
             this.btnClearHH.Size = new System.Drawing.Size(43, 38);
-            this.btnClearHH.TabIndex = 0;
+            this.btnClearHH.TabIndex = 14;
             this.btnClearHH.Text = "simpleButton1";
             this.btnClearHH.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -196,7 +196,7 @@
             this.txtNM.Location = new System.Drawing.Point(236, 17);
             this.txtNM.Name = "txtNM";
             this.txtNM.Size = new System.Drawing.Size(112, 20);
-            this.txtNM.TabIndex = 13;
+            this.txtNM.TabIndex = 7;
             // 
             // cmbDV
             // 
@@ -501,7 +501,7 @@
             this.btnADDHH.Location = new System.Drawing.Point(3, 0);
             this.btnADDHH.Name = "btnADDHH";
             this.btnADDHH.Size = new System.Drawing.Size(43, 38);
-            this.btnADDHH.TabIndex = 0;
+            this.btnADDHH.TabIndex = 13;
             this.btnADDHH.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // panelControl1
@@ -773,6 +773,7 @@
             this.txtChuMoney.Name = "txtChuMoney";
             this.txtChuMoney.Size = new System.Drawing.Size(353, 82);
             this.txtChuMoney.TabIndex = 0;
+            this.txtChuMoney.TabStop = false;
             this.txtChuMoney.Text = "";
             // 
             // panel2
@@ -828,6 +829,7 @@
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(106, 20);
             this.txtTotal.TabIndex = 1;
+            this.txtTotal.TabStop = false;
             // 
             // txtThue
             // 
@@ -844,6 +846,7 @@
             this.txtThue.Properties.ReadOnly = true;
             this.txtThue.Size = new System.Drawing.Size(106, 20);
             this.txtThue.TabIndex = 1;
+            this.txtThue.TabStop = false;
             // 
             // txtTienHang
             // 
@@ -860,6 +863,7 @@
             this.txtTienHang.Properties.ReadOnly = true;
             this.txtTienHang.Size = new System.Drawing.Size(106, 20);
             this.txtTienHang.TabIndex = 1;
+            this.txtTienHang.TabStop = false;
             // 
             // groupControl2
             // 

@@ -159,6 +159,13 @@ namespace Main.GUI
             btnDelete.Enabled = true;
             btnSave.Enabled = false;
         }
-      
+        public void visibleBtn()
+        {
+            btnAdd.Enabled = true;
+            btnCalcel.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
+            btnSave.Enabled = false;
+        }
     }
 }

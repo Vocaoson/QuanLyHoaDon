@@ -3,7 +3,7 @@ namespace Main.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class MigrationName : DbMigration
+    public partial class Createble_v1 : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,6 @@ namespace Main.Migrations
                         HangHoaId = c.Int(nullable: false),
                         ThanhTien = c.Double(nullable: false),
                         SoLuongBan = c.Int(nullable: false),
-                        dsad = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.HoaDonBanId, t.HangHoaId })
                 .ForeignKey("dbo.HangHoas", t => t.HangHoaId, cascadeDelete: true)
@@ -50,6 +49,8 @@ namespace Main.Migrations
                         NguoiMuaId = c.Int(nullable: false),
                         NhanVienBanId = c.Int(nullable: false),
                         DaXoa = c.Boolean(nullable: false),
+                        TongTienSo = c.String(maxLength: 100),
+                        TongTienChu = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.HinhThucThanhToans", t => t.HinhThucThanhToanId, cascadeDelete: true)
@@ -91,8 +92,8 @@ namespace Main.Migrations
                         Name = c.String(maxLength: 50),
                         DiaChiMua = c.String(maxLength: 50),
                         MaSoThueMua = c.Int(nullable: false),
-                        STKMua = c.Int(nullable: false),
-                        SDTMua = c.Int(nullable: false),
+                        STKMua = c.String(),
+                        SDTMua = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             
@@ -103,11 +104,11 @@ namespace Main.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(maxLength: 100),
                         GioiTinh = c.String(maxLength: 20),
-                        SDT = c.Int(nullable: false),
+                        SDT = c.String(),
                         DOB = c.DateTime(nullable: false),
                         TTLamViec = c.String(maxLength: 100),
                         HinhAnh = c.Int(nullable: false),
-                        CMND = c.Int(nullable: false),
+                        CMND = c.String(),
                         NgayCap = c.DateTime(nullable: false),
                         NoiCap = c.String(maxLength: 100),
                         DaXoa = c.Boolean(nullable: false),
@@ -133,8 +134,8 @@ namespace Main.Migrations
                         Name = c.String(maxLength: 50),
                         MaSoThueBan = c.Int(nullable: false),
                         DiaChi = c.String(maxLength: 50),
-                        STKBan = c.Int(nullable: false),
-                        SDTBan = c.Int(nullable: false),
+                        STKBan = c.String(),
+                        SDTBan = c.String(),
                     })
                 .PrimaryKey(t => t.ID);
             

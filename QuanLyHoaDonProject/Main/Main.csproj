@@ -163,33 +163,9 @@
     <Compile Include="GUI\TaskControl.Designer.cs">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805021909282_MigrationName.cs" />
-    <Compile Include="Migrations\201805021909282_MigrationName.Designer.cs">
-      <DependentUpon>201805021909282_MigrationName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805021910482_Creater SP_getID.cs" />
-    <Compile Include="Migrations\201805021910482_Creater SP_getID.Designer.cs">
-      <DependentUpon>201805021910482_Creater SP_getID.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805031611283_Add tongTienHoaDon.cs" />
-    <Compile Include="Migrations\201805031611283_Add tongTienHoaDon.Designer.cs">
-      <DependentUpon>201805031611283_Add tongTienHoaDon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805031646228_Edit.cs" />
-    <Compile Include="Migrations\201805031646228_Edit.Designer.cs">
-      <DependentUpon>201805031646228_Edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805041709099_Edit type STK NguoiMua.cs" />
-    <Compile Include="Migrations\201805041709099_Edit type STK NguoiMua.Designer.cs">
-      <DependentUpon>201805041709099_Edit type STK NguoiMua.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805041715333_Edit type donvimua+dvb.cs" />
-    <Compile Include="Migrations\201805041715333_Edit type donvimua+dvb.Designer.cs">
-      <DependentUpon>201805041715333_Edit type donvimua+dvb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805041720262_Edit property.cs" />
-    <Compile Include="Migrations\201805041720262_Edit property.Designer.cs">
-      <DependentUpon>201805041720262_Edit property.cs</DependentUpon>
+    <Compile Include="Migrations\201805060933484_Createble_v1.cs" />
+    <Compile Include="Migrations\201805060933484_Createble_v1.Designer.cs">
+      <DependentUpon>201805060933484_Createble_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyExtension.cs" />
@@ -239,27 +215,8 @@
     <EmbeddedResource Include="GUI\TaskControl.resx">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805021909282_MigrationName.resx">
-      <DependentUpon>201805021909282_MigrationName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805021910482_Creater SP_getID.resx">
-      <DependentUpon>201805021910482_Creater SP_getID.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805031611283_Add tongTienHoaDon.resx">
-      <DependentUpon>201805031611283_Add tongTienHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805031646228_Edit.resx">
-      <DependentUpon>201805031646228_Edit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805041709099_Edit type STK NguoiMua.resx">
-      <DependentUpon>201805041709099_Edit type STK NguoiMua.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805041715333_Edit type donvimua+dvb.resx">
-      <DependentUpon>201805041715333_Edit type donvimua+dvb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805041720262_Edit property.resx">
-      <DependentUpon>201805041720262_Edit property.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805060933484_Createble_v1.resx">
+      <DependentUpon>201805060933484_Createble_v1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
