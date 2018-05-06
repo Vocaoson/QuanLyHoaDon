@@ -472,6 +472,8 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
+            this.groupControl1.Appearance.Options.UseBackColor = true;
             this.groupControl1.AppearanceCaption.FontStyleDelta = System.Drawing.FontStyle.Bold;
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.DodgerBlue;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
@@ -517,6 +519,7 @@
             // 
             // gridHD
             // 
+            this.gridHD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.gridHD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridHD.IsSelected = false;
             this.gridHD.Location = new System.Drawing.Point(2, 59);
@@ -551,8 +554,10 @@
             // 
             // labelControl1
             // 
+            this.labelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Times", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.labelControl1.Appearance.Options.UseBackColor = true;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -572,7 +577,7 @@
             this.gridTotalHH.Name = "gridTotalHH";
             this.gridTotalHH.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnXoa});
-            this.gridTotalHH.Size = new System.Drawing.Size(563, 90);
+            this.gridTotalHH.Size = new System.Drawing.Size(563, 96);
             this.gridTotalHH.TabIndex = 3;
             this.gridTotalHH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewTTHH});
@@ -741,7 +746,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(2, 259);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(567, 112);
+            this.groupControl3.Size = new System.Drawing.Size(567, 118);
             this.groupControl3.TabIndex = 3;
             this.groupControl3.Text = "GIỎ HÀNG";
             // 
@@ -750,9 +755,9 @@
             this.pnTotal.Controls.Add(this.pnMoney);
             this.pnTotal.Controls.Add(this.panel2);
             this.pnTotal.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnTotal.Location = new System.Drawing.Point(2, 371);
+            this.pnTotal.Location = new System.Drawing.Point(2, 377);
             this.pnTotal.Name = "pnTotal";
-            this.pnTotal.Size = new System.Drawing.Size(567, 86);
+            this.pnTotal.Size = new System.Drawing.Size(567, 80);
             this.pnTotal.TabIndex = 2;
             // 
             // pnMoney
@@ -761,7 +766,7 @@
             this.pnMoney.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMoney.Location = new System.Drawing.Point(2, 2);
             this.pnMoney.Name = "pnMoney";
-            this.pnMoney.Size = new System.Drawing.Size(353, 82);
+            this.pnMoney.Size = new System.Drawing.Size(353, 76);
             this.pnMoney.TabIndex = 0;
             // 
             // txtChuMoney
@@ -771,13 +776,14 @@
             this.txtChuMoney.ForeColor = System.Drawing.Color.DarkRed;
             this.txtChuMoney.Location = new System.Drawing.Point(0, 0);
             this.txtChuMoney.Name = "txtChuMoney";
-            this.txtChuMoney.Size = new System.Drawing.Size(353, 82);
+            this.txtChuMoney.Size = new System.Drawing.Size(353, 76);
             this.txtChuMoney.TabIndex = 0;
             this.txtChuMoney.TabStop = false;
             this.txtChuMoney.Text = "";
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.panel2.Controls.Add(this.labelControl4);
             this.panel2.Controls.Add(this.labelControl3);
             this.panel2.Controls.Add(this.labelControl2);
@@ -787,7 +793,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(355, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(210, 82);
+            this.panel2.Size = new System.Drawing.Size(210, 76);
             this.panel2.TabIndex = 1;
             // 
             // labelControl4
@@ -867,7 +873,9 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.groupControl2.Appearance.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.groupControl2.Appearance.Options.UseBackColor = true;
             this.groupControl2.Appearance.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.FontStyleDelta = System.Drawing.FontStyle.Bold;
             this.groupControl2.AppearanceCaption.ForeColor = System.Drawing.Color.DodgerBlue;
@@ -1059,6 +1067,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1070, 459);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.pnTT);

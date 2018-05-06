@@ -51,8 +51,7 @@
     </Reference>
     <Reference Include="Money_Viet_Nam, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Lib\Money_Viet_Nam.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\Final\QuanLyHoaDon\QuanLyHoaDonProject\Main\Lib\Money_Viet_Nam.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -68,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="BUS\DangNhapBUS.cs" />
     <Compile Include="BUS\CTHoaDonBUS.cs" />
     <Compile Include="BUS\DonViMuaHangBUS.cs" />
@@ -78,7 +76,6 @@
     <Compile Include="BUS\NguoiMuaBUS.cs" />
     <Compile Include="BUS\NhanVienBanBUS.cs" />
     <Compile Include="BUS\ProductBus.cs" />
-	
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
     <Compile Include="DTO\DangNhap.cs" />
@@ -186,11 +183,9 @@
     <Compile Include="GUI\TaskControl.Designer.cs">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\201805060959569_Final.cs" />
     <Compile Include="Migrations\201805060959569_Final.Designer.cs">
       <DependentUpon>201805060959569_Final.cs</DependentUpon>
-
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Lib\MyExtension.cs" />
@@ -249,10 +244,8 @@
     <EmbeddedResource Include="GUI\TaskControl.resx">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="Migrations\201805060959569_Final.resx">
       <DependentUpon>201805060959569_Final.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -280,11 +273,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-
     <None Include="Resources\print.png" />
-
-    <Content Include="Lib\Money_Viet_Nam.dll" />
-
+    <None Include="Lib\Money_Viet_Nam.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

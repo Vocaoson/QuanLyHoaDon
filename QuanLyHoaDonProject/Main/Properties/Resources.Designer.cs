@@ -67,13 +67,6 @@ namespace Main.Properties {
             get {
                 object obj = ResourceManager.GetObject("print", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-			}
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Money_Viet_Nam {
-            get {
-                object obj = ResourceManager.GetObject("Money_Viet_Nam", resourceCulture);
-                return ((byte[])(obj));
             }
         }
     }

@@ -99,6 +99,10 @@ namespace Main
 
         private void btnEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (checkFormChildOpen("frmEmployee"))
+            {
+                return;
+            }
             frmEmployee frm = new frmEmployee();
             frm.MdiParent = this;
             frm.Show();
