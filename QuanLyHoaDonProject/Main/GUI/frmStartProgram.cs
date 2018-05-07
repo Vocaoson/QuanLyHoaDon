@@ -45,9 +45,9 @@ namespace Main.GUI
         private void timer1_Tick(object sender, EventArgs e)
         {
             var number = (float)progressBar1.Value / progressBar1.Maximum * 100;
-            if(number >= 90)
+            if(number >= 99)
             {
-                progressBar1.Maximum += progressBar1.Step;
+                timer1.Stop();
             }
             lbValue.Text = string.Concat(number, "%");
             progressBar1.PerformStep();
@@ -57,19 +57,32 @@ namespace Main.GUI
         {
             Thread th = new Thread(() =>
             {
-                var rs = bus.GetAll();
-                if (rs != null)
+                try
                 {
-                    success?.Invoke(this, EventArgs.Empty);
+                    var rs = bus.GetAll();
+                    if (rs != null)
+                    {
+                        success?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            MessageBox.Show("Có lỗi trong quá trình kết nối đến cơ sở dữ liệu !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.Close();
+                        }));
+                    }
                 }
-                else
+                catch
                 {
                     this.Invoke(new Action(() =>
                     {
                         MessageBox.Show("Có lỗi trong quá trình kết nối đến cơ sở dữ liệu !!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.Close();
                     }));
+
                 }
+             
             });
             th.SetApartmentState(ApartmentState.STA);
             th.Start();

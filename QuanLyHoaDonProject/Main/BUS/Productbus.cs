@@ -49,7 +49,7 @@ namespace Main.BUS
         }
         public List<HangHoa> FindByName(string name)
         {
-            return context.HangHoas.Where(item => item.Name.Contains(name)).ToList();
+            return context.HangHoas.Where(item => item.Name.Contains(name) && item.DaXoa == false).ToList();
         }
     }
 }

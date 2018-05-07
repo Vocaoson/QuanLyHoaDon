@@ -15,7 +15,6 @@ namespace Main.GUI
 {
     public partial class frmEmployee : Form
     {
-        private string basePath;
         private bool isAdd;
         private bool isFind;
         NhanVienBanBUS nhanVienBanBus = new NhanVienBanBUS();
@@ -50,11 +49,12 @@ namespace Main.GUI
                 CMND = txtCMND.Text,
                 NoiCap = txtPlaceMade.Text,
                 GioiTinh = (string)cbSex.SelectedItem,
-                HonNhan = cbMarried.SelectedItem.ToString() == "Có" ? true : false,
+                HonNhan = cbMarried.SelectedItem != null? cbMarried.SelectedItem.ToString() == "Có" ? true : false :false,
                 HinhAnh = picAvatar.Tag != null ? (string)picAvatar.Tag : "",
                 SDT = txtPhoneNumber.Text,
                 TTLamViec = (string)cbState.SelectedItem != null ? (string)cbState.SelectedItem : "",
                 DiaChi = txtAddress.Text,
+                DaXoa = false
             };
             if (isAdd)
             {
@@ -96,10 +96,10 @@ namespace Main.GUI
                 txtEmployeeName.Focus();
                 return false;
             }
-            if (cbMarried.SelectedIndex < 0)
+            if (cbSex.SelectedIndex < 0)
             {
                 MessageBox.Show("Vui lòng chọn giới tính nhân viên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cbMarried.Focus();
+                cbSex.Focus();
                 return false;
             }
             if (cbState.SelectedIndex < 0)
@@ -108,13 +108,14 @@ namespace Main.GUI
                 cbState.Focus();
                 return false;
             }
-            if(txtCMND.Text != "")
-            {
-
-            }
             if(txtPhoneNumber.Text != "")
             {
-
+                if (!txtPhoneNumber.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPhoneNumber.Focus();
+                    return false;
+                }
             }
             return true;
         }
@@ -127,7 +128,16 @@ namespace Main.GUI
 
         private void LoadAll()
         {
-            var rs = nhanVienBanBus.GetAll();
+            var rs = new List<NhanVienBan>();
+            if (isFind)
+            {
+                rs = nhanVienBanBus.FindByName(gridUS1.ThongTinTimKiem);
+            }
+            else
+            {
+                rs = nhanVienBanBus.GetAll();
+            }
+          
             if(rs != null && rs.Count > 0)
             {
                 gridUS1.Source = rs;
@@ -184,6 +194,10 @@ namespace Main.GUI
             {
                 picAvatar.Image = Image.FromFile(string.Concat(BasePath, nhanVien.HinhAnh));
             }
+            else
+            {
+                picAvatar.Image = null;
+            }
            
         }
 
@@ -219,28 +233,27 @@ namespace Main.GUI
         }
         private void TaskControl1_DeleteEvent(object sender, EventArgs e)
         {
-            //var hs = new HangHoa() { ID = int.Parse(txtProductId.Text) };
-            //if (productBus.Delete(hs))
-            //{
-            //    MessageBox.Show("Xóa hàng hóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    LoadAll();
-            //    return;
-            //}
-            //MessageBox.Show("Xóa hàng hóa không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            NhanVienBan nv = new NhanVienBan() { ID = int.Parse(txtEmloyeeId.Text) };
+            var rs = nhanVienBanBus.Delete(nv);
+            if(rs == true)
+            {
+                MessageBox.Show("Xóa nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadAll();
+            }
+            else
+            {
+                MessageBox.Show("Xóa nhân viên không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void frmEmployee_Load(object sender, EventArgs e)
         {
             LoadAll();
             var context = new ContextMenuStrip();
-            var item1 = new ToolStripMenuItem("Xem ảnh");
-            item1.Click += Item_Click;
-            context.Items.Add(item1);
             var item2 = new ToolStripMenuItem("Cập nhật ảnh");
             item2.Click += Item2_Click;
             context.Items.Add(item2);
             picAvatar.ContextMenuStrip = context;
-
         }
 
         private void Item2_Click(object sender, EventArgs e)
@@ -253,15 +266,16 @@ namespace Main.GUI
                 var fileNameBeforeDot = file.Name.Substring(0,file.Name.LastIndexOf('.'));
                 var afterDot = file.Name.Substring(file.Name.LastIndexOf('.'));
                 string fileName = string.Concat(fileNameBeforeDot,DateTime.Now.Ticks, afterDot);
-                var fileFullName = string.Concat(Application.StartupPath, @"\..\..\Resources\", fileName);
+                var fileFullName = string.Concat(@"\..\..\Resources\", fileName);
                 picAvatar.Tag = fileFullName;
-                File.Copy(openFileDialog1.FileName, fileFullName);
+                var fullPath = string.Concat(Application.StartupPath, fileFullName);
+                File.Copy(openFileDialog1.FileName, fullPath);
+                if (File.Exists(fullPath))
+                {
+                    picAvatar.Image = Image.FromFile(fullPath);
+                }
+                
             }        
-        }
-
-        private void Item_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }

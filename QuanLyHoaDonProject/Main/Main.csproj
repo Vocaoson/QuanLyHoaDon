@@ -183,10 +183,6 @@
     <Compile Include="GUI\TaskControl.Designer.cs">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805060959569_Final.cs" />
-    <Compile Include="Migrations\201805060959569_Final.Designer.cs">
-      <DependentUpon>201805060959569_Final.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Lib\MyExtension.cs" />
     <Compile Include="Program.cs" />
@@ -243,9 +239,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TaskControl.resx">
       <DependentUpon>TaskControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805060959569_Final.resx">
-      <DependentUpon>201805060959569_Final.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -23,6 +23,7 @@ namespace Main.BUS
 
         public List<DonViMuaHang> GetAll()
         {
+            context = new QuanLyHoaDonContext();
             error = null;
             try
             {

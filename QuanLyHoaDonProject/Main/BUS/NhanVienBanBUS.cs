@@ -46,6 +46,7 @@ namespace Main.BUS
 		 QuanLyHoaDonContext context = new QuanLyHoaDonContext();
         public List<NhanVienBan> GetAll()
         {
+            context = new QuanLyHoaDonContext();
             try
             {
                 return context.NhanVienBans.Where(item => item.DaXoa == false).ToList();
@@ -115,11 +116,11 @@ namespace Main.BUS
             }
          
         }
-        public List<NhanVienBan > FindByName(string name)
+        public List<NhanVienBan> FindByName(string name)
         {
             try
             {
-                return context.NhanVienBans.Where(item => item.Name.Contains(name)).ToList();
+                return context.NhanVienBans.Where(item => item.Name.Contains(name) && item.DaXoa == false).ToList();
             }
             catch
             {

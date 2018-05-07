@@ -31,6 +31,7 @@ namespace Main.GUI
         private void GridviewUS_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             taskControl1.IsRowClick = true;
+            AddBinding();
         }
 
         private void TaskControl1_CalcelEvent(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace Main.GUI
                         LoadData();
                     }
                     else MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ClearBinding();
                 }
                 else
                 {
@@ -97,38 +99,40 @@ namespace Main.GUI
         {
             isEdit = true;
             panelContent.Enabled = true;
-            AddBinding();
-            ClearBinding();
+            txtCusName.Focus();
         }
 
         private void TaskControl1_AddEvent(object sender, EventArgs e)
         {
             isEdit = false;
             panelContent.Enabled = true;
+            ClearBinding();
+            txtCusName.Focus();
         }
         /// <summary>
         ///  Binding grid với textbox
         /// </summary>
         private void AddBinding()
         {
-            txtCusID.DataBindings.Add(new Binding("Text", gridUS1.Source, "ID"));
-            txtCusName.DataBindings.Add(new Binding("Text", gridUS1.Source, "Name"));
-            txtAddress.DataBindings.Add(new Binding("Text", gridUS1.Source, "DiaChiMua"));
-            txtMST.DataBindings.Add(new Binding("Text", gridUS1.Source, "MaSoThueMua"));
-            txtPhone.DataBindings.Add(new Binding("Text", gridUS1.Source, "SDTMua"));
-            txtSTK.DataBindings.Add(new Binding("Text", gridUS1.Source, "STKMua"));
+            var dto = gridUS1.GridviewUS.GetFocusedRow() as DonViMuaHang;
+            txtCusID.Text = dto.ID.ToString();
+            txtCusName.Text = dto.Name;
+            txtAddress.Text = dto.DiaChiMua;
+            txtMST.Text = dto.MaSoThueMua;
+            txtPhone.Text = dto.SDTMua;
+            txtSTK.Text = dto.STKMua;
         }
         /// <summary>
         /// remove Binding
         /// </summary>
         private void ClearBinding()
         {
-            txtCusID.DataBindings.Clear();
-            txtCusName.DataBindings.Clear();
-            txtMST.DataBindings.Clear();
-            txtPhone.DataBindings.Clear();
-            txtSTK.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
+            txtCusID.Text = "";
+            txtCusName.Text = "";
+            txtMST.Text = "";
+            txtPhone.Text = "";
+            txtSTK.Text = "";
+            txtAddress.Text = "";
         }
         /// <summary>
         /// Gán giá trị cho đối tượng
@@ -158,6 +162,7 @@ namespace Main.GUI
                 {
                     gridUS1.Source = list;
                     LoadColumn();
+                    
                 }
                 else
                 {

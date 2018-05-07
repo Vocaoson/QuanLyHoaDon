@@ -30,9 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.gridUS1 = new Main.GUI.GridUS.GridUS();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
@@ -63,6 +61,8 @@
             this.txtEmloyeeId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.gridUS1 = new Main.GUI.GridUS.GridUS();
+            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -92,19 +92,6 @@
             this.panel5.Size = new System.Drawing.Size(563, 404);
             this.panel5.TabIndex = 2;
             // 
-            // gridUS1
-            // 
-            this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridUS1.IsSelected = false;
-            this.gridUS1.Location = new System.Drawing.Point(0, 0);
-            this.gridUS1.Name = "gridUS1";
-            this.gridUS1.NumberRecord = 10;
-            this.gridUS1.PageCurrent = 1;
-            this.gridUS1.Size = new System.Drawing.Size(563, 404);
-            this.gridUS1.Source = null;
-            this.gridUS1.TabIndex = 0;
-            this.gridUS1.ThongTinTimKiem = null;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.taskControl1);
@@ -113,14 +100,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(563, 51);
             this.panel4.TabIndex = 1;
-            // 
-            // taskControl1
-            // 
-            this.taskControl1.isSuccessFul = false;
-            this.taskControl1.Location = new System.Drawing.Point(3, 6);
-            this.taskControl1.Name = "taskControl1";
-            this.taskControl1.Size = new System.Drawing.Size(406, 41);
-            this.taskControl1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -147,6 +126,7 @@
             // 
             this.panelContent.Controls.Add(this.groupBox1);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelContent.Enabled = false;
             this.panelContent.Location = new System.Drawing.Point(563, 0);
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(590, 498);
@@ -204,7 +184,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(179, 319);
+            this.label12.Location = new System.Drawing.Point(178, 312);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(212, 16);
             this.label12.TabIndex = 39;
@@ -366,9 +346,10 @@
             // picAvatar
             // 
             this.picAvatar.BackColor = System.Drawing.Color.Red;
-            this.picAvatar.Location = new System.Drawing.Point(20, 251);
+            this.picAvatar.Location = new System.Drawing.Point(20, 240);
             this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(152, 147);
+            this.picAvatar.Size = new System.Drawing.Size(152, 160);
+            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picAvatar.TabIndex = 6;
             this.picAvatar.TabStop = false;
             // 
@@ -419,6 +400,27 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // gridUS1
+            // 
+            this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridUS1.IsSelected = false;
+            this.gridUS1.Location = new System.Drawing.Point(0, 0);
+            this.gridUS1.Name = "gridUS1";
+            this.gridUS1.NumberRecord = 10;
+            this.gridUS1.PageCurrent = 1;
+            this.gridUS1.Size = new System.Drawing.Size(563, 404);
+            this.gridUS1.Source = null;
+            this.gridUS1.TabIndex = 0;
+            this.gridUS1.ThongTinTimKiem = null;
+            // 
+            // taskControl1
+            // 
+            this.taskControl1.isSuccessFul = false;
+            this.taskControl1.Location = new System.Drawing.Point(3, 6);
+            this.taskControl1.Name = "taskControl1";
+            this.taskControl1.Size = new System.Drawing.Size(406, 41);
+            this.taskControl1.TabIndex = 0;
             // 
             // frmEmployee
             // 
