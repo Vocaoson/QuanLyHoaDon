@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomer));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gridUS1 = new Main.GUI.GridUS.GridUS();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.taskControl1 = new Main.GUI.TaskControl();
             this.panelContent = new System.Windows.Forms.Panel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
@@ -49,8 +51,6 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.gridUS1 = new Main.GUI.GridUS.GridUS();
-            this.taskControl1 = new Main.GUI.TaskControl();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -83,6 +83,21 @@
             this.panel2.Size = new System.Drawing.Size(779, 403);
             this.panel2.TabIndex = 3;
             // 
+            // gridUS1
+            // 
+            this.gridUS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
+            this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridUS1.IsSelected = false;
+            this.gridUS1.Location = new System.Drawing.Point(0, 0);
+            this.gridUS1.Name = "gridUS1";
+            this.gridUS1.NumberRecord = 10;
+            this.gridUS1.PageCurrent = 1;
+            this.gridUS1.Size = new System.Drawing.Size(777, 401);
+            this.gridUS1.Source = null;
+            this.gridUS1.TabIndex = 0;
+            this.gridUS1.ThongTinTimKiem = null;
+            this.gridUS1.Load += new System.EventHandler(this.gridUS1_Load);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel5);
@@ -103,6 +118,14 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(779, 50);
             this.panel5.TabIndex = 0;
+            // 
+            // taskControl1
+            // 
+            this.taskControl1.isSuccessFul = false;
+            this.taskControl1.Location = new System.Drawing.Point(23, 5);
+            this.taskControl1.Name = "taskControl1";
+            this.taskControl1.Size = new System.Drawing.Size(406, 41);
+            this.taskControl1.TabIndex = 0;
             // 
             // panelContent
             // 
@@ -271,29 +294,6 @@
             this.labelControl1.Size = new System.Drawing.Size(207, 23);
             this.labelControl1.TabIndex = 5;
             this.labelControl1.Text = "Thông tin khách hàng";
-            // 
-            // gridUS1
-            // 
-            this.gridUS1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
-            this.gridUS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridUS1.IsSelected = false;
-            this.gridUS1.Location = new System.Drawing.Point(0, 0);
-            this.gridUS1.Name = "gridUS1";
-            this.gridUS1.NumberRecord = 10;
-            this.gridUS1.PageCurrent = 1;
-            this.gridUS1.Size = new System.Drawing.Size(777, 401);
-            this.gridUS1.Source = null;
-            this.gridUS1.TabIndex = 0;
-            this.gridUS1.ThongTinTimKiem = null;
-            this.gridUS1.Load += new System.EventHandler(this.gridUS1_Load);
-            // 
-            // taskControl1
-            // 
-            this.taskControl1.isSuccessFul = false;
-            this.taskControl1.Location = new System.Drawing.Point(23, 5);
-            this.taskControl1.Name = "taskControl1";
-            this.taskControl1.Size = new System.Drawing.Size(406, 41);
-            this.taskControl1.TabIndex = 0;
             // 
             // frmCustomer
             // 
