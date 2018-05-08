@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBill));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnClearHH = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNM = new DevExpress.XtraEditors.TextEdit();
@@ -678,7 +678,7 @@
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "Đơn giá";
-            this.gridColumn7.DisplayFormat.FormatString = "c0";
+            this.gridColumn7.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "DonGia";
             this.gridColumn7.Name = "gridColumn7";
@@ -693,7 +693,7 @@
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.Caption = "Thành tiền";
-            this.gridColumn8.DisplayFormat.FormatString = "c0";
+            this.gridColumn8.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "ThanhTien";
             this.gridColumn8.Name = "gridColumn8";
@@ -713,9 +713,9 @@
             // btnXoa
             // 
             this.btnXoa.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Tag = "";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -830,7 +830,7 @@
             this.txtTotal.Properties.Appearance.Options.UseForeColor = true;
             this.txtTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTotal.Properties.DisplayFormat.FormatString = "c0";
+            this.txtTotal.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(106, 20);
@@ -847,7 +847,7 @@
             this.txtThue.Properties.Appearance.Options.UseForeColor = true;
             this.txtThue.Properties.Appearance.Options.UseTextOptions = true;
             this.txtThue.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtThue.Properties.DisplayFormat.FormatString = "c0";
+            this.txtThue.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtThue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtThue.Properties.ReadOnly = true;
             this.txtThue.Size = new System.Drawing.Size(106, 20);
@@ -864,7 +864,7 @@
             this.txtTienHang.Properties.Appearance.Options.UseForeColor = true;
             this.txtTienHang.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTienHang.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTienHang.Properties.DisplayFormat.FormatString = "c0";
+            this.txtTienHang.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtTienHang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTienHang.Properties.ReadOnly = true;
             this.txtTienHang.Size = new System.Drawing.Size(106, 20);
@@ -906,6 +906,7 @@
             this.gridHH.TabIndex = 0;
             this.gridHH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewHH});
+            this.gridHH.Click += new System.EventHandler(this.gridHH_Click);
             // 
             // gridviewHH
             // 
@@ -1012,7 +1013,7 @@
             this.gridDG.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridDG.Caption = "Đơn giá";
             this.gridDG.ColumnEdit = this.txtTT;
-            this.gridDG.DisplayFormat.FormatString = "c0";
+            this.gridDG.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridDG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridDG.FieldName = "DonGia";
             this.gridDG.Name = "gridDG";
@@ -1035,7 +1036,7 @@
             this.gridTT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridTT.Caption = "Thành tiền";
             this.gridTT.ColumnEdit = this.txtDVT;
-            this.gridTT.DisplayFormat.FormatString = "c0";
+            this.gridTT.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridTT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridTT.FieldName = "ThanhTien";
             this.gridTT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace Main
         public static double toDoubleS(this string x)
         {
             return double.Parse(x);
+        }
+        public static double toDoubleString(this string x)
+        {
+           return double.Parse(x.Replace(',', '.'), CultureInfo.CreateSpecificCulture("en-US"));
+
         }
         public static int toInt(this object x)
         {

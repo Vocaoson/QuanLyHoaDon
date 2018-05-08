@@ -80,7 +80,7 @@ namespace Main.BUS
             try
             {
                 var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x => 
-                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=int.Parse(x.TongTienSo)  , }).ToList();
+                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=x.TongTienSo.toDoubleString()  , }).ToList();
                 return temp.Cast<object>().ToList();
             }
             catch (System.Exception ex)
