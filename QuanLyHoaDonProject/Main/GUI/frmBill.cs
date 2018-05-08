@@ -895,9 +895,7 @@ namespace Main.GUI
                         cmbDV.ReadOnly = true;
                         txtNM.ReadOnly = true;
                         txtCMND.ReadOnly = true;
-                        txtIDTHUE.ReadOnly = true;
-                        txtSDT.ReadOnly = true;
-                        txtSTK.ReadOnly = true;
+                       
 
                         txtTienHang.ReadOnly = true;
                         txtThue.ReadOnly = true;
@@ -918,9 +916,6 @@ namespace Main.GUI
                         cmbDV.ReadOnly = false;
                         txtNM.ReadOnly = false;
                         txtCMND.ReadOnly = false;
-                        txtIDTHUE.ReadOnly = false;
-                        txtSDT.ReadOnly = false;
-                        txtSTK.ReadOnly = false;
 
                         txtTienHang.ReadOnly = false;
                         txtThue.ReadOnly = false;
