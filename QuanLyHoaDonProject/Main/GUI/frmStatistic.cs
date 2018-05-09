@@ -16,18 +16,15 @@ namespace Main.GUI
     {
         HoaDonBUS hoaDonBus = new HoaDonBUS();
         DonViMuaHangBUS donViMuaHang = new DonViMuaHangBUS();
+        bool isDate = true;
         public frmStatistic()
         {
             InitializeComponent();
+            gridUS1.isStatistic = true;
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            isDate = true;
             var listHoaDon = hoaDonBus.GetByDate(dtFrom.Value, dtTo.Value);
             LoadSource(listHoaDon);
         }
@@ -43,7 +40,7 @@ namespace Main.GUI
             gridUS1.MapColumn("DiaChi", "Địa chỉ");
             gridUS1.MapColumn("STK", "Số tài khoản");
             gridUS1.MapColumn("NgayXuat", "Ngày xuất");
-            gridUS1.MapColumn("HinhThuc", "HTTP");
+            gridUS1.MapColumn("HinhThuc", "HTTT");
             gridUS1.MapColumn("ThanhTien", "Thành tiền");
         }
 
@@ -66,6 +63,7 @@ namespace Main.GUI
 
         private void btnSearchByCustomer_Click(object sender, EventArgs e)
         {
+            isDate = false;
             var id = int.Parse(searchLookUpEdit1.EditValue.ToString());
             var list = hoaDonBus.GetHoaDonByDonViMua(id);
             LoadSource(list);

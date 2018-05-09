@@ -123,6 +123,7 @@
             this.Controls.Add(this.lbPassWord);
             this.Controls.Add(this.lbUserName);
             this.Controls.Add(this.pnImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

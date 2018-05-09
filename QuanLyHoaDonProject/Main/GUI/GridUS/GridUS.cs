@@ -28,6 +28,16 @@ namespace Main.GUI.GridUS
             txtTT.DataBindings.Add(data);
            
         }
+        public bool isStatistic
+        {
+            set
+            {
+                if(value == true)
+                {
+                    panel1.Visible = false;
+                }
+            }
+        }
         private bool isValid = false;
         private string thongTinTimKiem;
         private event EventHandler findClick;
