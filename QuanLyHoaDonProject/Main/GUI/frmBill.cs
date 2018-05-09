@@ -224,7 +224,7 @@ namespace Main.GUI
                 gridHD.MapColumn("ID", "Mã HD", true, HorzAlignment.Far);
                 gridHD.MapColumn("KyHieu", "Ký Hiệu", true, HorzAlignment.Far);
                 gridHD.MapColumn("NgayHD", "Ngày Bán", true, HorzAlignment.Far);
-                gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far,FormatType.Numeric, "{0:0,0.0 đ}");
+                gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far,FormatType.Numeric, "{0:0,0 đ}");
             }
 
 
@@ -1039,6 +1039,11 @@ namespace Main.GUI
         }
 
         private void gridHH_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridHD_Load(object sender, EventArgs e)
         {
 
         }

@@ -17,6 +17,8 @@ using Main.GUI.Report;
 using Main.DAO;
 using System.Data.Entity;
 using DevExpress.XtraReports.UI;
+using DevExpress.DocumentView;
+using DevExpress.XtraPrinting.Native;
 
 namespace Main.GUI
 {
@@ -45,7 +47,7 @@ namespace Main.GUI
                 MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
                 return;
             }
-            
+
             GridColumn[] mField = new GridColumn[]
           {
                  new GridColumn() {Caption="Mã hóa đơn",FieldName="ID",Visible=true },
@@ -55,6 +57,7 @@ namespace Main.GUI
           };
             cmbHD.Properties.View.Columns.AddRange(mField);
             GridColumn a = new GridColumn();
+
             a.Caption = "Tổng tiền";
             a.FieldName = "TongTienSo";
             a.DisplayFormat.FormatType = FormatType.Numeric;
@@ -68,43 +71,56 @@ namespace Main.GUI
 
         private void btnPri_Click(object sender, EventArgs e)
         {
-            showpreviewHoaDon();
+            if (cmbHD.EditValue != null)
+            {
+                showpreviewHoaDon(cmbHD.EditValue);
+            }
+            else
+            {
+                tt.Show("Chọn hóa đơn", cmbHD, 1500);
+            }
         }
-
-        private void showpreviewHoaDon()
+        reportHoaDon rpF;
+        private void showpreviewHoaDon(object editValue)
+        {
+           
+            int temp;
+            bool kq = int.TryParse(editValue.ToString(), out temp);
+            if (!kq)
+            {
+                return;
+            }
+            var temp2 = db.CTHoaDons.Where(x => x.HoaDonBanId == temp).ToList();
+            reportHoaDon rp = new reportHoaDon(temp2);
+            documentViewer1.DocumentSource = rp;
+            rpF = rp;
+            rp.CreateDocument(false);
+        }
+        private void documentViewer_MouseMove(object sender, MouseEventArgs e)
         {
 
-//             var temp = (from cthd in db.CTHoaDons
-//                        join hd in db.HoaDonBans on cthd.HoaDonBanId equals hd.ID
-//                        join httt in db.HinhThucThanhToans on hd.HinhThucThanhToanId equals httt.ID
-//                        join nm in db.NguoiMuas on hd.NguoiMuaId equals nm.ID
-//                        join nvb in db.NhanVienBans on hd.NhanVienBanId equals nvb.ID
-//                        join hh in db.HangHoas on cthd.HangHoaId equals hh.ID
-//                        where cthd.HoaDonBanId == 31
-//                        select new { cthd, hd, httt, nm, nvb, hh }).ToList();
-            //                        select new
-            //                        {
-            //                            IdHD = hd.ID,
-            //                            Thue = hd.ThueSuat,
-            //                            KH = hd.KyHieu,
-            //                            NgayHD = hd.NgayHD,
-            //                            Nvb = nvb.Name,
-            //                            Nm = nm.Name,
-            //                            TongTienS = hd.TongTienSo,
-            //                            TongTienC = hd.TongTienChu,
-            //                            NHTT = httt.Name,
-            //                            MSP = cthd.HangHoaId,
-            //                            TSP = hh.Name,
-            //                            SLM = cthd.SoLuongBan,
-            //                            DG = hh.DonGiaBan,
-            //                            DVT = hh.DVT
-            //                        }).ToList();
-            rp2 rp = new rp2();
-            var temp = db.CTHoaDons.Where(x=>x.HoaDonBanId==32).ToList();
-            rp.DataSource = temp;
-            rp.ShowPreviewDialog();
-            //documentViewer1.DocumentSource = rp;
+
+            if (rpF != null && rpF.IsMove)
+            {
+                Point screenPoint = System.Windows.Forms.Cursor.Position;
+
+                ViewManager viewManager = documentViewer1.ViewManager;
+                PSPage page = viewManager.FindPage(screenPoint) as PSPage;
+                if (page != null)
+                {
+
+                    PointF pageLocation = viewManager.GetPageRect(page).Location;
+                    PointF pt = documentViewer1.ViewControl.PointToClient(screenPoint);
+                    pt = PSUnitConverter.PixelToDoc(pt, documentViewer1.Zoom, viewManager.ScrollValue);
+                    pt = new PointF(pt.X - pageLocation.X - page.MarginsF.Left, pt.Y - pageLocation.Y - page.MarginsF.Top);
+                    rpF.SizePage = page.Size;
+                    rpF.PointTemp = pt;
+                }
+
+            }
 
         }
+
+
     }
 }

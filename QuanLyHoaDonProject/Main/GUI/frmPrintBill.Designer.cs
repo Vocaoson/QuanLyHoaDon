@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrintBill));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.btnPri = new DevExpress.XtraEditors.SimpleButton();
             this.cmbHD = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnPri = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
+            this.tt = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbHD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
@@ -50,36 +52,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(633, 51);
             this.panel1.TabIndex = 0;
-            // 
-            // documentViewer1
-            // 
-            this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.documentViewer1.IsMetric = true;
-            this.documentViewer1.Location = new System.Drawing.Point(0, 51);
-            this.documentViewer1.Name = "documentViewer1";
-            this.documentViewer1.ShowPageMargins = false;
-            this.documentViewer1.Size = new System.Drawing.Size(633, 309);
-            this.documentViewer1.Status = "Vui lòng chọn hóa đơn";
-            this.documentViewer1.TabIndex = 1;
-            // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(12, 20);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(78, 13);
-            this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "Chọn hóa đơn:";
-            // 
-            // btnPri
-            // 
-            this.btnPri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPri.ImageOptions.Image")));
-            this.btnPri.Location = new System.Drawing.Point(290, 12);
-            this.btnPri.Name = "btnPri";
-            this.btnPri.Size = new System.Drawing.Size(114, 29);
-            this.btnPri.TabIndex = 2;
-            this.btnPri.Text = "Xem trang in";
-            this.btnPri.Click += new System.EventHandler(this.btnPri_Click);
             // 
             // cmbHD
             // 
@@ -101,6 +73,41 @@
             this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
             this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // btnPri
+            // 
+            this.btnPri.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPri.ImageOptions.Image")));
+            this.btnPri.Location = new System.Drawing.Point(290, 8);
+            this.btnPri.Name = "btnPri";
+            this.btnPri.Size = new System.Drawing.Size(131, 38);
+            this.btnPri.TabIndex = 2;
+            this.btnPri.Text = "Xem trang in";
+            this.btnPri.Click += new System.EventHandler(this.btnPri_Click);
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(12, 20);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(78, 13);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "Chọn hóa đơn:";
+            // 
+            // documentViewer1
+            // 
+            this.documentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.documentViewer1.IsMetric = true;
+            this.documentViewer1.Location = new System.Drawing.Point(0, 51);
+            this.documentViewer1.Name = "documentViewer1";
+            this.documentViewer1.ShowPageMargins = false;
+            this.documentViewer1.Size = new System.Drawing.Size(633, 309);
+            this.documentViewer1.Status = "Vui lòng chọn hóa đơn";
+            this.documentViewer1.TabIndex = 1;
+            this.documentViewer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.documentViewer_MouseMove);
+            // 
+            // tt
+            // 
+            this.tt.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Error;
             // 
             // frmPrintBill
             // 
@@ -129,5 +136,6 @@
         private System.Windows.Forms.Label lbl1;
         private DevExpress.XtraEditors.SearchLookUpEdit cmbHD;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private System.Windows.Forms.ToolTip tt;
     }
 }

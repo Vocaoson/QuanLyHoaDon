@@ -163,7 +163,7 @@
             this.btnClearHH.Location = new System.Drawing.Point(48, 0);
             this.btnClearHH.Name = "btnClearHH";
             this.btnClearHH.Size = new System.Drawing.Size(43, 38);
-            this.btnClearHH.TabIndex = 17;
+            this.btnClearHH.TabIndex = 18;
             this.btnClearHH.Text = "simpleButton1";
             this.btnClearHH.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -504,7 +504,7 @@
             this.btnADDHH.Location = new System.Drawing.Point(3, 0);
             this.btnADDHH.Name = "btnADDHH";
             this.btnADDHH.Size = new System.Drawing.Size(43, 38);
-            this.btnADDHH.TabIndex = 16;
+            this.btnADDHH.TabIndex = 17;
             this.btnADDHH.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // panelControl1
@@ -531,6 +531,7 @@
             this.gridHD.Source = null;
             this.gridHD.TabIndex = 0;
             this.gridHD.ThongTinTimKiem = null;
+            this.gridHD.Load += new System.EventHandler(this.gridHD_Load);
             // 
             // panel1
             // 
@@ -679,7 +680,7 @@
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "Đơn giá";
-            this.gridColumn7.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.gridColumn7.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "DonGia";
             this.gridColumn7.Name = "gridColumn7";
@@ -694,7 +695,7 @@
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.Caption = "Thành tiền";
-            this.gridColumn8.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.gridColumn8.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "ThanhTien";
             this.gridColumn8.Name = "gridColumn8";
@@ -832,7 +833,7 @@
             this.txtTotal.Properties.Appearance.Options.UseForeColor = true;
             this.txtTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTotal.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.txtTotal.Properties.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.txtTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(106, 20);
@@ -849,7 +850,7 @@
             this.txtThue.Properties.Appearance.Options.UseForeColor = true;
             this.txtThue.Properties.Appearance.Options.UseTextOptions = true;
             this.txtThue.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtThue.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.txtThue.Properties.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.txtThue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtThue.Properties.ReadOnly = true;
             this.txtThue.Size = new System.Drawing.Size(106, 20);
@@ -866,7 +867,7 @@
             this.txtTienHang.Properties.Appearance.Options.UseForeColor = true;
             this.txtTienHang.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTienHang.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTienHang.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.txtTienHang.Properties.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.txtTienHang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTienHang.Properties.ReadOnly = true;
             this.txtTienHang.Size = new System.Drawing.Size(106, 20);
@@ -1015,7 +1016,7 @@
             this.gridDG.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridDG.Caption = "Đơn giá";
             this.gridDG.ColumnEdit = this.txtTT;
-            this.gridDG.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.gridDG.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.gridDG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridDG.FieldName = "DonGia";
             this.gridDG.Name = "gridDG";
@@ -1038,7 +1039,7 @@
             this.gridTT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridTT.Caption = "Thành tiền";
             this.gridTT.ColumnEdit = this.txtDVT;
-            this.gridTT.DisplayFormat.FormatString = "{0:0,0.0 đ}";
+            this.gridTT.DisplayFormat.FormatString = "{0:0,0 đ}";
             this.gridTT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridTT.FieldName = "ThanhTien";
             this.gridTT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
@@ -1057,7 +1058,7 @@
             this.panel3.Location = new System.Drawing.Point(468, 20);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(97, 41);
-            this.panel3.TabIndex = 1;
+            this.panel3.TabIndex = 16;
             // 
             // tt
             // 

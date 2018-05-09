@@ -199,12 +199,6 @@
     <Compile Include="GUI\Report\reportHoaDon.Designer.cs">
       <DependentUpon>reportHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Report\rp2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Report\rp2.Designer.cs">
-      <DependentUpon>rp2.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\TaskControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,9 +261,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Report\reportHoaDon.resx">
       <DependentUpon>reportHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Report\rp2.resx">
-      <DependentUpon>rp2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\TaskControl.resx">
       <DependentUpon>TaskControl.cs</DependentUpon>
