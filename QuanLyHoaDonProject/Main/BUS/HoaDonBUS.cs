@@ -160,8 +160,8 @@ namespace Main.BUS
             errorHDBUS = null;
             try
             {
-                int test;
-                bool kq = int.TryParse(noidungtimkiem, out test);
+                double test;
+                bool kq = double.TryParse(noidungtimkiem, out test);
                 if (!kq)
                 {
                     test = -1;

@@ -36,7 +36,7 @@ namespace Main
         }
         public static DateTime toDateTime(this object x)
         {
-            return DateTime.Parse(x.ToString());
+            return DateTime.ParseExact(x.ToString(),"MM/dd/yyyy",null);
         }
     }
 }

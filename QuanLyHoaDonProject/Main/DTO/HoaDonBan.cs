@@ -14,11 +14,10 @@ namespace Main.DTO
         public double ThueSuat { get; set; }
         [StringLengthAttribute(50)]
         public string KyHieu { get; set; }
-        [DataType(DataType.Date)]
+       
         public DateTime NgayHD { get; set; }
         public int HinhThucThanhToanId { get; set; }
         public  virtual HinhThucThanhToan HinhThucThanhToan { get; set; }
-        
         public int NguoiMuaId { get; set; }
         public virtual NguoiMua NguoiMua { get; set; }
         public int NhanVienBanId { get; set; }
