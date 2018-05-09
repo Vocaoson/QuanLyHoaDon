@@ -48,8 +48,8 @@ namespace Main.GUI
             if (hdBUS.ErrorHDBUS != null)
             {
                 MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
-                
                 deleteInfo();
+                return;
                 
             }
             loadDataDSHoaDon(temp);
