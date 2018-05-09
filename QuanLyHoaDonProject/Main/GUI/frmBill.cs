@@ -224,9 +224,7 @@ namespace Main.GUI
                 gridHD.MapColumn("ID", "Mã HD", true, HorzAlignment.Far);
                 gridHD.MapColumn("KyHieu", "Ký Hiệu", true, HorzAlignment.Far);
                 gridHD.MapColumn("NgayHD", "Ngày Bán", true, HorzAlignment.Far);
-                gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far, FormatType.Numeric, "C0");
-
-
+                gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far,FormatType.Numeric, "{0:0,0.0 đ}");
             }
 
 
@@ -897,9 +895,7 @@ namespace Main.GUI
                         cmbDV.ReadOnly = true;
                         txtNM.ReadOnly = true;
                         txtCMND.ReadOnly = true;
-                        txtIDTHUE.ReadOnly = true;
-                        txtSDT.ReadOnly = true;
-                        txtSTK.ReadOnly = true;
+                       
 
                         txtTienHang.ReadOnly = true;
                         txtThue.ReadOnly = true;
@@ -920,9 +916,6 @@ namespace Main.GUI
                         cmbDV.ReadOnly = false;
                         txtNM.ReadOnly = false;
                         txtCMND.ReadOnly = false;
-                        txtIDTHUE.ReadOnly = false;
-                        txtSDT.ReadOnly = false;
-                        txtSTK.ReadOnly = false;
 
                         txtTienHang.ReadOnly = false;
                         txtThue.ReadOnly = false;
@@ -1043,6 +1036,11 @@ namespace Main.GUI
                     gridHD.ShowColumnSelect();
                 }
             }
+        }
+
+        private void gridHH_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

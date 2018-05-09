@@ -28,7 +28,7 @@ namespace Main.DTO
         [StringLengthAttribute(100)]
         public string TongTienSo { get; set; }
 
-        [StringLengthAttribute(100)]
+        [StringLengthAttribute(250)]
         public string TongTienChu { get; set; }
     }
 }

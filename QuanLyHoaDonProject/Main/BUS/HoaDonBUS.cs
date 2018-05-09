@@ -79,8 +79,16 @@ namespace Main.BUS
             errorHDBUS = null;
             try
             {
+<<<<<<< HEAD
                 var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x =>
                 new { ID = x.ID, KyHieu = x.KyHieu, NgayHD = x.NgayHD, TongTienSo = double.Parse(x.TongTienSo), }).ToList();
+||||||| merged common ancestors
+                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x => 
+                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=int.Parse(x.TongTienSo)  , }).ToList();
+=======
+                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x => 
+                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=x.TongTienSo.toDoubleString()  , }).ToList();
+>>>>>>> 38885b7634b05f0307875c63169e6ec6e3d40966
                 return temp.Cast<object>().ToList();
             }
             catch (System.Exception ex)

@@ -163,7 +163,7 @@
             this.btnClearHH.Location = new System.Drawing.Point(48, 0);
             this.btnClearHH.Name = "btnClearHH";
             this.btnClearHH.Size = new System.Drawing.Size(43, 38);
-            this.btnClearHH.TabIndex = 14;
+            this.btnClearHH.TabIndex = 17;
             this.btnClearHH.Text = "simpleButton1";
             this.btnClearHH.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
@@ -187,7 +187,7 @@
             this.groupBox2.Location = new System.Drawing.Point(201, 20);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(364, 172);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "KHÁCH HÀNG";
             // 
@@ -196,7 +196,7 @@
             this.txtNM.Location = new System.Drawing.Point(236, 17);
             this.txtNM.Name = "txtNM";
             this.txtNM.Size = new System.Drawing.Size(112, 20);
-            this.txtNM.TabIndex = 7;
+            this.txtNM.TabIndex = 8;
             // 
             // cmbDV
             // 
@@ -207,7 +207,7 @@
             this.cmbDV.Properties.NullText = "";
             this.cmbDV.Properties.ShowHeader = false;
             this.cmbDV.Size = new System.Drawing.Size(62, 20);
-            this.cmbDV.TabIndex = 6;
+            this.cmbDV.TabIndex = 7;
             this.cmbDV.EditValueChanged += new System.EventHandler(this.cmbDV_EditValueChanged);
             // 
             // txtSTK
@@ -220,7 +220,7 @@
             this.txtSTK.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtSTK.Properties.ReadOnly = true;
             this.txtSTK.Size = new System.Drawing.Size(251, 20);
-            this.txtSTK.TabIndex = 11;
+            this.txtSTK.TabIndex = 12;
             // 
             // label3
             // 
@@ -241,7 +241,7 @@
             this.txtSDT.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtSDT.Properties.ReadOnly = true;
             this.txtSDT.Size = new System.Drawing.Size(251, 20);
-            this.txtSDT.TabIndex = 10;
+            this.txtSDT.TabIndex = 11;
             // 
             // txtIDTHUE
             // 
@@ -253,7 +253,7 @@
             this.txtIDTHUE.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.txtIDTHUE.Properties.ReadOnly = true;
             this.txtIDTHUE.Size = new System.Drawing.Size(251, 20);
-            this.txtIDTHUE.TabIndex = 9;
+            this.txtIDTHUE.TabIndex = 10;
             // 
             // label10
             // 
@@ -275,7 +275,7 @@
             this.txtCMND.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.txtCMND.Properties.Mask.PlaceHolder = ' ';
             this.txtCMND.Size = new System.Drawing.Size(251, 20);
-            this.txtCMND.TabIndex = 8;
+            this.txtCMND.TabIndex = 9;
             // 
             // label9
             // 
@@ -294,7 +294,7 @@
             this.txtADD.Properties.Appearance.Options.UseBackColor = true;
             this.txtADD.Properties.ReadOnly = true;
             this.txtADD.Size = new System.Drawing.Size(251, 20);
-            this.txtADD.TabIndex = 12;
+            this.txtADD.TabIndex = 13;
             // 
             // label8
             // 
@@ -350,7 +350,7 @@
             this.groupBox1.Location = new System.Drawing.Point(2, 20);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(199, 172);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "HÓA ĐƠN";
             // 
@@ -396,6 +396,7 @@
             this.txtIDHD.Properties.ReadOnly = true;
             this.txtIDHD.Size = new System.Drawing.Size(102, 20);
             this.txtIDHD.TabIndex = 1;
+            this.txtIDHD.TabStop = false;
             // 
             // txtNB
             // 
@@ -503,7 +504,7 @@
             this.btnADDHH.Location = new System.Drawing.Point(3, 0);
             this.btnADDHH.Name = "btnADDHH";
             this.btnADDHH.Size = new System.Drawing.Size(43, 38);
-            this.btnADDHH.TabIndex = 13;
+            this.btnADDHH.TabIndex = 16;
             this.btnADDHH.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // panelControl1
@@ -578,7 +579,7 @@
             this.gridTotalHH.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnXoa});
             this.gridTotalHH.Size = new System.Drawing.Size(563, 96);
-            this.gridTotalHH.TabIndex = 3;
+            this.gridTotalHH.TabIndex = 19;
             this.gridTotalHH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewTTHH});
             // 
@@ -678,7 +679,7 @@
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.Caption = "Đơn giá";
-            this.gridColumn7.DisplayFormat.FormatString = "c0";
+            this.gridColumn7.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "DonGia";
             this.gridColumn7.Name = "gridColumn7";
@@ -693,7 +694,7 @@
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.Caption = "Thành tiền";
-            this.gridColumn8.DisplayFormat.FormatString = "c0";
+            this.gridColumn8.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "ThanhTien";
             this.gridColumn8.Name = "gridColumn8";
@@ -747,7 +748,7 @@
             this.groupControl3.Location = new System.Drawing.Point(2, 259);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(567, 118);
-            this.groupControl3.TabIndex = 3;
+            this.groupControl3.TabIndex = 18;
             this.groupControl3.Text = "GIỎ HÀNG";
             // 
             // pnTotal
@@ -776,6 +777,7 @@
             this.txtChuMoney.ForeColor = System.Drawing.Color.DarkRed;
             this.txtChuMoney.Location = new System.Drawing.Point(0, 0);
             this.txtChuMoney.Name = "txtChuMoney";
+            this.txtChuMoney.ReadOnly = true;
             this.txtChuMoney.Size = new System.Drawing.Size(353, 76);
             this.txtChuMoney.TabIndex = 0;
             this.txtChuMoney.TabStop = false;
@@ -830,7 +832,7 @@
             this.txtTotal.Properties.Appearance.Options.UseForeColor = true;
             this.txtTotal.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTotal.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTotal.Properties.DisplayFormat.FormatString = "c0";
+            this.txtTotal.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTotal.Properties.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(106, 20);
@@ -847,7 +849,7 @@
             this.txtThue.Properties.Appearance.Options.UseForeColor = true;
             this.txtThue.Properties.Appearance.Options.UseTextOptions = true;
             this.txtThue.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtThue.Properties.DisplayFormat.FormatString = "c0";
+            this.txtThue.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtThue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtThue.Properties.ReadOnly = true;
             this.txtThue.Size = new System.Drawing.Size(106, 20);
@@ -864,7 +866,7 @@
             this.txtTienHang.Properties.Appearance.Options.UseForeColor = true;
             this.txtTienHang.Properties.Appearance.Options.UseTextOptions = true;
             this.txtTienHang.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtTienHang.Properties.DisplayFormat.FormatString = "c0";
+            this.txtTienHang.Properties.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.txtTienHang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtTienHang.Properties.ReadOnly = true;
             this.txtTienHang.Size = new System.Drawing.Size(106, 20);
@@ -887,7 +889,7 @@
             this.groupControl2.Location = new System.Drawing.Point(2, 196);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(567, 63);
-            this.groupControl2.TabIndex = 0;
+            this.groupControl2.TabIndex = 14;
             this.groupControl2.Text = "CHI TIẾT HÀNG HÓA DỊCH VỤ";
             // 
             // gridHH
@@ -903,9 +905,10 @@
             this.txtTT,
             this.cmbHH});
             this.gridHH.Size = new System.Drawing.Size(466, 41);
-            this.gridHH.TabIndex = 0;
+            this.gridHH.TabIndex = 15;
             this.gridHH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewHH});
+            this.gridHH.Click += new System.EventHandler(this.gridHH_Click);
             // 
             // gridviewHH
             // 
@@ -1012,7 +1015,7 @@
             this.gridDG.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridDG.Caption = "Đơn giá";
             this.gridDG.ColumnEdit = this.txtTT;
-            this.gridDG.DisplayFormat.FormatString = "c0";
+            this.gridDG.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridDG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridDG.FieldName = "DonGia";
             this.gridDG.Name = "gridDG";
@@ -1035,7 +1038,7 @@
             this.gridTT.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridTT.Caption = "Thành tiền";
             this.gridTT.ColumnEdit = this.txtDVT;
-            this.gridTT.DisplayFormat.FormatString = "c0";
+            this.gridTT.DisplayFormat.FormatString = "{0:0,0.0 đ}";
             this.gridTT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridTT.FieldName = "ThanhTien";
             this.gridTT.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
