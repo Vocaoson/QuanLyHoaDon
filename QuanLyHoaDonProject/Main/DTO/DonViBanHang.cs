@@ -11,10 +11,9 @@ namespace Main.DTO
     {
         [Key]
         public int ID { get; set; }
-        public int Logo { get; set; }
         [StringLengthAttribute(50)]
         public string Name { get; set; }
-        public int MaSoThueBan { get; set; }
+        public string MaSoThueBan { get; set; }
         [StringLengthAttribute(50)]
         public string DiaChi { get; set; }
 

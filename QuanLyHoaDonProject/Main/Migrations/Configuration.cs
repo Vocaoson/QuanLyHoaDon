@@ -25,7 +25,7 @@
                                                         , new DTO.DonViMuaHang() { ID = 2, Name = "DVM 2", DiaChiMua = "7/8/9 Thống Nhất", MaSoThueMua = (87654321).ToString(), STKMua = (43242343243).ToString(), SDTMua = (432423432443).ToString(), }
             );
 
-            context.DonViBanHangs.AddOrUpdate(m => m.ID, new DTO.DonViBanHang() { ID = 1, Name = "DV1", Logo = 0, MaSoThueBan = 123, DiaChi = "51/2/5 Hùng Vương", STKBan = (987654321).ToString(), SDTBan = (98745612314).ToString(), });
+            context.DonViBanHangs.AddOrUpdate(m => m.ID, new DTO.DonViBanHang() { ID = 1, Name = "DV1", MaSoThueBan = "123", DiaChi = "51/2/5 Hùng Vương", STKBan = (987654321).ToString(), SDTBan = (98745612314).ToString(), });
             context.NhanVienBans.AddOrUpdate(m => m.ID, new DTO.NhanVienBan() { ID = 1, Name = "Nhân Viên 1", GioiTinh = "Nữ", SDT = (01633185547).ToString(), DOB = new DateTime(1997, 12, 2), TTLamViec = "Còn làm", HinhAnh = "abc", CMND = (4542125455).ToString(), NgayCap = new DateTime(2010, 10, 23), NoiCap = "TP Hcm", DaXoa = false, }
                                                         , new DTO.NhanVienBan() { ID = 2, Name = "Nhân Viên 2", GioiTinh = "Nam", SDT = (01633185548).ToString(), DOB = new DateTime(1997, 12, 23), TTLamViec = "Còn làm", HinhAnh = "def", CMND = (4542125455).ToString(), NgayCap = new DateTime(2010, 10, 23), NoiCap = "TP Hcm", DaXoa = false, }
             );

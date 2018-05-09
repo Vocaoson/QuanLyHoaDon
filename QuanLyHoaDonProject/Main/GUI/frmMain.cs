@@ -73,13 +73,13 @@ namespace Main
         private void barBtnInforCompany_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCompanyInfor frm = new frmCompanyInfor();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void barBtnProgramInfor_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmProgramInfor frm = new frmProgramInfor();
-            frm.Show();
+            frm.ShowDialog();
         }
 
         private void barBtnOut_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
