@@ -44,7 +44,7 @@ namespace Main.GUI
             var temp = hdBUS.getHoaDonBan();
             if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
                 return;
             }
 
