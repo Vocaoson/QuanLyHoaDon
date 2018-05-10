@@ -47,7 +47,7 @@ namespace Main.GUI
             var temp = hdBUS.getHoaDonBan();
             if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
                 deleteInfo();
                 return;
                 
@@ -63,9 +63,15 @@ namespace Main.GUI
 
             string noidungtimkiem = gridHD.ThongTinTimKiem;
             var temp = hdBUS.getHoaDonByFind(noidungtimkiem);
+            if (temp.Count==0)
+            {
+                MessageBox.Show("Dữ liệu không tồn tại", "Thông báo");
+                gridHD.Source = null;
+                return;
+            }
             if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
                 deleteInfo();
            
             }
@@ -75,6 +81,15 @@ namespace Main.GUI
         private void GridHD_RefeshClick(object sender, EventArgs e)
         {
             gridHD.ThongTinTimKiem = "";
+            var temp = hdBUS.getHoaDonBan();
+            if (hdBUS.ErrorHDBUS != null)
+            {
+                MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
+                deleteInfo();
+                return;
+
+            }
+            loadDataDSHoaDon(temp);
 
         }
 
@@ -107,7 +122,7 @@ namespace Main.GUI
             HoaDonBan temp = hdBUS.findHoaDon(iDHD);
             if (temp == null)
             {
-                MessageBox.Show("Lổi khi lấy dữ liệu hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi lấy dữ liệu hóa đơn", "Error");
                 return;
             }
             showHoaDon(temp);
@@ -123,7 +138,7 @@ namespace Main.GUI
             gridTotalHH.DataSource = listHHSelect;
             if (lcthh == null)
             {
-                MessageBox.Show("Lổi khi lấy dữ liệu chi tiết hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi lấy dữ liệu chi tiết hóa đơn", "Error");
                 return;
             }
             List<HangHoa> lhh = new List<HangHoa>();
@@ -132,7 +147,7 @@ namespace Main.GUI
                 HangHoa temp2 = hhBUS.getHangHoaByID(lcthh[i].HangHoaId);
                 if (temp2 == null)
                 {
-                    MessageBox.Show("Lổi khi lấy dữ liệu hàng hóa", "Error");
+                    MessageBox.Show("Lỗi khi lấy dữ liệu hàng hóa", "Error");
                     return;
                 }
                 lhh.Add(temp2);
@@ -165,7 +180,7 @@ namespace Main.GUI
             NguoiMua kh = nmBUS.getNguoiMua(temp.NguoiMuaId);
             if (kh == null)
             {
-                MessageBox.Show("Lổi khi lấy dữ liệu người mua", "Error");
+                MessageBox.Show("Lỗi khi lấy dữ liệu người mua", "Error");
                 return;
             }
             idNmHide = kh.ID;
@@ -213,9 +228,9 @@ namespace Main.GUI
 
         private void loadDataDSHoaDon(List<object> source)
         {
-
-            if (source==null)
+            if (source==null||source.Count==0)
             {
+                gridHD.Source = null;
                 return;
             }
             if (source.Count > 0)
@@ -223,7 +238,7 @@ namespace Main.GUI
                 gridHD.Source = source;
                 gridHD.MapColumn("ID", "Mã HD", true, HorzAlignment.Far);
                 gridHD.MapColumn("KyHieu", "Ký Hiệu", true, HorzAlignment.Far);
-                gridHD.MapColumn("NgayHD", "Ngày Bán", true, HorzAlignment.Far);
+                gridHD.MapColumn("NgayHD", "Ngày Bán", true, HorzAlignment.Far,FormatType.DateTime,"dd/MM/yyyy");
                 gridHD.MapColumn("TongTienSo", "Tổng Tiền", true, HorzAlignment.Far,FormatType.Numeric, "{0:0,0 đ}");
             }
 
@@ -237,7 +252,7 @@ namespace Main.GUI
             dt.Columns.Add("Name", typeof(string));
             dt.Columns.Add("DVT", typeof(string));
             dt.Columns.Add("SoLuong", typeof(int));
-            dt.Columns.Add("DonGia", typeof(int));
+            dt.Columns.Add("DonGia", typeof(double));
             dt.Columns.Add("ThanhTien", typeof(double));
             gridHH.DataSource = dt;
             gridviewHH.AddNewRow();
@@ -268,10 +283,11 @@ namespace Main.GUI
                         var tempsource = hdBUS.getHoaDonBan();
                         if (hdBUS.ErrorHDBUS != null)
                         {
-                            MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
-                            deleteInfo();
+                            MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
+                           
                             return;
                         }
+                        deleteInfo();
                         loadDataDSHoaDon(tempsource);
                    
                         return;
@@ -286,7 +302,7 @@ namespace Main.GUI
             bool kq = hdBUS.deleteListHoaDonBUS(id);
             if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show("Lổi khi xóa hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi xóa hóa đơn", "Error");
                 return false;
             }
             return true;
@@ -297,7 +313,7 @@ namespace Main.GUI
             bool kq = cthdBUS.deleteListCtHoaDon(id);
             if (cthdBUS.ErrorCTHDBUS != null)
             {
-                MessageBox.Show("Lổi khi xóa chi tiết hóa đơn", "Error");
+                MessageBox.Show("Lỗi khi xóa chi tiết hóa đơn", "Error");
                 return false;
             }
             return true;
@@ -381,7 +397,7 @@ namespace Main.GUI
                     cthdBUS.insertCTHD(ct);
                     if (cthdBUS.ErrorCTHDBUS != null)
                     {
-                        MessageBox.Show("Lổi khi thêm chi tiết hóa đơn", "Error");
+                        MessageBox.Show("Lỗi khi thêm chi tiết hóa đơn", "Error");
                         return false;
                     }
                 }
@@ -424,7 +440,7 @@ namespace Main.GUI
             }
             if (hdBUS.ErrorHDBUS != null)
             {
-                MessageBox.Show("Lổi trong quá trình cập nhật hóa đơn", "Error");
+                MessageBox.Show("Lỗi trong quá trình cập nhật hóa đơn", "Error");
                 return false;
             }
             else
@@ -433,7 +449,7 @@ namespace Main.GUI
                 var temp = hdBUS.getHoaDonBan();
                 if (hdBUS.ErrorHDBUS != null)
                 {
-                    MessageBox.Show("Lổi khi load danh sách hóa đơn", "Error");
+                    MessageBox.Show("Lỗi khi load danh sách hóa đơn", "Error");
                     deleteInfo();
                 }
                 loadDataDSHoaDon(temp);
@@ -485,7 +501,7 @@ namespace Main.GUI
             }
             if (nmBUS.ErrorNMBUS != null)
             {
-                MessageBox.Show("Lổi trong quá trình cập nhật người mua", "Error");
+                MessageBox.Show("Lỗi trong quá trình cập nhật người mua", "Error");
                 return false;
             }
 
@@ -646,7 +662,7 @@ namespace Main.GUI
             {
                 if (hdBUS.ErrorHDBUS != null)
                 {
-                    MessageBox.Show("Lổi hệ thống", "Error");
+                    MessageBox.Show("Lỗi hệ thống", "Error");
                 }
                 deleteInfo();
             }
@@ -660,7 +676,7 @@ namespace Main.GUI
                 HangHoa temp = hhBUS.checkHangHoaKho(listHHSelect[i].ID);
                 if (temp == null)
                 {
-                    MessageBox.Show("Lổi cập nhật hàng hóa", "Error");
+                    MessageBox.Show("Lỗi cập nhật hàng hóa", "Error");
                     return false;
                 }
                 hhBUS.updateHangHoa(temp);
@@ -827,6 +843,10 @@ namespace Main.GUI
             }
             ///kiem tra so luong nhap
             HangHoa temphh = cmbHH.GetDataSourceRowByKeyValue(gridviewHH.GetRowCellValue(gridviewHH.FocusedRowHandle, "ID")) as HangHoa;
+            if (temphh==null)
+            {
+                return;
+            }
             int sl = int.Parse(txt.EditValue.ToString());
             if (sl > temphh.SoLuong)
             {
@@ -1037,6 +1057,5 @@ namespace Main.GUI
                 }
             }
         }
-
     }
 }

@@ -166,13 +166,17 @@ namespace Main.BUS
                 {
                     test = -1;
                 }
+
+
+
                 var temp = hdDAO.HoaDonBans.AsEnumerable().Where(hd => hd.ID == test ||
                                                  hd.ThueSuat == test ||
                                                  hd.KyHieu.Contains(noidungtimkiem) ||
                                                  hd.TongTienSo.Contains(noidungtimkiem) ||
                                                  hd.TongTienChu.Contains(noidungtimkiem)
+                                                    
                                                  ).Select(x =>
-                new { ID = x.ID, KyHieu = x.KyHieu, NgayHD = x.NgayHD, TongTienSo = int.Parse(x.TongTienSo), }).ToList();
+                new { ID = x.ID, KyHieu = x.KyHieu, NgayHD = x.NgayHD, TongTienSo = x.TongTienSo.toDoubleString(), }).ToList();
                 return temp.Cast<object>().ToList();
             }
             catch (System.Exception ex)

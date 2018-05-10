@@ -63,8 +63,9 @@ namespace Main.GUI
                     var rs = bus.GetAll();
                     if(programBus.CountHTTT() == 0)
                     {
-                        programBus.AddDefaultHTTT("Trực tiếp");
+                        programBus.AddDefaultHTTT("Tiền mặt");
                         programBus.AddDefaultHTTT("Chuyển khoản");
+                        programBus.AddDefaultHTTT("Tiền mặt/ Chuyển Khoản");
                     }
                     if (rs != null)
                     {
@@ -78,6 +79,7 @@ namespace Main.GUI
                             this.Close();
                         }));
                     }
+                   
                 }
                 catch
                 {

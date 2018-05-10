@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBill));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnClearHH = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNM = new DevExpress.XtraEditors.TextEdit();
@@ -388,6 +388,12 @@
             // 
             // numThue
             // 
+            this.numThue.DecimalPlaces = 1;
+            this.numThue.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numThue.Location = new System.Drawing.Point(81, 67);
             this.numThue.Name = "numThue";
             this.numThue.Size = new System.Drawing.Size(102, 21);
@@ -490,7 +496,7 @@
             this.tControl.isSuccessFul = false;
             this.tControl.Location = new System.Drawing.Point(0, 0);
             this.tControl.Name = "tControl";
-            this.tControl.Size = new System.Drawing.Size(422, 41);
+            this.tControl.Size = new System.Drawing.Size(429, 41);
             this.tControl.TabIndex = 13;
             this.tControl.Load += new System.EventHandler(this.taskControl1_Load);
             // 
@@ -511,7 +517,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(499, 459);
+            this.panelControl1.Size = new System.Drawing.Size(506, 459);
             this.panelControl1.TabIndex = 3;
             // 
             // gridHD
@@ -523,7 +529,7 @@
             this.gridHD.Name = "gridHD";
             this.gridHD.NumberRecord = 10;
             this.gridHD.PageCurrent = 1;
-            this.gridHD.Size = new System.Drawing.Size(495, 357);
+            this.gridHD.Size = new System.Drawing.Size(502, 357);
             this.gridHD.Source = null;
             this.gridHD.TabIndex = 0;
             this.gridHD.ThongTinTimKiem = null;
@@ -535,14 +541,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(2, 416);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(495, 41);
+            this.panel1.Size = new System.Drawing.Size(502, 41);
             this.panel1.TabIndex = 14;
             // 
             // simpleButton1
             // 
             this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Right;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(422, 0);
+            this.simpleButton1.Location = new System.Drawing.Point(429, 0);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(73, 41);
             this.simpleButton1.TabIndex = 14;
@@ -562,7 +568,7 @@
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(2, 2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(495, 57);
+            this.labelControl1.Size = new System.Drawing.Size(502, 57);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "HÓA ĐƠN GIÁ TRỊ GIA TĂNG";
             // 
@@ -710,9 +716,9 @@
             // btnXoa
             // 
             this.btnXoa.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Tag = "";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -726,7 +732,7 @@
             this.pnTT.Controls.Add(this.groupControl1);
             this.pnTT.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnTT.Enabled = false;
-            this.pnTT.Location = new System.Drawing.Point(499, 0);
+            this.pnTT.Location = new System.Drawing.Point(506, 0);
             this.pnTT.Name = "pnTT";
             this.pnTT.Size = new System.Drawing.Size(571, 459);
             this.pnTT.TabIndex = 4;
@@ -1066,7 +1072,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1070, 459);
+            this.ClientSize = new System.Drawing.Size(1077, 459);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.pnTT);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
