@@ -69,12 +69,12 @@ namespace Main.GUI
             }
             if (rs == true)
             {
-                MessageBox.Show("Sửa đơn vị bán hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhật đơn vị bán hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Sửa đơn vị bán hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cập nhật đơn vị bán hàng không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public bool inputIsCorrect()

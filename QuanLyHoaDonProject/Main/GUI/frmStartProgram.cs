@@ -16,6 +16,7 @@ namespace Main.GUI
     public partial class frmStartProgram : Form
     {
         ProductBus bus = new ProductBus();
+        ProgramBUS programBus = new ProgramBUS();
         event EventHandler success;
         public frmStartProgram()
         {
@@ -60,6 +61,11 @@ namespace Main.GUI
                 try
                 {
                     var rs = bus.GetAll();
+                    if(programBus.CountHTTT() == 0)
+                    {
+                        programBus.AddDefaultHTTT("Trực tiếp");
+                        programBus.AddDefaultHTTT("Chuyển khoản");
+                    }
                     if (rs != null)
                     {
                         success?.Invoke(this, EventArgs.Empty);

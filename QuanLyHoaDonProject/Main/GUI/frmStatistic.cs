@@ -30,6 +30,12 @@ namespace Main.GUI
         }
         public void LoadSource(List<object> source)
         {
+            if(source.Count == 0)
+            {
+                gridUS1.Source = null;
+                return;
+            }
+
             var listHoaDon = source;
             gridUS1.Source = listHoaDon;
             gridUS1.MapColumn("ID", "Số hóa đơn");

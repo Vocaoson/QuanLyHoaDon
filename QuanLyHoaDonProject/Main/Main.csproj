@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="BUS\DangNhapBUS.cs" />
     <Compile Include="BUS\CTHoaDonBUS.cs" />
-	<Compile Include="BUS\DonViBanHangBUS.cs" />
+    <Compile Include="BUS\DonViBanHangBUS.cs" />
     <Compile Include="BUS\DonViMuaHangBUS.cs" />
     <Compile Include="BUS\HangHoaBUS.cs" />
     <Compile Include="BUS\HinhThucThanhToanBUS.cs" />
@@ -93,6 +93,7 @@
     <Compile Include="BUS\NguoiMuaBUS.cs" />
     <Compile Include="BUS\NhanVienBanBUS.cs" />
     <Compile Include="BUS\ProductBus.cs" />
+    <Compile Include="BUS\ProgramBUS.cs" />
     <Compile Include="DAO\QuanLyHoaDonContext.cs" />
     <Compile Include="DTO\CTHoaDon.cs" />
     <Compile Include="DTO\DangNhap.cs" />

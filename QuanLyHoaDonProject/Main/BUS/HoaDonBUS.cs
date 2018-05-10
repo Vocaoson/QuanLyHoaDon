@@ -93,7 +93,7 @@ namespace Main.BUS
         {
             try
             {
-                var rs = hdDAO.HoaDonBans
+                 var rs = hdDAO.HoaDonBans
    .Join(hdDAO.DonViMuaHangs,
       hd => hd.ID,
       dvmh => dvmh.ID,
@@ -106,13 +106,13 @@ namespace Main.BUS
    {
        ID = item.HoaDon.ID,
        KiHieu = item.HoaDon.KyHieu,
-       MaKhachHang = item.DVMH.Name,
+       MaKhachHang = item.DVMH.ID,
        TenDonViMua = item.DVMH.Name,
        MaSoThue = item.DVMH.MaSoThueMua,
        DiaChi = item.DVMH.DiaChiMua,
        STK = item.DVMH.SDTMua,
        NgayXuat = item.HoaDon.NgayHD,
-       HinhThuc = item.HoaDon.HinhThucThanhToan,
+       HinhThuc = item.HoaDon.HinhThucThanhToan.Name,
        ThanhTien = item.HoaDon.TongTienSo
    }).ToList();    // where statement
                 return rs.Cast<object>().ToList();
@@ -139,13 +139,13 @@ namespace Main.BUS
    {
        ID = item.HoaDon.ID,
        KiHieu = item.HoaDon.KyHieu,
-       MaKhachHang = item.DVMH.Name,
+       MaKhachHang = item.DVMH.ID,
        TenDonViMua = item.DVMH.Name,
        MaSoThue = item.DVMH.MaSoThueMua,
        DiaChi = item.DVMH.DiaChiMua,
        STK = item.DVMH.SDTMua,
        NgayXuat = item.HoaDon.NgayHD,
-       HinhThuc = item.HoaDon.HinhThucThanhToan,
+       HinhThuc = item.HoaDon.HinhThucThanhToan.Name,
        ThanhTien = item.HoaDon.TongTienSo
    }).ToList();    // where statement
                 return rs.Cast<object>().ToList();
