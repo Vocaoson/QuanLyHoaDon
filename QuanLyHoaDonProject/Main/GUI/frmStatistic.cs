@@ -16,7 +16,6 @@ namespace Main.GUI
     {
         HoaDonBUS hoaDonBus = new HoaDonBUS();
         DonViMuaHangBUS donViMuaHang = new DonViMuaHangBUS();
-        bool isDate = true;
         public frmStatistic()
         {
             InitializeComponent();
@@ -24,18 +23,21 @@ namespace Main.GUI
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            isDate = true;
             var listHoaDon = hoaDonBus.GetByDate(dtFrom.Value, dtTo.Value);
             LoadSource(listHoaDon);
         }
         public void LoadSource(List<object> source)
         {
-            if(source.Count == 0)
+            if (source == null)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Dispose();
+            }
+            if (source.Count == 0)
             {
                 gridUS1.Source = null;
                 return;
             }
-
             var listHoaDon = source;
             gridUS1.Source = listHoaDon;
             gridUS1.MapColumn("ID", "Số hóa đơn");
@@ -43,6 +45,7 @@ namespace Main.GUI
             gridUS1.MapColumn("MaKhachHang", "Mã đơn vị mua");
             gridUS1.MapColumn("TenDonViMua", "Tên đơn vị mua");
             gridUS1.MapColumn("MaSoThue", "Mã số thuế");
+            gridUS1.MapColumn("TenNguoiMua", "Tên người mua");
             gridUS1.MapColumn("DiaChi", "Địa chỉ");
             gridUS1.MapColumn("STK", "Số tài khoản");
             gridUS1.MapColumn("NgayXuat", "Ngày xuất");
@@ -69,7 +72,10 @@ namespace Main.GUI
 
         private void btnSearchByCustomer_Click(object sender, EventArgs e)
         {
-            isDate = false;
+            if(searchLookUpEdit1.EditValue == null)
+            {
+                return;
+            }
             var id = int.Parse(searchLookUpEdit1.EditValue.ToString());
             var list = hoaDonBus.GetHoaDonByDonViMua(id);
             LoadSource(list);

@@ -13,43 +13,81 @@ namespace Main.BUS
         QuanLyHoaDonContext context = new QuanLyHoaDonContext();
         public List<HangHoa> GetAll()
         {
-            return context.HangHoas.Where(item=> item.DaXoa == false).ToList();
+            try
+            {
+                return context.HangHoas.Where(item => item.DaXoa == false).ToList();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            
         }
         public bool Add(HangHoa hangHoa)
         {
-            context.HangHoas.Add(hangHoa);
-            if(context.SaveChanges() <= 0)
+
+            try
             {
-                return false;
-            }      
-            return true;
-        }
-        public bool Update(HangHoa hs)
-        {
-            var hangHoa = context.HangHoas.Find(hs.ID);
-            hangHoa.Name = hs.Name;
-            hangHoa.DVT = hs.DVT;
-            hangHoa.SoLuong = hs.SoLuong;
-            hangHoa.DonGiaBan = hs.DonGiaBan;
-            hangHoa.DonGiaNhap = hs.DonGiaNhap;
-            hangHoa.GhiChu = hs.GhiChu;
-            hangHoa.DaXoa = hs.DaXoa;
-            if(context.SaveChanges() <= 0)
+                context.HangHoas.Add(hangHoa);
+                if (context.SaveChanges() <= 0)
+                {
+                    return false;
+                }
+                return true;
+            }catch(Exception ex)
             {
                 return false;
             }
-            return true;
+        }
+        public bool Update(HangHoa hs)
+        { 
+            try
+            {
+                var hangHoa = context.HangHoas.Find(hs.ID);
+                hangHoa.Name = hs.Name;
+                hangHoa.DVT = hs.DVT;
+                hangHoa.SoLuong = hs.SoLuong;
+                hangHoa.DonGiaBan = hs.DonGiaBan;
+                hangHoa.DonGiaNhap = hs.DonGiaNhap;
+                hangHoa.GhiChu = hs.GhiChu;
+                hangHoa.DaXoa = hs.DaXoa;
+                if (context.SaveChanges() <= 0)
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
         public bool Delete(HangHoa hs)
         {
-            var hangHoa = context.HangHoas.Find(hs.ID);
-            hangHoa.DaXoa = true;
-            if (context.SaveChanges() <= 0) return false;
-            return true;
+            try
+            {
+                var hangHoa = context.HangHoas.Find(hs.ID);
+                hangHoa.DaXoa = true;
+                if (context.SaveChanges() <= 0) return false;
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
         }
         public List<HangHoa> FindByName(string name)
         {
-            return context.HangHoas.Where(item => item.Name.Contains(name) && item.DaXoa == false).ToList();
+            try
+            {
+                return context.HangHoas.Where(item => item.Name.Contains(name) && item.DaXoa == false).ToList();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+
         }
     }
 }

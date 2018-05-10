@@ -39,6 +39,7 @@ namespace Main.GUI
         }
         private void TaskControl1_SaveEvent(object sender, EventArgs e)
         {
+            isFind = false;
             if (!inputIsCorrect()) return;
             taskControl1.isSuccessFul = true;
             var nhanVien = new NhanVienBan()
@@ -128,6 +129,7 @@ namespace Main.GUI
 
         private void LoadAll()
         {
+            gridUS1.Source = null;
             var rs = new List<NhanVienBan>();
             if (isFind)
             {
@@ -160,6 +162,7 @@ namespace Main.GUI
         private void GridUS1_RefeshClick(object sender, EventArgs e)
         {
             isFind = false;
+            gridUS1.ThongTinTimKiem = "";
             LoadAll();
         }
         private void TaskControl1_AddEvent(object sender, EventArgs e)
@@ -216,6 +219,10 @@ namespace Main.GUI
                 else if(item is DateTimePicker)
                 {
                     (item as DateTimePicker).Value = DateTime.Now;
+                }
+                else if(item is PictureBox)
+                {
+                    (item as PictureBox).Image = null;
                 }
             }
         }

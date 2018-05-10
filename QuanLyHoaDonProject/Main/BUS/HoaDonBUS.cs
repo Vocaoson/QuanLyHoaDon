@@ -91,33 +91,29 @@ namespace Main.BUS
         }
         public List<object> GetByDate(DateTime dateFrom, DateTime dateTo)
         {
+            if (dateFrom.Date == dateTo.Date)
+            {
+                dateFrom = new DateTime(1970, 1, 1);
+            }
             try
             {
-                 var rs = hdDAO.HoaDonBans
-   .Join(hdDAO.DonViMuaHangs,
-      hd => hd.ID,
-      dvmh => dvmh.ID,
-      (hd, dvmh) => new
-      {
-          HoaDon = hd,
-          DVMH = dvmh
-      })
-   .Where(item => item.HoaDon.NgayHD >= dateFrom && item.HoaDon.NgayHD <= dateTo).Select(item => new
-   {
-       ID = item.HoaDon.ID,
-       KiHieu = item.HoaDon.KyHieu,
-       MaKhachHang = item.DVMH.ID,
-       TenDonViMua = item.DVMH.Name,
-       MaSoThue = item.DVMH.MaSoThueMua,
-       DiaChi = item.DVMH.DiaChiMua,
-       STK = item.DVMH.SDTMua,
-       NgayXuat = item.HoaDon.NgayHD,
-       HinhThuc = item.HoaDon.HinhThucThanhToan.Name,
-       ThanhTien = item.HoaDon.TongTienSo
-   }).ToList();    // where statement
+                var rs = hdDAO.HoaDonBans.AsEnumerable().ToList().Where(item => item.NgayHD >= dateFrom && item.NgayHD <= dateTo).ToList().Select(hd => new
+                {
+                    ID = hd.ID,
+                    KiHieu = hd.KyHieu,
+                    MaKhachHang = hd.NguoiMua.DonViMuaHangId,
+                    TenDonViMua = hd.NguoiMua.DonViMuaHang.Name,
+                    MaSoThue = hd.NguoiMua.DonViMuaHang.MaSoThueMua,
+                    TenNguoiMua = hd.NguoiMua.Name,
+                    DiaChi = hd.NguoiMua.DonViMuaHang.DiaChiMua,
+                    STK = hd.NguoiMua.DonViMuaHang.STKMua,
+                    NgayXuat = hd.NgayHD,
+                    HinhThuc = hd.HinhThucThanhToan.Name,
+                    ThanhTien = hd.TongTienSo
+                }).ToList();
                 return rs.Cast<object>().ToList();
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }
@@ -126,31 +122,23 @@ namespace Main.BUS
         {
             try
             {
-                var rs = hdDAO.HoaDonBans
-   .Join(hdDAO.DonViMuaHangs,
-      hd => hd.ID,
-      dvmh => dvmh.ID,
-      (hd, dvmh) => new
-      {
-          HoaDon = hd,
-          DVMH = dvmh
-      })
-   .Where(item => item.DVMH.ID == id).Select(item => new
-   {
-       ID = item.HoaDon.ID,
-       KiHieu = item.HoaDon.KyHieu,
-       MaKhachHang = item.DVMH.ID,
-       TenDonViMua = item.DVMH.Name,
-       MaSoThue = item.DVMH.MaSoThueMua,
-       DiaChi = item.DVMH.DiaChiMua,
-       STK = item.DVMH.SDTMua,
-       NgayXuat = item.HoaDon.NgayHD,
-       HinhThuc = item.HoaDon.HinhThucThanhToan.Name,
-       ThanhTien = item.HoaDon.TongTienSo
-   }).ToList();    // where statement
+                var rs = hdDAO.HoaDonBans.AsEnumerable().ToList().Where(item => item.NguoiMua.DonViMuaHangId == id).ToList().Select(hd => new
+                {
+                    ID = hd.ID,
+                    KiHieu = hd.KyHieu,
+                    MaKhachHang = hd.NguoiMua.DonViMuaHangId,
+                    TenDonViMua = hd.NguoiMua.DonViMuaHang.Name,
+                    MaSoThue = hd.NguoiMua.DonViMuaHang.MaSoThueMua,
+                    TenNguoiMua = hd.NguoiMua.Name,
+                    DiaChi = hd.NguoiMua.DonViMuaHang.DiaChiMua,
+                    STK = hd.NguoiMua.DonViMuaHang.STKMua,
+                    NgayXuat = hd.NgayHD,
+                    HinhThuc = hd.HinhThucThanhToan.Name,
+                    ThanhTien = hd.TongTienSo
+                }).ToList();
                 return rs.Cast<object>().ToList();
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }

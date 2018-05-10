@@ -28,12 +28,12 @@ namespace Main.GUI
             gridUS1.GridviewUS.RowClick += GridviewUS_RowClick;
             gridUS1.FindClick += GridUS1_FindClick;
             gridUS1.RefeshClick += GridUS1_RefeshClick;
-          //  gridUS1.GridviewUS.FocusedRowChanged += GridviewUS_FocusedRowChanged;
         }
 
         private void GridUS1_RefeshClick(object sender, EventArgs e)
         {
             isFind = false;
+            gridUS1.ThongTinTimKiem = "";
             LoadAll();
         }
 
@@ -42,13 +42,6 @@ namespace Main.GUI
             isFind = true;
             LoadAll();
         }
-
-        //private void GridviewUS_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        //{
-        //    taskControl1.IsRowClick = true;
-        //    Bind();
-        //}
-
         private void TaskControl1_DeleteEvent(object sender, EventArgs e)
         {
             var hs = new HangHoa() { ID = int.Parse(txtProductId.Text) };
@@ -83,6 +76,7 @@ namespace Main.GUI
 
         private void TaskControl1_SaveEvent(object sender, EventArgs e)
         {
+            isFind = false;
             if (!inputIsCorrect()) return;
             taskControl1.isSuccessFul = true;
             var hangHoa = new HangHoa()
@@ -143,9 +137,15 @@ namespace Main.GUI
         }
         private void LoadAll()
         {
+            gridUS1.Source = null;
             if (isFind)
             {
                 var rs = productBus.FindByName(gridUS1.ThongTinTimKiem);
+                if(rs == null)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Dispose();
+                }
                 if(rs.Count == 0)
                 {
                     return;
@@ -155,7 +155,12 @@ namespace Main.GUI
             else
             {
                 var rs = productBus.GetAll();
-                if(rs.Count == 0)
+                if (rs == null)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (rs.Count == 0)
                 {
                     return;
                 }
