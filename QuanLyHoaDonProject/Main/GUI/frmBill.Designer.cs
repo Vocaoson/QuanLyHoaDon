@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBill));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btnClearHH = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNM = new DevExpress.XtraEditors.TextEdit();
@@ -52,11 +52,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNB = new System.Windows.Forms.DateTimePicker();
             this.cmbNVBH = new DevExpress.XtraEditors.LookUpEdit();
             this.cmbHTTT = new DevExpress.XtraEditors.LookUpEdit();
             this.numThue = new System.Windows.Forms.NumericUpDown();
             this.txtIDHD = new DevExpress.XtraEditors.TextEdit();
-            this.txtNB = new DevExpress.XtraEditors.TextEdit();
             this.txtKH = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -124,7 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbHTTT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numThue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDHD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -334,11 +333,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNB);
             this.groupBox1.Controls.Add(this.cmbNVBH);
             this.groupBox1.Controls.Add(this.cmbHTTT);
             this.groupBox1.Controls.Add(this.numThue);
             this.groupBox1.Controls.Add(this.txtIDHD);
-            this.groupBox1.Controls.Add(this.txtNB);
             this.groupBox1.Controls.Add(this.txtKH);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label6);
@@ -353,6 +352,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "HÓA ĐƠN";
+            // 
+            // txtNB
+            // 
+            this.txtNB.CustomFormat = "dd/MM/yyyy";
+            this.txtNB.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtNB.Location = new System.Drawing.Point(81, 92);
+            this.txtNB.Name = "txtNB";
+            this.txtNB.Size = new System.Drawing.Size(102, 21);
+            this.txtNB.TabIndex = 3;
             // 
             // cmbNVBH
             // 
@@ -397,18 +405,6 @@
             this.txtIDHD.Size = new System.Drawing.Size(102, 20);
             this.txtIDHD.TabIndex = 1;
             this.txtIDHD.TabStop = false;
-            // 
-            // txtNB
-            // 
-            this.txtNB.Location = new System.Drawing.Point(81, 93);
-            this.txtNB.Name = "txtNB";
-            this.txtNB.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtNB.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtNB.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.txtNB.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTime;
-            this.txtNB.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtNB.Size = new System.Drawing.Size(102, 20);
-            this.txtNB.TabIndex = 3;
             // 
             // txtKH
             // 
@@ -531,7 +527,6 @@
             this.gridHD.Source = null;
             this.gridHD.TabIndex = 0;
             this.gridHD.ThongTinTimKiem = null;
-            this.gridHD.Load += new System.EventHandler(this.gridHD_Load);
             // 
             // panel1
             // 
@@ -715,9 +710,9 @@
             // btnXoa
             // 
             this.btnXoa.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Tag = "";
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -909,7 +904,6 @@
             this.gridHH.TabIndex = 15;
             this.gridHH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewHH});
-            this.gridHH.Click += new System.EventHandler(this.gridHH_Click);
             // 
             // gridviewHH
             // 
@@ -1094,7 +1088,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbHTTT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numThue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDHD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -1147,7 +1140,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit txtIDHD;
-        private DevExpress.XtraEditors.TextEdit txtNB;
         private DevExpress.XtraEditors.TextEdit txtKH;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
@@ -1209,5 +1201,6 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.RichTextBox txtChuMoney;
+        private System.Windows.Forms.DateTimePicker txtNB;
     }
 }

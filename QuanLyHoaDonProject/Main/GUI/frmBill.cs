@@ -187,7 +187,7 @@ namespace Main.GUI
         {
 
             txtIDHD.EditValue = temp.ID;
-            txtNB.EditValue = temp.NgayHD;
+            txtNB.Value = temp.NgayHD;
             txtKH.EditValue = temp.KyHieu;
             numThue.Value = temp.ThueSuat.toDecimal();
             List<HinhThucThanhToan> listHTT = htttBUS.getAllListHTTT();
@@ -407,7 +407,7 @@ namespace Main.GUI
             hdTemp.HinhThucThanhToanId = cmbHTTT.EditValue.toInt();
             hdTemp.KyHieu = txtKH.EditValue.ToString();
             hdTemp.NguoiMuaId = idnguoimua;
-            hdTemp.NgayHD = txtNB.EditValue.toDateTime();
+            hdTemp.NgayHD = txtNB.Value;
             hdTemp.DaXoa = false;
             hdTemp.NhanVienBanId = cmbNVBH.EditValue.toInt();
             hdTemp.TongTienSo = txtTotal.EditValue.ToString();
@@ -696,7 +696,7 @@ namespace Main.GUI
         private void panelHoadon(int idhd)
         {
             txtIDHD.Text = idhd.ToString();
-            txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            txtNB.Value = DateTime.Now;
             List<HinhThucThanhToan> listHTT = htttBUS.getAllListHTTT();
             if (listHTT.Count == 0)
             {
@@ -887,7 +887,7 @@ namespace Main.GUI
 
                         pnTT.Enabled = true;
                         txtKH.ReadOnly = true;
-                        txtNB.ReadOnly = true;
+                        txtNB.Enabled = false;
                         numThue.Enabled = false;
                         cmbNVBH.ReadOnly = true;
                         cmbHTTT.ReadOnly = true;
@@ -908,7 +908,7 @@ namespace Main.GUI
                     case Mode.Edit:
                         pnTT.Enabled = true;
                         txtKH.ReadOnly = false;
-                        txtNB.ReadOnly = false;
+                        txtNB.Enabled = true;
                         numThue.Enabled = true;
                         cmbNVBH.ReadOnly = false;
                         cmbHTTT.ReadOnly = false;
@@ -1038,14 +1038,5 @@ namespace Main.GUI
             }
         }
 
-        private void gridHH_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridHD_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

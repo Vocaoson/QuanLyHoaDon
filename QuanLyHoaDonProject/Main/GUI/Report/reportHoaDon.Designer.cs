@@ -196,6 +196,7 @@
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(207.2917F, 23F);
             this.xrLabel4.Text = "xrLabel4";
+            this.xrLabel4.TextFormatString = "{0} %";
             this.xrLabel4.WordWrap = false;
             this.xrLabel4.PreviewClick += new DevExpress.XtraReports.UI.PreviewMouseEventHandler(this.xrLabel_PreviewClick);
             // 
