@@ -79,8 +79,8 @@ namespace Main.BUS
             errorHDBUS = null;
             try
             {
-                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x => 
-                new { ID = x.ID, KyHieu = x.KyHieu,NgayHD=x.NgayHD,TongTienSo=x.TongTienSo.toDoubleString()  , }).ToList();
+                var temp = hdDAO.HoaDonBans.AsEnumerable().Where(x => x.DaXoa == false).Select(x =>
+                new { ID = x.ID, KyHieu = x.KyHieu, NgayHD = x.NgayHD, TongTienSo = x.TongTienSo.toDoubleString(), }).ToList();
                 return temp.Cast<object>().ToList();
             }
             catch (System.Exception ex)
