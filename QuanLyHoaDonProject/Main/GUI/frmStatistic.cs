@@ -47,7 +47,7 @@ namespace Main.GUI
             gridUS1.MapColumn("STK", "Số tài khoản");
             gridUS1.MapColumn("NgayXuat", "Ngày xuất");
             gridUS1.MapColumn("HinhThuc", "HTTT");
-            gridUS1.MapColumn("ThanhTien", "Thành tiền");
+            gridUS1.MapColumn("ThanhTien", "Thành tiền",true,DevExpress.Utils.HorzAlignment.Center,DevExpress.Utils.FormatType.Numeric, "{0:0,0 đ}");
         }
 
         private void frmStatistic_Load(object sender, EventArgs e)
