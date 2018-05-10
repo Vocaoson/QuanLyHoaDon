@@ -145,6 +145,7 @@ namespace Main.GUI
                 {
                     MessageBox.Show("Lỗi khi tải dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Dispose();
+                    return;
                 }
                 if(rs.Count == 0)
                 {

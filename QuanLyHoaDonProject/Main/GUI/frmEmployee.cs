@@ -118,6 +118,15 @@ namespace Main.GUI
                     return false;
                 }
             }
+            if (txtCMND.Text != "")
+            {
+                if (!txtCMND.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("CMND không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCMND.Focus();
+                    return false;
+                }
+            }
             return true;
         }
 
