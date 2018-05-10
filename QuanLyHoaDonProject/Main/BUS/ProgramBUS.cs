@@ -25,6 +25,22 @@ namespace Main.BUS
                 return false;
             }
         }
+        public bool AddDefaultAccount(string name,string pass)
+        {
+            try
+            {
+                context.DangNhaps.Add(new DTO.DangNhap() { TenDangNhap = name,PassWord = pass });
+                if (context.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         public int CountHTTT()
         {
             return context.HinhThucThanhToans.Count();

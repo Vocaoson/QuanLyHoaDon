@@ -68,6 +68,7 @@
             // 
             this.txtUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUserName.EditValue = "admin";
             this.txtUserName.Location = new System.Drawing.Point(188, 59);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(166, 20);
@@ -78,6 +79,7 @@
             // 
             this.txtPassWord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassWord.EditValue = "123456";
             this.txtPassWord.Location = new System.Drawing.Point(188, 92);
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.Properties.PasswordChar = '*';

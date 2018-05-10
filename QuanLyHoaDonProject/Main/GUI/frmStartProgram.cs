@@ -66,6 +66,7 @@ namespace Main.GUI
                         programBus.AddDefaultHTTT("Tiền mặt");
                         programBus.AddDefaultHTTT("Chuyển khoản");
                         programBus.AddDefaultHTTT("Tiền mặt/ Chuyển Khoản");
+                        programBus.AddDefaultAccount("admin", "123456");
                     }
                     if (rs != null)
                     {
