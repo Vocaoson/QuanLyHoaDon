@@ -88,6 +88,7 @@ namespace Main.BUS
                 nv.TTLamViec = nhanVien.TTLamViec;
                 nv.SDT = nhanVien.SDT;
                 nv.HonNhan = nhanVien.HonNhan;
+                nv.DiaChi = nhanVien.DiaChi;
                 if (context.SaveChanges() <= 0)
                 {
                     return false;
