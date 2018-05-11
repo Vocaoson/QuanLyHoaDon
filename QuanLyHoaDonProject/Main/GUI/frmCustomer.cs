@@ -158,15 +158,10 @@ namespace Main.GUI
             }
             else
             {
+                gridUS1.Source = list;
                 if (list.Count > 0)
                 {
-                    gridUS1.Source = list;
                     LoadColumn();
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -222,6 +217,18 @@ namespace Main.GUI
             {
                 MessageBox.Show("Số tài khoản chỉ có thể là số", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSTK.Focus();
+                return false;
+            }
+            if (txtSTK.Text.Count()>15)
+            {
+                MessageBox.Show("Số tài khoản vượt quá giới hạn cho phép", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSTK.Focus();
+                return false;
+            }
+            if (txtPhone.Text.Count()>12)
+            {
+                MessageBox.Show("Số điện thoại vượt quá giới hạn cho phép", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPhone.Focus();
                 return false;
             }
             return true;
