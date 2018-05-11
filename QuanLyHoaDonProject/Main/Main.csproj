@@ -207,7 +207,6 @@
     <Compile Include="GUI\TaskControl.Designer.cs">
       <DependentUpon>TaskControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Lib\MyExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

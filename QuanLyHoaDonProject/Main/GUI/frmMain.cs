@@ -65,6 +65,10 @@ namespace Main
 
         private void barBtnPrintBill_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (checkFormChildOpen("frmPrintBill"))
+            {
+                return;
+            }
             frmPrintBill frm = new frmPrintBill();
             frm.MdiParent = this;
             frm.Show();
