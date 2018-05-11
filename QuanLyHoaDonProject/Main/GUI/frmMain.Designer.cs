@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribbonMenu = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnCustomer = new DevExpress.XtraBars.BarButtonItem();
@@ -39,14 +40,14 @@
             this.barBtnProgramInfor = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnOut = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.btnEmployee = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonListPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonInforPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonOutPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.mdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.btnEmployee = new DevExpress.XtraBars.BarButtonItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.mdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mdiManager)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +184,17 @@
             this.barStaticItem2.Id = 12;
             this.barStaticItem2.Name = "barStaticItem2";
             // 
+            // btnEmployee
+            // 
+            this.btnEmployee.Caption = "Nhân viên";
+            this.btnEmployee.Id = 13;
+            this.btnEmployee.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.ImageOptions.Image")));
+            this.btnEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEmployee.ImageOptions.LargeImage")));
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmployee_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -220,7 +232,7 @@
             // 
             this.ribbonStatusBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
             this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem2);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 583);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 659);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonMenu;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(1054, 27);
@@ -235,23 +247,12 @@
             // 
             this.mdiManager.MdiParent = this;
             // 
-            // btnEmployee
-            // 
-            this.btnEmployee.Caption = "Nhân viên";
-            this.btnEmployee.Id = 13;
-            this.btnEmployee.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnEmployee.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
-            this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnEmployee.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmployee_ItemClick);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(239)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1054, 610);
+            this.ClientSize = new System.Drawing.Size(1054, 686);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
