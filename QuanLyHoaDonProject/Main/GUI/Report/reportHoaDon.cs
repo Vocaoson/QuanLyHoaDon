@@ -112,18 +112,31 @@ namespace Main.GUI.Report
             {
                 for (int i = 0; i < lsour.Count; i++)
                 {
-                    temp.Controls.Add(createrLabel(lsour[i].HangHoaId.ToString(), 0, temp.Controls[temp.Controls.Count - 1].Height + temp.Controls[temp.Controls.Count - 1].LocationF.Y));
-                    temp.Controls.Add(createrLabel(lsour[i].HangHoa.Name, temp.Controls[temp.Controls.Count - 1] .Location.X+ 70, temp.Controls[temp.Controls.Count - 1].Top));
-                    temp.Controls.Add(createrLabel(lsour[i].HangHoa.DVT, temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
-                    temp.Controls.Add(createrLabel(lsour[i].HangHoa.DonGiaBan.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
-                    temp.Controls.Add(createrLabel(lsour[i].SoLuongBan.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
-                    temp.Controls.Add(createrLabel(lsour[i].ThanhTien.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
-                    temp.Controls.Add(createrLabel(lsour[i].HangHoa.GhiChu, temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    temp.Controls.Add(createrLabel2(i + 1, lsour[i], 0, temp.Controls[temp.Controls.Count - 1].Height + temp.Controls[temp.Controls.Count - 1].LocationF.Y));
+
+                    //                     temp.Controls.Add(createrLabel(lsour[i].HangHoaId.ToString(), 0, temp.Controls[temp.Controls.Count - 1].Height + temp.Controls[temp.Controls.Count - 1].LocationF.Y));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].HangHoa.Name, temp.Controls[temp.Controls.Count - 1] .Location.X+ 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].HangHoa.DVT, temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].HangHoa.DonGiaBan.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].SoLuongBan.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].ThanhTien.ToString(), temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
+                    //                     temp.Controls.Add(createrLabel(lsour[i].HangHoa.GhiChu, temp.Controls[temp.Controls.Count - 1].Location.X + 70, temp.Controls[temp.Controls.Count - 1].Top));
 
                 }
             }
         }
-
+        private XRControl createrLabel2(int stt, CTHoaDon cTHoaDon, float x, float y)
+        {
+            XRLabel lbl = new XRLabel();
+            string temp = string.Format("{0,-20}{1,-20}{2,-20}{3,-20}{4,-20}", stt, cTHoaDon.HangHoa.Name, cTHoaDon.HangHoa.DVT, cTHoaDon.SoLuongBan, cTHoaDon.HangHoa.DonGiaBan, cTHoaDon.ThanhTien);
+            lbl.Text = temp;
+            lbl.AutoWidth = true;
+            lbl.CanGrow = false;
+            lbl.WordWrap = false;
+            lbl.LocationF = new PointF(x, y);
+            lbl.PreviewClick += xrLabel_PreviewClick;
+            return lbl;
+        }
 
     }
 }
