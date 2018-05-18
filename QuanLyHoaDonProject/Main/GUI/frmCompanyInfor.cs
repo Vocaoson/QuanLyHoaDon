@@ -30,8 +30,7 @@ namespace Main.GUI
                 {
                     MessageBox.Show("Xảy ra lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Dispose();
-                }
-                else MessageBox.Show("Không có dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }    
             }
             else
             {
