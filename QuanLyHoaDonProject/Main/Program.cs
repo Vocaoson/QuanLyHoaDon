@@ -22,7 +22,7 @@ namespace Main
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrintBill());
+            Application.Run(new frmMain());
         }
     }
 }
