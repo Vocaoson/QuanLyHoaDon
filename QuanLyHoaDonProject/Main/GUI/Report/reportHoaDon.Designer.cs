@@ -86,7 +86,7 @@
             this.xrLabel4,
             this.xrLabel3,
             this.xrLabel1});
-            this.GroupHeader1.HeightF = 540.4165F;
+            this.GroupHeader1.HeightF = 575.8332F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.GroupHeader1_BeforePrint);
             // 
@@ -162,14 +162,15 @@
             this.xrLabel10.AutoWidth = true;
             this.xrLabel10.CanGrow = false;
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HoaDonBan].[TongTienChu]")});
-            this.xrLabel10.Font = new System.Drawing.Font("Times", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(266.6667F, 511.1665F);
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([ThanhTien])+((Sum([ThanhTien])*[HoaDonBan].[ThueSuat])/100)")});
+            this.xrLabel10.Font = new System.Drawing.Font("Times", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(266.6667F, 500.1667F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(225F, 23F);
             this.xrLabel10.StylePriority.UseFont = false;
             this.xrLabel10.Text = "xrLabel10";
+            this.xrLabel10.TextFormatString = "{0:#0,0 đ}";
             this.xrLabel10.WordWrap = false;
             this.xrLabel10.PreviewClick += new DevExpress.XtraReports.UI.PreviewMouseEventHandler(this.xrLabel_PreviewClick);
             // 
@@ -259,15 +260,14 @@
             this.xrLabel1.AutoWidth = true;
             this.xrLabel1.CanGrow = false;
             this.xrLabel1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([ThanhTien])+((Sum([ThanhTien])*[HoaDonBan].[ThueSuat])/100)")});
-            this.xrLabel1.Font = new System.Drawing.Font("Times", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(266.6667F, 488.1666F);
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[HoaDonBan].[TongTienChu]")});
+            this.xrLabel1.Font = new System.Drawing.Font("Times", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(266.6667F, 542.8331F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(207.2917F, 23F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(361.4583F, 23F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.Text = "xrLabel1";
-            this.xrLabel1.TextFormatString = "{0:#0,0 đ}";
             this.xrLabel1.WordWrap = false;
             this.xrLabel1.PreviewClick += new DevExpress.XtraReports.UI.PreviewMouseEventHandler(this.xrLabel_PreviewClick);
             // 
