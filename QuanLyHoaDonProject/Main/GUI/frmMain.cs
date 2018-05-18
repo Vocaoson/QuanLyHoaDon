@@ -34,9 +34,13 @@ namespace Main
 
         private void barBtnBill_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (checkFormChildOpen("frmBill"))
+            foreach (Form item in this.MdiChildren)
             {
-                return;
+                if (item.Name == "frmBill")
+                {
+                    item.Dispose();
+                    break;
+                }
             }
             frmBill frm = new frmBill();
             frm.MdiParent = this;
@@ -65,9 +69,13 @@ namespace Main
 
         private void barBtnPrintBill_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (checkFormChildOpen("frmPrintBill"))
+            foreach (Form item in this.MdiChildren)
             {
-                return;
+                if (item.Name == "frmPrintBill")
+                {
+                    item.Dispose();
+                    break;
+                }
             }
             frmPrintBill frm = new frmPrintBill();
             frm.MdiParent = this;
@@ -103,29 +111,17 @@ namespace Main
 
         private void btnEmployee_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (checkFormChildOpen("frmEmployee"))
-            {
-                return;
-            }
+                foreach (Form item in this.MdiChildren)
+                {
+                    if (item.Name == "frmEmployee")
+                    {
+                        item.Dispose();
+                        break;
+                    }
+                }
             frmEmployee frm = new frmEmployee();
             frm.MdiParent = this;
             frm.Show();
 		}
-        /// <summary>
-        /// Kiểm tra form open hay chưa
-        /// </summary>
-        /// <param name="nameForm">Name Form</param>
-        /// <returns>true-Open/False-Close</returns>
-        private bool checkFormChildOpen(string nameForm)
-        {
-            foreach (Form item in this.MdiChildren)
-            {
-                if (item.Name == nameForm)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }
