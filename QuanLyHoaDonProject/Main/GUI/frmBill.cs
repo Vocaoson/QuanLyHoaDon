@@ -589,7 +589,7 @@ namespace Main.GUI
             txtIDHD.EditValue = null;
             txtKH.EditValue = null;
             numThue.Value = 0;
-            txtNB.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            txtNB.Value = DateTime.Now;
             clearComboBox(cmbHTTT);
             clearComboBox(cmbNVBH);
             ///Clear KH

@@ -166,6 +166,23 @@
   <metadata name="documentViewerRibbonController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>77, 17</value>
   </metadata>
+  <data name="btnPDF.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAgJJREFUWEft
+        lk9LAkEUwP0KQZeOXfoCXS203VsXS4Qgypui1MXP0LEk6BBdUrDw4rE/oBdLSiGtsIQMpCgL0jJcjbTV
+        fe0bR1HLyJ0VCvzBA3fm7Xs/Z4ZhNX+OqE43GOF5i5II8/z6wfj4MC2ljIheP3q5uJh/Dgah2zibm4PY
+        1FSJSQIFrpeWsqCAuMUCwv4+xKany+ccN0JLdgerACSTIOztKZdQQ4BI7O4qk1BLoC4RNRo/upJQU0CR
+        BKtAMRD4EunVVYgaDOXDsbEh2qYzLAJpjwdSy8vfxrnZXDrS6ydpm86wCPwE1sTatE1n+gKdBKrv71At
+        lehTDbFQAEkU6ZOcI8+L+TyJ9lwmgazfD2GOI3Fht8NHLkcOFhnjeUg5nSBVq3Dvdjfybjc26Ns12AXk
+        RqIgwInBAOmtLSKQcDhASCTI3EsoRAROZ2ehnMlApVikb9dQRQAkCaImE6S3txsCyJnZDHebmw0BXKGe
+        bAE2is3MkH/YLBC3WiG1stKyBY8+H5mro8oKvEYiUHl7I2MNAVwVoxHuXC4igN8EeGClSoXk1VFFoBkU
+        uFhYgKedHTJXuLqqCczP04xWmATwawcPXzM3a2tkDLclK9/3yIPXC3Gbjfxuh0lADfoCfYG+wP8SkC+T
+        At5wagbW/JVASKsdOJ6YMPUisDZt81fQaD4BnWUPhe9uZ5YAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>321, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAANcNAADXDQAAAAAAAAAA

@@ -19,6 +19,8 @@ using System.Data.Entity;
 using DevExpress.XtraReports.UI;
 using DevExpress.DocumentView;
 using DevExpress.XtraPrinting.Native;
+using DevExpress.XtraPrinting.Drawing;
+using DevExpress.Pdf;
 
 namespace Main.GUI
 {
@@ -74,10 +76,12 @@ namespace Main.GUI
             if (cmbHD.EditValue != null)
             {
                 showpreviewHoaDon(cmbHD.EditValue);
+                btnPDF.Enabled = true;
             }
             else
             {
                 tt.Show("Chọn hóa đơn", cmbHD, 1500);
+                btnPDF.Enabled = false;
             }
         }
         reportHoaDon rpF;
@@ -88,11 +92,13 @@ namespace Main.GUI
             bool kq = int.TryParse(editValue.ToString(), out temp);
             if (!kq)
             {
+                btnPDF.Enabled = false;
                 return;
             }
             var temp2 = db.CTHoaDons.Where(x => x.HoaDonBanId == temp).ToList();
             reportHoaDon rp = new reportHoaDon(temp2);
             documentViewer1.DocumentSource = rp;
+            rp.Nap = false;
             rpF = rp;
             rp.CreateDocument(false);
         }
@@ -121,6 +127,28 @@ namespace Main.GUI
 
         }
 
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            if (rpF == null)
+            {
+                btnPDF.Enabled = false;
+                return;
+            }
+            openFileDialog1.Filter = "pdf files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            DialogResult rs = openFileDialog1.ShowDialog();
+            if (rs == DialogResult.OK)
+            {
+                using (PdfDocumentProcessor process = new PdfDocumentProcessor())
+                {
+                    process.CreateEmptyDocument();
+                    process.LoadDocument(openFileDialog1.FileName);
+                    Bitmap bm = process.CreateBitmap(1, 2000);
+                    rpF.Watermark.Image = bm;
+                    rpF.Watermark.ImageViewMode = ImageViewMode.Stretch;
+                    rpF.CreateDocument(false);
+                }
 
+            }
+        }
     }
 }
