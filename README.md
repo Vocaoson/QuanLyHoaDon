@@ -1,2 +1,2 @@
-# QuanLyHoaDon
-hadsadsađasd
+# Phần mềm quản lý hóa đơn
+Sử dụng C# winform, entity framework, devexpress UI...
